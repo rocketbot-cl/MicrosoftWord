@@ -19,7 +19,7 @@ Para obtener la Opcion seleccionada:
 
 
 Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
-    
+
     pip install <package> -t .
 
 """
@@ -76,6 +76,7 @@ if module == "new":
         ms_word = win32com.client.DispatchEx("Word.Application")
         word_document = ms_word.Documents.Add()
         ms_word.Visible = True
+        print("test")
     except Exception as e:
         print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
         PrintException()
@@ -128,23 +129,31 @@ if module == "read":
         raise e
 
 if module == "readTable":
+    try:
 
-    result = GetParams("result")
-    tablesDoc = []
-    for table in document.tables:
-        table_ = []
-        for row in table.rows:
-            array_row = []
-            for cell in row.cells:
-                if len(array_row) > 0:
-                    if array_row[-1] != cell.text:
-                        array_row.append(cell.text)
-                else:
-                    array_row.append(cell.text)
-            table_.append(array_row)
-        tableDoc.append(table_)
-    if result:
-        SetVar(result, tableDoc)
+        result = GetParams("result")
+        tablesDoc = []
+        for table in word_document.tables:
+            table_ = []
+            for row in table.rows:
+                array_row = []
+                for cell in row.cells:
+                    """if len(array_row) > 0:
+                        if array_row[-1] != cell.text:
+                            array_row.append(cell.text)
+                    else:
+                        print("test")"""
+                    information = cell.range.text
+                    information.replace("\r", "").replace("\x07", "")
+                    array_row.append(information)
+                table_.append(array_row)
+            tablesDoc.append(table_)
+        if result:
+            SetVar(result, tablesDoc)
+    except Exception as e:
+        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        PrintException()
+        raise e
 
 if module == "addTextBookmark":
 
@@ -208,6 +217,21 @@ if module == "save":
         PrintException()
         raise e
 
+if module == "to_pdf":
+    path = GetParams("from")
+    to = GetParams("to")
+    wdFormatPDF = 17
+    ms_word = win32com.client.DispatchEx("Word.Application")
+    word_document = ms_word.Documents.Open(path)
+    try:
+        word_document.SaveAs2(to)
+        word_document.Close()
+        ms_word.Quit()
+    except Exception as e:
+        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        PrintException()
+        raise e
+
 if module == "write":
 
     text = GetParams("text")
@@ -234,12 +258,16 @@ if module == "write":
         font.Underline = bool(underline)
 
         paragraph.Alignment = int(align) if align else 0
-        if type_:
-            style = type_ + level if level else type_
+        style = type_ + level
+        if style in WdBuiltinStyle:
+            paragraph.Style = WdBuiltinStyle[style]
+        elif (type_ == "number" or type_ == "bullet") and int(level) > 5:
+            level = 5
+            style = type_ + str(level)
+            paragraph.Style = WdBuiltinStyle[style]
         else:
-            style = paragraph
-        paragraph.Style = WdBuiltinStyle[style]
-
+            style = type_
+            paragraph.Style = WdBuiltinStyle[style]
     except Exception as e:
         PrintException()
         raise e
@@ -271,15 +299,55 @@ if module == "add_pic":
         # Only work with \
         img_path = img_path.replace("/", os.sep)
 
-        count = word_document.Paragraphs.Count #Count number paragraphs
+        count = word_document.Paragraphs.Count  # Count number paragraphs
         if count > 1:
             word_document.Paragraphs.Add()
 
         paragraph = word_document.Paragraphs.Last
-        img = paragraph.Range.InlineShapes.AddPicture(FileName=img_path, LinkToFile=False)
+        img = paragraph.Range.InlineShapes.AddPicture(FileName=img_path, LinkToFile=False, SaveWithDocument=True)
         print(img)
     except Exception as e:
         print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
         PrintException()
         raise e
+if module == "count_paragraphs":
+    number = GetParams("variable")
+    try:
+        count = word_document.Paragraphs.count
+        SetVar(number, count)
 
+    except Exception as e:
+        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        PrintException()
+        raise e
+
+if module == "search_replace_text":
+    text_search = GetParams("text_search")
+    text_replace = GetParams("text_replace")
+    numParagraphs = GetParams("numParagraphs")
+    if numParagraphs:
+        paragraphList = [int(s) for s in numParagraphs.split(',')]
+        for i in paragraphList:
+            paragraph = word_document.Paragraphs(i)
+            range_ = paragraph.Range
+            if text_search in range_.Text:
+                range_.Text = range_.Text.replace(text_search, text_replace)
+    else:
+        paragraphs = word_document.Paragraphs
+        for paragraph in paragraphs:
+            range_ = paragraph.Range
+            range_.Find.Execute(FindText=text_search, MatchCase=False, ReplaceWith=text_replace, Replace=2)
+            # if text_search in range_.Text:
+            # range_.Text = range_.Text.replace(text_search,text_replace)
+
+if module == "search_text":
+    text_search = GetParams("text_search")
+    paragraphList = []
+    count = 1
+    for paragraph in word_document.Paragraphs:
+        range_ = paragraph.Range
+        if text_search in range_.Text:
+            paragraphList.append(count)
+        count += 1
+
+    print(paragraphList)
