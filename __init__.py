@@ -161,11 +161,11 @@ if module == "addTextBookmark":
 
     bookmark_searched = GetParams("bookmark")
     text = GetParams("text")
-    clean = GetParams("Clean")
-    print(clean)
+    #clean = GetParams("Clean")
+    #print(clean)
 
     try:
-        tmp_doc = Document()
+        """tmp_doc = Document()
         # Generate content in tmp_doc document
         tmp_doc.add_paragraph(text)
         # Reference the tmp_doc XML content
@@ -198,8 +198,13 @@ if module == "addTextBookmark":
                 name = None
 
         if not name:
-            raise Exception("Bookmark not found")
-
+            raise Exception("Bookmark not found")"""
+        if word_document.Bookmarks.Exists(bookmark_searched):
+            range = word_document.Bookmarks(bookmark_searched).Range
+            range.Text = text
+            #word_document.Bookmarks.Add(bookmark_searched)
+        else:
+            pass
     except Exception as e:
         PrintException()
         raise e
@@ -221,14 +226,15 @@ if module == "to_pdf":
     path = GetParams("from")
     to = GetParams("to")
     wdFormatPDF = 17
-    ms_word = win32com.client.DispatchEx("Word.Application")
-    word_document = ms_word.Documents.Open(path)
     try:
-        word_document.SaveAs2(to)
+        if path:
+            ms_word = win32com.client.DispatchEx("Word.Application")
+            word_document = ms_word.Documents.Open(path)
+        word_document.ExportAsFixedFormat(OutputFileName=to, ExportFormat=wdFormatPDF, IncludeDocProps=True)
         word_document.Close()
         ms_word.Quit()
     except Exception as e:
-        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
 
@@ -325,29 +331,45 @@ if module == "search_replace_text":
     text_search = GetParams("text_search")
     text_replace = GetParams("text_replace")
     numParagraphs = GetParams("numParagraphs")
-    if numParagraphs:
-        paragraphList = [int(s) for s in numParagraphs.split(',')]
-        for i in paragraphList:
-            paragraph = word_document.Paragraphs(i)
-            range_ = paragraph.Range
-            if text_search in range_.Text:
-                range_.Text = range_.Text.replace(text_search, text_replace)
+    if text_search == text_replace:
+        pass
     else:
-        paragraphs = word_document.Paragraphs
-        for paragraph in paragraphs:
-            range_ = paragraph.Range
-            range_.Find.Execute(FindText=text_search, MatchCase=False, ReplaceWith=text_replace, Replace=2)
-            # if text_search in range_.Text:
-            # range_.Text = range_.Text.replace(text_search,text_replace)
+
+        if numParagraphs:
+            paragraphList = [int(s) for s in numParagraphs.split(',')]
+            for i in paragraphList:
+                paragraph = word_document.Paragraphs(i)
+                range_ = paragraph.Range
+                if text_search in range_.Text:
+                    range_.Text = range_.Text.replace(text_search, text_replace)
+        else:
+            paragraphs = word_document.Paragraphs
+            #fullRange = word_document.content
+            for paragraph in paragraphs:
+                range_ = paragraph.Range
+                print(range_.Find.Text)
+                range_.Find.Text = text_search
+                range_.Find.Replacement.Text = text_replace
+                range_.Find.Execute(Replace=2,Forward=True,MatchWholeWord=True)
+                #print(range_.Find.Execute(FindText=text_search, ReplaceWith="text_replace", Replace=2))
+                #if text_search in range_.Text:
+                    #range_.Text = range_.Text.replace(text_search,text_replace)
 
 if module == "search_text":
-    text_search = GetParams("text_search")
-    paragraphList = []
-    count = 1
-    for paragraph in word_document.Paragraphs:
-        range_ = paragraph.Range
-        if text_search in range_.Text:
-            paragraphList.append(count)
-        count += 1
-
-    print(paragraphList)
+    try:
+        text_search = GetParams("text_search")
+        whichParagraph = GetParams("variable")
+        paragraphList = []
+        count = 1
+        for paragraph in word_document.Paragraphs:
+            range_ = paragraph.Range
+            range_.Find.Text = text_search
+            if range_.Find.Execute(Forward=True, MatchWholeWord=True):
+                paragraphList.append(count)
+            count += 1
+        SetVar(whichParagraph, paragraphList)
+        print(paragraphList)
+    except Exception as e:
+        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        PrintException()
+        raise e
