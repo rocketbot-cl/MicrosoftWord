@@ -259,9 +259,21 @@ if module == "write":
         size = float(size) if size else 12
 
         font.Size = size
-        font.Bold = bool(bold)
-        font.Italic = bool(italic)
-        font.Underline = bool(underline)
+        if bold == "True":
+            boldInt = -1
+        else:
+            boldInt = 0
+        font.Bold = boldInt
+        if italic == "True":
+            italicInt = -1
+        else:
+            italicInt = 0
+        font.Italic = italicInt
+        if underline == "True":
+            underlineInt = -1
+        else:
+            underlineInt = 0
+        font.Underline = underlineInt
 
         paragraph.Alignment = int(align) if align else 0
         style = type_ + level
