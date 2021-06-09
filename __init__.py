@@ -86,6 +86,7 @@ if module == "open":
     path = GetParams("path")
 
     try:
+        path = path.replace("/", os.sep)
         ms_word = win32com.client.DispatchEx("Word.Application")
         word_document = ms_word.Documents.Open(path)
         ms_word.Visible = True
