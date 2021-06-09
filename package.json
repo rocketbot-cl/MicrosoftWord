@@ -170,8 +170,8 @@
         "options": null
       },
       "es": {
-        "title": "Leer documento",
-        "description": "Extrae texto de documento Word.",
+        "title": "Leer tabla",
+        "description": "Extrae los datos de una tabla",
         "title_options": null,
         "options": null
       },
