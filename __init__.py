@@ -277,7 +277,7 @@ if module == "write":
         font.Underline = underlineInt
 
         paragraph.Alignment = int(align) if align else 0
-        style = type_ + level
+        style = type_ + level if level is not None else ""
         if style in WdBuiltinStyle:
             paragraph.Style = WdBuiltinStyle[style]
         elif (type_ == "number" or type_ == "bullet") and int(level) > 5:
