@@ -232,8 +232,9 @@ if module == "to_pdf":
             ms_word = win32com.client.DispatchEx("Word.Application")
             word_document = ms_word.Documents.Open(path)
         word_document.ExportAsFixedFormat(OutputFileName=to, ExportFormat=wdFormatPDF, IncludeDocProps=True)
-        word_document.Close()
-        ms_word.Quit()
+        if path:
+            word_document.Close()
+            ms_word.Quit()
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
