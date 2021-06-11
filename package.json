@@ -826,7 +826,7 @@
         "options": null
       },
       "es": {
-        "title": "Remplazar texto en párrafo",
+        "title": "Agregar texto a un bookmark",
         "description": "Remplaza el texto de un párrafo.",
         "title_options": null,
         "options": null
@@ -841,8 +841,8 @@
               "en": "Hello Word"
             },
             "title": {
-              "es": "Texto a Buscar",
-              "en": "Text to Search"
+              "es": "Texto a agregar",
+              "en": "Text to add"
             },
             "id": "text",
             "css": "col-md-12"
