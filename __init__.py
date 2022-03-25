@@ -25,7 +25,8 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 """
 import os
 import sys
-
+import xlwings as xl
+import time
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + 'modules' + os.sep + 'MicrosoftWord' + os.sep + 'libs' + os.sep
 sys.path.append(cur_path)
@@ -387,3 +388,34 @@ if module == "search_text":
         print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
         PrintException()
         raise e
+
+if module == "copy_excel":
+    try:
+        path_excel = GetParams("path_excel")
+        path_word = GetParams("path_word")
+        hoja_excel = GetParams("hoja_excel")
+        rango = GetParams("rango")
+        numParagraphs = GetParams("numParagraphs")
+        password = ""
+        path_excel = path_excel.replace("/", os.sep)
+        
+        app = xw.App(add_book=False, visible=False)
+        app.api.DisplayAlerts = False
+        wb = app.api.Workbooks.Open(path_excel, False, None, None, password, password, IgnoreReadOnlyRecommended=True,
+                                CorruptLoad=2)
+        sheet = wb.Worksheets(hoja_excel)
+        sheet.Range(rango).Select()
+        sheet.Range(rango).Copy()
+        time.sleep(1)
+        if not numParagraphs:
+            numParagraphs = word_document.Paragraphs.Count
+        myRange = word_document.Paragraphs(numParagraphs).Range
+        myRange.Collapse(0)
+        myRange.PasteExcelTable(False, False, False)
+        app.quit()
+    except Exception as e:
+       print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+       PrintException()
+       app.quit()
+       raise e
+   

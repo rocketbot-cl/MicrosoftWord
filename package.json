@@ -3,7 +3,7 @@
   "author": "Danilo Toro - Sudhan Annamalai",
   "description": "Modulo para trabajar con Microsoft Word",
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "1.0",
+  "version": "1.1.0",
   "license": "MIT",
   "homepage": "http://rocketbot.co",
   "linux": false,
@@ -15,7 +15,7 @@
   "title": {
     "en": "Microsoft Word",
     "es": "Microsoft Word",
-    "cn": "Microsoft Word"
+    "pr": "Microsoft Word"
   },
   "icon": "data:image/png;base64,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",
   "children": [
@@ -29,6 +29,12 @@
       "es": {
         "title": "Nuevo documento",
         "description": "Crea un nuevo documento word",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Novo Documento",
+        "description": "Criar um novo documento Word",
         "title_options": null,
         "options": null
       },
@@ -62,6 +68,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Abrir documento",
+        "description": "Abra um documento do Word.",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -69,15 +81,23 @@
             "type": "file_select",
             "placeholder": {
               "es": "archivo.docx",
-              "en": "file.docx"
+              "en": "file.docx",
+              "pr": "arquivo.docx"
+            },
+            "description": {
+              "es": "Abre el documento especificado",
+              "en": "Open the specified document",
+              "pr": "Abra o documento especificado"
             },
             "title": {
               "es": "Archivo:",
-              "en": "File:"
+              "en": "File:",
+              "pr": "Archivo"
             },
             "help": {
               "es": "Seleccione el archivo de Word para abrir",
-              "en": "Select Word file to open"
+              "en": "Select Word file to open",
+              "pr": "Selecione o arquivo Word para abrir"
             },
             "id": "path",
             "css": "col-md-12"
@@ -110,6 +130,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Ler documento",
+        "description": "Extraia o texto do documento Word.",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -117,15 +143,23 @@
             "type": "input",
             "placeholder": {
               "es": "Variable",
-              "en": "Variable"
+              "en": "Variable",
+              "pr": "Variável"
+            },
+            "description": {
+              "es": "Almacena el resultado en una variable",
+              "en": "Store the result in a variable",
+              "pr": "Armazenar o resultado em uma variável"
             },
             "title": {
               "es": "Resultado",
-              "en": "Result"
+              "en": "Result",
+              "pr": "Resultado"
             },
             "help": {
               "en": "Variable where the result is stored without {}",
-              "es": "Variable donde se almacena el resultado sin {}"
+              "es": "Variable donde se almacena el resultado sin {}",
+              "pr": "Variável onde o resultado é armazenado sem {}"
             },
             "id": "result",
             "css": "col-md-6"
@@ -134,15 +168,23 @@
             "type": "checkbox",
             "placeholder": {
               "es": "",
-              "en": ""
+              "en": "",
+              "pr": ""
+            },
+            "description": {
+              "es": "Agrega informacion del estilo del parrafo",
+              "en": "Add paragraph style information",
+              "pr": "Adicionar informações de estilo de parágrafo"
             },
             "title": {
               "es": "Agregar Detalles",
-              "en": "Add Details"
+              "en": "Add Details",
+              "pr": "Adicionar detalhes"
             },
             "help": {
               "en": "Return paragraph with detail, like style, alignment, etc.",
-              "es": "Retorna el párrafo con detalles, como estilo, alineación, etc."
+              "es": "Retorna el párrafo con detalles, como estilo, alineación, etc.",
+              "pr": "Retorna o parágrafo com detalhes, como estilo, alinhamento, etc."
             },
             "id": "details",
             "css": "col-md-6"
@@ -175,6 +217,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Ler tabela",
+        "description": "Extrair dados de uma tabela",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -182,15 +230,23 @@
             "type": "input",
             "placeholder": {
               "es": "Variable",
-              "en": "Variable"
+              "en": "Variable",
+              "pr": "Variável"
             },
             "title": {
               "es": "Resultado",
-              "en": "Result"
+              "en": "Result",
+              "pr": "Resultado"
+            },
+            "description": {
+              "es": "Almacena el resultado en una variable",
+              "en": "Store the result in a variable",
+              "pr": "Armazenar o resultado em uma variável"
             },
             "help": {
               "en": "Variable where the result is stored without {}",
-              "es": "Variable donde se almacena el resultado sin {}"
+              "es": "Variable donde se almacena el resultado sin {}",
+              "pr": "Variável onde o resultado é armazenado sem {}"
             },
             "id": "result",
             "css": "col-md-6"
@@ -223,6 +279,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Salvar documento",
+        "description": "Salve o documento Word aberto",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -230,11 +292,18 @@
             "type": "file_new",
             "placeholder": {
               "es": "archivo.docx",
-              "en": "file.docx"
+              "en": "file.docx",
+              "pr": "arquivo.docx"
+            },
+            "description": {
+              "es": "Guarda el archivo en la ruta especificada",
+              "en": "Save the file to the specified path",
+              "pr": "Salve o arquivo no caminho especificado"
             },
             "title": {
               "es": "Guardar archivo",
-              "en": "Save file"
+              "en": "Save file",
+              "pr": "Salvar arquivo"
             },
             "id": "path",
             "css": "col-md-12"
@@ -267,6 +336,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Escrever no documento",
+        "description": "Escreva em um documento do Word.",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-md",
         "inputs": [
@@ -274,15 +349,23 @@
             "type": "input",
             "placeholder": {
               "es": "Lorem ipsum ",
-              "en": "Lorem ipsum "
+              "en": "Lorem ipsum ",
+              "pr": "Lorem ipsum "
             },
             "title": {
               "es": "Escriba texto",
-              "en": "Write text"
+              "en": "Write text",
+              "pr": "Escrever texto"
+            },
+            "description": {
+              "es": "Texto que se escribira en el documento",
+              "en": "Text to be written on the document",
+              "pr": "Texto a ser escrito no documento"
             },
             "help": {
               "en": "Separate each paragraph with \\n",
-              "es": "Separe cada párrafo con \\n"
+              "es": "Separe cada párrafo con \\n",
+              "pr": "Separe cada parágrafo com \\n"
             },
             "id": "text",
             "css": "col-md-12"
@@ -291,11 +374,18 @@
             "type": "select",
             "placeholder": {
               "es": "",
-              "en": ""
+              "en": "",
+              "pr": ""
             },
             "title": {
               "es": "Tipo de texto",
-              "en": "Text type"
+              "en": "Text type",
+              "pr": "Tipo de texto"
+            },
+            "description": {
+              "es": "Selector del tipo de texto",
+              "en": "Text type selector",
+              "pr": "Seletor de tipo de texto"
             },
             "options": [
               {
@@ -346,11 +436,13 @@
             "type": "input",
             "placeholder": {
               "es": "1-9",
-              "en": "1-9"
+              "en": "1-9",
+              "pr": "1-9"
             },
             "title": {
               "es": "Nivel",
-              "en": "Level"
+              "en": "Level",
+              "pr": "Nível"
             },
             "id": "level",
             "css": "col-md-4"
@@ -359,11 +451,13 @@
             "type": "input",
             "placeholder": {
               "es": "12",
-              "en": "12"
+              "en": "12",
+              "pr": "12"
             },
             "title": {
               "es": "Tamaño de fuente",
-              "en": "Font size"
+              "en": "Font size",
+              "pr": "Tamanho da fonte"
             },
             "id": "size",
             "css": "col-md-4"
@@ -372,11 +466,13 @@
             "type": "select",
             "placeholder": {
               "es": "",
-              "en": ""
+              "en": "",
+              "pr": ""
             },
             "title": {
               "es": "Alineación",
-              "en": "Align"
+              "en": "Align",
+              "pr": "Alinhamento"
             },
             "options": [
               {
@@ -403,11 +499,13 @@
             "type": "checkbox",
             "placeholder": {
               "es": "",
-              "en": ""
+              "en": "",
+              "pr": ""
             },
             "title": {
               "es": "Negrita",
-              "en": "Bold"
+              "en": "Bold",
+              "pr": "Negrita"
             },
             "id": "bold",
             "css": "col-md-3"
@@ -416,11 +514,13 @@
             "type": "checkbox",
             "placeholder": {
               "es": "",
-              "en": ""
+              "en": "",
+              "pr": ""
             },
             "title": {
               "es": "Cursiva",
-              "en": "Italic"
+              "en": "Italic",
+              "pr": "Itálico"
             },
             "id": "italic",
             "css": "col-md-3"
@@ -429,11 +529,13 @@
             "type": "checkbox",
             "placeholder": {
               "es": "",
-              "en": ""
+              "en": "",
+              "pr": ""
             },
             "title": {
               "es": "Subrayar",
-              "en": "Underline"
+              "en": "Underline",
+              "pr": "Sublinhar"
             },
             "id": "underline",
             "css": "col-md-3"
@@ -463,6 +565,12 @@
       "es": {
         "title": "Cerrar documento",
         "description": "Cierra el documento que se está ejecutando",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Fechar documento",
+        "description": "Feche o documento que está sendo executado",
         "title_options": null,
         "options": null
       },
@@ -496,6 +604,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Inserir página",
+        "description": "Inserir uma nova página no documento",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": []
@@ -526,6 +640,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Adicionar imagem",
+        "description": "Adicionar uma imagem ao documento",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -533,15 +653,23 @@
             "type": "file_select",
             "placeholder": {
               "es": "imagen.jpg",
-              "en": "image.jpg"
+              "en": "image.jpg",
+              "pr": "imagem.jpg"
             },
             "title": {
               "es": "Ruta de la imagen",
-              "en": "Image path"
+              "en": "Image path",
+              "pr": "Caminho da imagem"
+            },
+            "description": {
+              "es": "Ruta de imagen que sera agregada debajo del ultimo parrafo",
+              "en": "Image path that will be added below the last paragraph",
+              "pr": "Direção da imagem que será adicionado abaixo do último parágrafo"
             },
             "help": {
               "es": "La imagen se agregará en tamaño real",
-              "en": "The real size image will be added"
+              "en": "The real size image will be added",
+              "pr": "A imagem será adicionada em tamanho real"
             },
             "id": "img_path",
             "css": "col-md-12"
@@ -574,6 +702,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Converter para PDF",
+        "description": "Converter documento do Word para PDF.",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -581,11 +715,13 @@
             "type": "file_select",
             "placeholder": {
               "es": "archivo.docx",
-              "en": "file.docx"
+              "en": "file.docx",
+              "pr": "arquivo.docx"
             },
             "title": {
               "es": "Archivo Word",
-              "en": "Word file"
+              "en": "Word file",
+              "pr": "Arquivo Word"
             },
             "id": "from",
             "css": "col-md-12"
@@ -594,11 +730,13 @@
             "type": "file_new",
             "placeholder": {
               "es": "archivo.pdf",
-              "en": "file.pdf"
+              "en": "file.pdf",
+              "pr": "arquivo.pdf"
             },
             "title": {
               "es": "Guardar archivo",
-              "en": "Save file"
+              "en": "Save file",
+              "pr": "Salvar Arquivo"
             },
             "id": "to",
             "css": "col-md-12"
@@ -631,6 +769,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Localizar texto no parágrafo",
+        "description": "Localize o parágrafo onde se encontra o texto indicado.",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -638,11 +782,18 @@
             "type": "input",
             "placeholder": {
               "es": "Hola mundo",
-              "en": "Hello Word"
+              "en": "Hello Word",
+              "pr": "Olá mundo"
+            },
+            "description": {
+              "es": "Texto que sera usado para localizar el parrafo",
+              "en": "Text that will be used to locate the paragraph",
+              "pr": "Texto que será usado para localizar o parágrafo"
             },
             "title": {
               "es": "Texto a Buscar",
-              "en": "Text to Search"
+              "en": "Text to Search",
+              "pr": "Texto para pesquisar"
             },
             "id": "text_search",
             "css": "col-md-12"
@@ -651,15 +802,23 @@
             "type": "input",
             "placeholder": {
               "es": "Varible",
-              "en": "Varible"
+              "en": "Varible",
+              "pr": "Variável"
             },
             "title": {
               "es": "Nombre de la variable",
-              "en": "variable name"
+              "en": "Variable name",
+              "pr": "Nome variável"
+            },
+            "description": {
+              "es": "Almacena el resultado en una variable",
+              "en": "Store the result in a variable",
+              "pr": "Armazenar o resultado em uma variável"
             },
             "help": {
               "en": "variable without the {}",
-              "es": "variable sin los {}"
+              "es": "variable sin los {}",
+              "pr": "variável sem o {}"
             },
             "id": "variable",
             "css": "col-md-12"
@@ -692,6 +851,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Contar parágrafos",
+        "description": "Conte o número de parágrafos no documento.",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -699,15 +864,23 @@
             "type": "input",
             "placeholder": {
               "es": "Varible",
-              "en": "Varible"
+              "en": "Varible",
+              "pr": "Variável"
             },
             "title": {
               "es": "Nombre de la variable",
-              "en": "variable name"
+              "en": "variable name",
+              "pr": "Nome variável"
+            },
+            "description": {
+              "es": "Almacena el resultado en una variable",
+              "en": "Store the result in a variable",
+              "pr": "Armazenar o resultado em uma variável"
             },
             "help": {
               "en": "variable without the {}",
-              "es": "variable sin los {}"
+              "es": "variable sin los {}",
+              "pr": "variável sem o {}"
             },
             "id": "variable",
             "css": "col-md-12"
@@ -740,6 +913,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Substituir texto no parágrafo",
+        "description": "Substituir o texto de um parágrafo.",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -747,11 +926,18 @@
             "type": "input",
             "placeholder": {
               "es": "Hola mundo",
-              "en": "Hello Word"
+              "en": "Hello Word",
+              "pr": "Olá mundo"
             },
             "title": {
               "es": "Texto a Buscar",
-              "en": "Text to Search"
+              "en": "Text to Search",
+              "pr": "Texto para pesquisar"
+            },
+            "description": {
+              "es": "Texto que sera reemplazado",
+              "en": "Text to be replaced",
+              "pr": "Texto a ser substituído"
             },
             "id": "text_search",
             "css": "col-md-12"
@@ -760,11 +946,18 @@
             "type": "input",
             "placeholder": {
               "es": "Hola mundo",
-              "en": "Hello Word"
+              "en": "Hello Word",
+              "pr": "Olá mundo"
             },
             "title": {
               "es": "Texto a Remplazar",
-              "en": "Text to replace"
+              "en": "Text to replace",
+              "pr": "Texto a substituir"
+            },
+            "description": {
+              "es": "Texto que reemplazara el anterior",
+              "en": "Text to replace the old",
+              "pr": "Texto para substituir o antigo"
             },
             "id": "text_replace",
             "css": "col-md-12"
@@ -773,15 +966,23 @@
             "type": "input",
             "placeholder": {
               "es": "Separados por comas ',' ejemplo: 1,2",
-              "en": "Comma separated ',' example: 1,2"
+              "en": "Comma separated ',' example: 1,2",
+              "pr": "Exemplo ',' separado por vírgula: 1,2"
             },
             "title": {
-              "es": "Lista de párrafo",
-              "en": "Paragraph numbers"
+              "es": "Lista de párrafos",
+              "en": "Paragraph numbers",
+              "pr": "Lista de parágrafos"
+            },
+            "description": {
+              "es": "Parrafos donde buscara el texto especificado",
+              "en": "Paragraphs where the specified text will be searched",
+              "pr": "Parágrafos onde o texto especificado será pesquisado"
             },
             "help": {
               "es": "Separados por comas ',' ejemplo: 1,2. En caso que no se indique buscara y remplazara en todos los párrafos",
-              "en": "Comma separated ',' example: 1,2. In case it is not indicated, it will search and replace all the paragraphs"
+              "en": "Comma separated ',' example: 1,2. In case it is not indicated, it will search and replace all the paragraphs",
+              "pr": "Separados por vírgulas ',' exemplo: 1,2. Se não indicado, pesquisa e substitua em todos os parágrafos"
             },
             "id": "numParagraphs",
             "css": "col-md-12"
@@ -790,15 +991,23 @@
             "type": "input",
             "placeholder": {
               "es": "Varible",
-              "en": "Varible"
+              "en": "Varible",
+              "pr": "Variável"
             },
             "title": {
               "es": "Nombre de la variable",
-              "en": "variable name"
+              "en": "variable name",
+              "pr": "Nome variável"
             },
             "help": {
               "en": "variable without the {}",
-              "es": "variable sin los {}"
+              "es": "variable sin los {}",
+              "pr": "variável sem o {}"
+            },
+            "description": {
+              "es": "Almacena el resultado en una variable",
+              "en": "Store the result in a variable",
+              "pr": "Armazenar o resultado em uma variável"
             },
             "id": "variable",
             "css": "col-md-12"
@@ -831,6 +1040,12 @@
         "title_options": null,
         "options": null
       },
+      "pr": {
+        "title": "Adicionar texto a um bookmark",
+        "description": "Substituir o texto de um parágrafo.",
+        "title_options": null,
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -838,11 +1053,13 @@
             "type": "input",
             "placeholder": {
               "es": "Hola mundo",
-              "en": "Hello Word"
+              "en": "Hello Word",
+              "pr": "Olá mundo"
             },
             "title": {
               "es": "Texto a agregar",
-              "en": "Text to add"
+              "en": "Text to add",
+              "pr": "Texto a adicionar"
             },
             "id": "text",
             "css": "col-md-12"
@@ -851,11 +1068,13 @@
             "type": "input",
             "placeholder": {
               "es": "Marcador 1",
-              "en": "Bookmark 1"
+              "en": "Bookmark 1",
+              "pr": "Marcador 1"
             },
             "title": {
               "es": "Nombre del Marcador",
-              "en": "Bookmark Name"
+              "en": "Bookmark Name",
+              "pr": "Nome do marcador"
             },
             "id": "bookmark",
             "css": "col-md-12"
@@ -874,6 +1093,133 @@
       "windows": true,
       "mac": false,
       "docker": false
+    },
+    {
+      "en": {
+        "title": "Copy from Excel to Word",
+        "description": "Copies the specified range from an Excel file to a previously opened Word Document.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Copiar de Excel a Word",
+        "description": "Copia el rango especificado de un archivo Excel en un Documento Word abierto previamente.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Copiar do Excel a Word",
+        "description": "Copia o intervalo especificado de um arquivo do Excel a documento Word aberto anteriormente.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "file_select",
+            "placeholder": {
+              "es": "archivo.xlsx",
+              "en": "file.xlsx",
+              "pr": "arquivo.xlsx"
+            },
+            "title": {
+              "es": "Ruta archivo Excel:",
+              "en": "Path file Excel:",
+              "pr": "Direção arquivo Excel:"
+            },
+            "description": {
+              "es": "Ruta del archivo excel desde el que se copiaran los datos",
+              "en": "Path of the excel file from which the data will be copied",
+              "pr": "Caminho do arquivo excel do qual os dados serão copiados"
+            },
+            "help": {
+              "es": "Seleccione o especifique la ruta del archivo Excel",
+              "en": "Select or specify the path of the Excel file",
+              "pr": "Selecione ou especifique o caminho do arquivo Excel"
+            },
+            "id": "path_excel",
+            "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Hoja1",
+              "en": "Hoja1",
+              "pr": "Folha1"
+            },
+            "title": { 
+              "es": "Hoja:",
+              "en": "Sheet:",
+              "pr": "Folha:"
+            },
+            "description": {
+              "es": "Hoja del archivo Excel donde se encuentran los datos",
+              "en": "Sheet of the Excel file where the data is located",
+              "pr": "Folha do arquivo Excel onde os dados estão localizados"
+            },
+            "id": "hoja_excel",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "A1:B2",
+              "en": "A1:B2",
+              "pr": "A1:B2"
+            },
+            "title": { 
+              "es": "Rango de valores a copiar:",
+              "en": "Range of values to copy:",
+              "pr": "Faixa de valores para copiar:"
+            },
+            "description": {
+              "es": "Rango donde se encuentran los valores que seran pegados en el archivo Word",
+              "en": "Range where the values ​​that will be pasted in the Word file are found",
+              "pr": "Faixa onde se encontram os valores que serão colados no arquivo do Word"
+            },
+            "id": "rango",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "3",
+              "en": "3",
+              "pr": "3"
+            },
+            "title": { 
+              "es": "Número de parrafo:",
+              "en": "Paragraph number:",
+              "pr": "Número do parágrafo"
+            },
+            "description": {
+              "es": "Numero del parrafo donde se pegara el contenido del rango copiado",
+              "en": "Number of the paragraph where the content of the copied range will be pasted",
+              "pr": "Número do parágrafo onde será colado o conteúdo do intervalo copiado"
+            },
+            "help": {
+              "es": "Número de parrafo, los datos se pegaran al final del mismo",
+              "en": "Paragraph number, the data will be pasted at the end of the paragraph",
+              "pr": "Número do parágrafo, os dados serão colados no final do parágrafo"
+            },
+            "id": "numParagraphs",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "copy_excel",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
     }
   ]
 }
