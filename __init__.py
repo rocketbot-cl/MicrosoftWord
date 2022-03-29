@@ -25,7 +25,8 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 """
 import os
 import sys
-
+import xlwings as xl
+import time
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + 'modules' + os.sep + 'MicrosoftWord' + os.sep + 'libs' + os.sep
 sys.path.append(cur_path)
@@ -76,7 +77,7 @@ if module == "new":
         ms_word = win32com.client.DispatchEx("Word.Application")
         word_document = ms_word.Documents.Add()
         ms_word.Visible = True
-        print("test")
+        # print("test")
     except Exception as e:
         print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
         PrintException()
@@ -325,7 +326,7 @@ if module == "add_pic":
 
         paragraph = word_document.Paragraphs.Last
         img = paragraph.Range.InlineShapes.AddPicture(FileName=img_path, LinkToFile=False, SaveWithDocument=True)
-        print(img)
+        # print(img)
     except Exception as e:
         print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
         PrintException()
@@ -361,7 +362,7 @@ if module == "search_replace_text":
             #fullRange = word_document.content
             for paragraph in paragraphs:
                 range_ = paragraph.Range
-                print(range_.Find.Text)
+                # print(range_.Find.Text)
                 range_.Find.Text = text_search
                 range_.Find.Replacement.Text = text_replace
                 range_.Find.Execute(Replace=2,Forward=True,MatchWholeWord=True)
@@ -382,8 +383,48 @@ if module == "search_text":
                 paragraphList.append(count)
             count += 1
         SetVar(whichParagraph, paragraphList)
-        print(paragraphList)
+        # print(paragraphList)
     except Exception as e:
         print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
         PrintException()
         raise e
+
+if module == "copy_excel":
+    try:
+        path_excel = GetParams("path_excel")
+        path_word = GetParams("path_word")
+        hoja_excel = GetParams("hoja_excel")
+        rango = GetParams("rango")
+        numParagraphs = GetParams("numParagraphs")
+        password = ""
+        path_excel = path_excel.replace("/", os.sep)
+    
+        if path_excel:
+            app = xw.App(add_book=False, visible=False)
+            app.api.DisplayAlerts = False
+            wb = app.api.Workbooks.Open(path_excel, False, None, None, password, password, IgnoreReadOnlyRecommended=True,
+                                        CorruptLoad=2)
+        else:
+            excel = GetGlobals("excel")
+            if excel.actual_id in excel.file_:
+                wb = excel.file_[excel.actual_id]['workbook'].api
+
+        sheet = wb.Worksheets(hoja_excel)
+        sheet.Range(rango).Select()
+        sheet.Range(rango).Copy()
+        time.sleep(10)
+        if not numParagraphs:
+            numParagraphs = word_document.Paragraphs.Count
+        myRange = word_document.Paragraphs(numParagraphs).Range
+        myRange.Collapse(0)
+        myRange.PasteExcelTable(False, False, False)
+        try:
+            app.quit()
+        except:
+            pass
+    except Exception as e:
+       print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+       PrintException()
+       app.quit()
+       raise e
+   
