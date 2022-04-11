@@ -427,4 +427,20 @@ if module == "copy_excel":
        PrintException()
        app.quit()
        raise e
+
+if module == "alignament":
+    try:
+        align = GetParams("align")
+        num_paragraph1 = GetParams("num_paragraph1")
+        num_paragraph2 = GetParams("num_paragraph2")
+        num_paragraph1 = int(num_paragraph1)
+        num_paragraph2 = int(num_paragraph2)+1
+        rango = range(num_paragraph1,num_paragraph2)
+        for p in rango:
+            paragraph = word_document.Paragraphs(p)
+            paragraph.Alignment = align
+    except Exception as e:
+       print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+       PrintException()
+       raise e
    

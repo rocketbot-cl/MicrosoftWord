@@ -4,9 +4,7 @@
 
 # Microsoft Word
   
-Module for work with Microsoft Word
-
-![banner](Docs/imgs/Banner_MicrosoftWord.png)
+Module to work with Microsoft Word
 
 ## How to install this module
   
@@ -29,53 +27,49 @@ Extract text from a Word document
 4. Read Table  
 Extract text from a Table in a Word document
 
-5. Save document  
-Extract text from file.
-
-6. Write in Document  
+5. Write in Document  
 Write in a Word document.
 
-7. Close Document  
-Close the document that is running
-
-8. Add Page  
+6. Add Page  
 Add a new page to the document
 
-9. Add Picture  
+7. Add Picture  
 Add an image to the document.
 
-10. Convert to PDF  
+8. Convert to PDF  
 Convert Word document to PDF.
 
-11. Locate Text in Paragraph  
+9. Locate Text in Paragraph  
 Locate in which paragraph there is an indicated text.
 
-12. Count Paragraphs  
+10. Count Paragraphs  
 Count the number of paragraphs in the document.
 
-13. Replace text in paragraph  
+11. Replace text in paragraph  
 Replace the text of a paragraph.
 
-14. Add text at the end of bookmark  
+12. Add text at the end of bookmark  
 Replace the text of a paragraph.
 
-15. Copy from Excel to Word  
-Copies the specified range from an Excel file to a previously opened Word Document.  
+13. Copy from Excel to Word  
+Copies the specified range from an Excel file to a previously opened Word Document.
+
+14. Paragraph alignment  
+Align paragraph or range of paragraphs to the left, right, center or justify.
+
+15. Save document  
+Extract text from file.
+
+16. Close Document  
+Close the document that is running  
+
+
+### Updates
+#### 11-Apr-2022
+- Added comand Paragraph alignment
+- Added comand Copy from Excel to Word
 
 ----
-
-### In the example robot you must change the URLs for yours
-
-![image](docs/imgs/word.png)
-
-![image](docs/imgs/word2.png)
-
-<h2>Video Example:</h2>
-
-[![microsoftWord](https://img.youtube.com/vi/q_jHgN2Zg5A/0.jpg)](https://www.youtube.com/watch?v=q_jHgN2Zg5A "Office Word")
-
-<h2>Link to example</h2>
-
 ### OS
 
 - windows
