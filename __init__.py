@@ -428,19 +428,50 @@ if module == "copy_excel":
        app.quit()
        raise e
 
-if module == "alignament":
+if module == "adjust_paragraphs":
+    type_ = GetParams("type")
+    align = GetParams("align")
+    size = GetParams("size")
+    bold = GetParams("bold")
+    italic = GetParams("italic")
+    underline = GetParams("underline")
+    num_paragraph1 = int(GetParams("num_paragraph1"))
+    num_paragraph2 = int(GetParams("num_paragraph2"))+1
+    level = GetParams("level")
+    rango = range(num_paragraph1,num_paragraph2)
     try:
-        align = GetParams("align")
-        num_paragraph1 = GetParams("num_paragraph1")
-        num_paragraph2 = GetParams("num_paragraph2")
-        num_paragraph1 = int(num_paragraph1)
-        num_paragraph2 = int(num_paragraph2)+1
-        rango = range(num_paragraph1,num_paragraph2)
         for p in rango:
             paragraph = word_document.Paragraphs(p)
             paragraph.Alignment = align
+            font = paragraph.Range.Font
+            size = float(size) if size else 12
+            font.Size = size
+            if bold == "True":
+                boldInt = -1
+            else:
+                boldInt = 0
+            font.Bold = boldInt
+            if italic == "True":
+                italicInt = -1
+            else:
+                italicInt = 0
+            font.Italic = italicInt
+            if underline == "True":
+                underlineInt = -1
+            else:
+                underlineInt = 0
+            font.Underline = underlineInt
+            style = type_ + level if level is not None else ""
+            if style in WdBuiltinStyle:
+                paragraph.Style = WdBuiltinStyle[style]
+            elif (type_ == "number" or type_ == "bullet") and int(level) > 5:
+                style = type_ + str(level)
+                paragraph.Style = WdBuiltinStyle[style]
+            
     except Exception as e:
        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
        PrintException()
        raise e
+    
+    
    

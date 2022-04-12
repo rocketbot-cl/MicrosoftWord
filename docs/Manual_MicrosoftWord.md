@@ -53,9 +53,9 @@ Escribe en un documento Word.
 |Nivel||1-9|
 |Tamaño de fuente||12|
 |Alineación|||
-|Negrita|||
-|Cursiva|||
-|Subrayar|||
+|Negrita|Cambia el estilo del parrafo a negrita||
+|Cursiva|Cambia el estilo del parrafo a cursiva||
+|Subrayar|Subraya los parrafos especificados||
 
 ### Insertar página
   
@@ -121,14 +121,20 @@ Copia el rango especificado de un archivo Excel en un Documento Word abierto pre
 |Rango de valores a copiar|Rango donde se encuentran los valores que seran pegados en el archivo Word|A1:B2|
 |Número de parrafo|Numero del parrafo donde se pegara el contenido del rango copiado|3|
 
-### Alineación de párrafo
+### Ajustar párrafo
   
-Alinear párrafo o rango de párrafos a la izquierda, derecha, centro o justificado.
+Ajusta el estilo, tamaño o alineacion de un párrafo o rango de párrafos
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Primer valor del rango|Numero de parrafo inicial en el rango|1|
-|Segundo valor del rango|Numero de parrafo final en el rango|4|
-|Alineación|||
+|Segundo valor del rango|Parrafo final en el rango|4|
+|Alineación|Selector de la alineacion del parrafo|Justify|
+|Nivel||1-9|
+|Tipo de texto|Selector del tipo de texto||
+|Tamaño de fuente||12|
+|Negrita|Cambia el estilo del parrafo a negrita||
+|Cursiva|Cambia el estilo del parrafo a cursiva||
+|Subrayar|Subraya los parrafos especificados||
 
 ### Guardar documento
   

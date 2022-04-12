@@ -3,7 +3,7 @@
 
 
 # Microsoft Word
-  
+    
 Module to work with Microsoft Word
 
 ## How to install this module
@@ -54,8 +54,8 @@ Replace the text of a paragraph.
 13. Copy from Excel to Word  
 Copies the specified range from an Excel file to a previously opened Word Document.
 
-14. Paragraph alignment  
-Align paragraph or range of paragraphs to the left, right, center or justify.
+14. Paragraph Adjustment  
+Adjusts the style, size or alignment of a paragraph or range of paragraphs
 
 15. Save document  
 Extract text from file.
@@ -66,9 +66,8 @@ Close the document that is running
 
 ### Updates
 #### 11-Apr-2022
-- Added comand Paragraph alignment
+- Added comand Paragraph Adjustment
 - Added comand Copy from Excel to Word
-
 ----
 ### OS
 
