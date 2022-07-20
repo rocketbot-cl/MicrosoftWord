@@ -1,0 +1,2372 @@
+{
+
+  "author": "Danilo Toro - Sudhan Annamalai",
+  "description": "Modulo para trabajar con Microsoft Word",
+  "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
+  "version": "1.2.0",
+  "license": "MIT",
+  "homepage": "http://rocketbot.co",
+  "linux": false,
+  "windows": true,
+  "mac": false,
+  "docker": false,
+  "name": "MicrosoftWord",
+  "dependencies": {
+    "pywin32": "228"
+  },
+  "title": {
+    "en": "Microsoft Word",
+    "es": "Microsoft Word",
+    "pr": "Microsoft Word"
+  },
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAADeCAMAAAD4tEcNAAAAhFBMVEUqVpn///8lU5gAQ5ARSpS/ydtQb6YYTZULSJMcT5YWTJQmVJggUZfc4evT2eZzirWsuNFge6ySosOisMv2+PrK0uFHaaNYdanN1ONthbK8xdmbqsgyW5zl6fDv8fYAQZCGmb6Jm787YZ9+krpdeauyvdRBZaEANot4jrcALogAOowAM4oTwCZQAAAKIElEQVR4nO2daWOqOhCGKaAsAXfrVpdqbb33/v//d4FAzUxC2Qlg3m/ngMjTJG8mwwS1t9bl7w+7D6KxMhr9Qq3RqyMdR4fpx9k2HR0iDoPxNJld3g3btDxENwxGf7+YO4bterqIru+MQdfcBV3T5brmIBhP29ntj67Zc8bV5P65MQ3zz67ZX0Z/tNgRQ+Cag2A8rpePazgneEXh+sAYDrxxgYHXL8Zw4H0VHni9YQxmvLIDrweMYTB2jWa8muA6xVh0xusXY7kZrzeMYajpBaGmQ5poPNmM+UPNPjKegvn8PZrPW6FrmTEYeJeNbTRkK9IZkzWe0zpdK4zrKP3Q1sBLkbler7dUk8kWas1olKrocPTxiR/oeDz6x1XC6EromgLIX9lmJdmMzu8zyjhk6abuD51R08h5PXjGAPI0eEbN+xo+o3Y+yr6DWG41NxWLzhfWTDJbLDd94iuv9XcE6V0kw8VqJs4ZR4tBfSqbjqpJRu8hm45KMSrGLEb9FRhfwHNegnEnm45KMSpGxfgajOQVGOey6agUYzVGXTG2JmdZWYdVGuOXbLpYjlVV/3aesboMxTgIpTNuZN9abUplJIqxT1KMXZBeWeeuM+rzyhqnMo5l01E1uu5QjK1JMSpGxagY25RiVIyZjO+y6agU4zAYzUllbdMYtcYYiec5jmO5blg2axhGxt4QUFtbSv+lrTsaYyTa9HFZHJaz/WjrH0+rt11zG2CoUtfIpRkJ0fWwpWhD8cXa+g59n13h9nOpdkZbv47n09vngjYUX2/vLODX+d1jDFpJjweUafKbU40TvBjfEd09POPu1kvEqygjub5vdmEzBQPqPtphSGKhix0cfAXbh2c8yu7iza2ijDY4n2sDDw+2tYmvcEZn1I7EqSijuWZPnWACa4kudjLQGeSacUL9KsoIIbgbNLn51kWm403h8RHX0LWrKCO6RRMR8KnMOTId3NILbsDiO6ysfwp7DjyX/HU0FDYd2Nl/vy0dkbtiHfp77oCWcYEE3o27Gu6LxhEeP/+NKIURWv8MGqt7566Ghyy650lWBCCD0QQYW9hKeO4LBYesPoZHZ1YHGZ1P9lzUSqIbgqbjXeBRLoroAiOBDQG6GtkILgeN053Bo5nbY2UwajY4ecPeIw63I0HTsSfg4DEzApDDCIwRGKs5ElwOYqCYfZ8ZAUhhhCDAWPGig4o1HRyzf2ZFAHIYnQN7MmusxBNejzUdfQ6PvWfmAKQwwttkjZVbdFCxpoNHbFYEIIkRdTcm5uYWHVSs6aAFcmYEIIkRjbrNs7chz0zENjUKEpZZEYCs/CqMqhnXwKvfRIzpoFMyIwCt0XVHOiPsks9UAPlOYXyaDvmAR/Dishml1+ekMkJreQ4phwnTwBz6XF6h1Wd2BFCLSjBqhD37OdpYPwH2+TQdC8w7b/vGU3KRyjDCz1hJf2MDoA3rS88/AwqEsiOAWpTOmP78ESZtvpLRxgayBrBY4Z/hLU8EUIvKMELTSRqDjQ1OP2B58Ws6aCLIjgBqURlG6Bz3eLSxMd72DJIeieno7+CLckQAtajMeNQ00Z2y0+bSBPNIkkhG6Z4cEUAtKtOO8EMrg//Phwcm+8R0LLhAzhMBBGO4ueePfzFC06FLeTC9fxAYtHmizz2t6E9Ev7o4xByM0HS+4r32TNOeUWorbjEY6eaLAGTVrkDTocbKJmqCIeqA3BQdeQSmSfJFANLqc0CkQyNWtnPOXGShdCWNUlr5IgBpjMB0qLGy9xI+UgSmQ30Jpi1zRgDSGIF5RK4JUpLhK/+h6UQ/AoCy6PkiAGmM0HTC9SGbxIhaDZpO9LAYrqFzRgDSGOHyKsyxstF2NPqg6UTpO2irOSMAeTWBOvuBMMfK3n9099B0wkZDiaB8EYBERtAkQSMRh7t7mNY4hzvxwP/kzAHIYwQ5nSAcBZ2XviUSms43QbaaNwcgjxEs6I82MKE4OoVPb24ecqG8OQB5jNB0DGCZcWoDLjKCQAHa6iVnDkAeI0z7fxO21iHOi8McnG+jJc41Z0pOH1fWteR+K2A6U4ddLiZZZVjjYWjgz7LKnQNoct/c34zAdA42OxkmZgJXUmMHPCfZNl+W86uy+x/B06v9mbGT3zpGGAwtbJCP5OvomlOpPICGTMf/YeaJJL+DfAn8HZhsXgsq245g0l/9w/zj5olOeTv+AFttJ0NOVXqvLjAddtHxNEwYn/6w39R8YS57q2UZgekw0z1jmDArDiK5WTtPAahKMwLTYS7CGCZ8aAyerk4bL8xlVJoRP9lPxCyZdFG5DlUBRMutqp+yjMQU3z27ZEqNwwoU5lqzyhI8ws+5d15cqAKWTKLyuUgFHso1Gq9mMQoLjuCSyeTLIKnyBuSyGWGdTiJQOYYLAH+VNyCXzSg2HZA0TasQyB+QS2bktnIwH06UUunBb4joKKPYdGALpVTsZNbJd4YRV7+HQjFaSuVVVp18dxhFpoNiNLyZI1aRZ+RyGUUlgHjzFOFPKbg+lssoKuXk7lA0Zgutj+UyCgD4vUmCMcuWEXaekQfgJgVhoFCoZEUyI++aXC8UBQrFSlacRWV9VnifFe+aeAOZcHVyKFay4lRW6jstczDiSs23N36LNd5e9VZwONahSu9ewx8+8r1QsDppM10lvM1CjDhUEywL+W0tbVWQPVXtHXqmdR3vHp+H5X20nvinC5/C4PMdBYdjDar4nkBCiB6+74D+nJsoS2Pjy7c+HJt/F6L3uF0Ws9GExgur7a3FhwCxmn/fo+d5jhu+fcT2iG0IXpvQuNp8p2W5TQBeZXX+nZbetLLmXWeUHK+2IsWoGBWjYmxT6l2IilExKsY29QqMZg0/o9t1Ri3zt44zlV7X0RXG6ipbE9gnvTZjR96jW4Pqf/9q96QYh6HuM5LK6jwj8Zp7/qh9S4aL1eh7kF6AkbwC41U2HZViVIxZjNqHZLhYilExZjJ2RIpRMWYxvsTc8QKxXFfWVoqxGmNXco/qOXI1Rn0um46qSUbvIZuOqklGZyGbjsqt4dkcp/V3VJ/o3mXTxXKrP5zjRUsw7YlkthZktPDDU5LlPYbPePYHz2jv2viRNHkiju2ELxnRLIf/ZcP2VaObuuFPUobl++fvC93zp+0Xc8ew3cyfvGkWcV1JzzlxP9oHGq23E/+5bzN6s/NqMruMbcO0PEmkzcQ5gJHqtF4+vg3bdNonbY2R6jg67D7OQedtc5i2zEjlB8PUi4ZpOz9MIYMx0mpy/9wEw9T1mk7iyWOkOm1nt/dgmDZpSLIZqY7r5fR6Dg1puIxU/v6w00LSmg2pS4yRVv59MbdqjRs6x0gVxg2buuKGjjJSBXFDZEgV44ZOM1JVjht6wEjlx+F9idm0N4yRTmF4bxQdpv1ipIpn09ydt4+MVPk7b38ZIwVzzG1sZARIPWekCp1XSw8bBsEYKVnHWFyTDoeRKgobWmX8H4TuC0vlt0ywAAAAAElFTkSuQmCC",
+  "children": [
+    {
+      "en": {
+        "title": "New Document",
+        "description": "Create a new word document",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Nuevo documento",
+        "description": "Crea un nuevo documento word",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Novo Documento",
+        "description": "Criar um novo documento Word",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "new",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Open Document",
+        "description": "Open a Word document.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Abrir Documento",
+        "description": "Abre un documento de Word.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Abrir documento",
+        "description": "Abra um documento do Word.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "file_select",
+            "placeholder": {
+              "es": "archivo.docx",
+              "en": "file.docx",
+              "pr": "arquivo.docx"
+            },
+            "description": {
+              "es": "Abre el documento especificado",
+              "en": "Open the specified document",
+              "pr": "Abra o documento especificado"
+            },
+            "title": {
+              "es": "Archivo:",
+              "en": "File:",
+              "pr": "Arquivo:"
+            },
+            "help": {
+              "es": "Seleccione el archivo de Word para abrir",
+              "en": "Select Word file to open",
+              "pr": "Selecione o arquivo do Word para abrir"
+            },
+            "id": "path",
+            "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAADeCAMAAAD4tEcNAAAAhFBMVEUqVpn///8lU5gAQ5ARSpS/ydtQb6YYTZULSJMcT5YWTJQmVJggUZfc4evT2eZzirWsuNFge6ySosOisMv2+PrK0uFHaaNYdanN1ONthbK8xdmbqsgyW5zl6fDv8fYAQZCGmb6Jm787YZ9+krpdeauyvdRBZaEANot4jrcALogAOowAM4oTwCZQAAAKIElEQVR4nO2daWOqOhCGKaAsAXfrVpdqbb33/v//d4FAzUxC2Qlg3m/ngMjTJG8mwwS1t9bl7w+7D6KxMhr9Qq3RqyMdR4fpx9k2HR0iDoPxNJld3g3btDxENwxGf7+YO4bterqIru+MQdfcBV3T5brmIBhP29ntj67Zc8bV5P65MQ3zz67ZX0Z/tNgRQ+Cag2A8rpePazgneEXh+sAYDrxxgYHXL8Zw4H0VHni9YQxmvLIDrweMYTB2jWa8muA6xVh0xusXY7kZrzeMYajpBaGmQ5poPNmM+UPNPjKegvn8PZrPW6FrmTEYeJeNbTRkK9IZkzWe0zpdK4zrKP3Q1sBLkbler7dUk8kWas1olKrocPTxiR/oeDz6x1XC6EromgLIX9lmJdmMzu8zyjhk6abuD51R08h5PXjGAPI0eEbN+xo+o3Y+yr6DWG41NxWLzhfWTDJbLDd94iuv9XcE6V0kw8VqJs4ZR4tBfSqbjqpJRu8hm45KMSrGLEb9FRhfwHNegnEnm45KMSpGxfgajOQVGOey6agUYzVGXTG2JmdZWYdVGuOXbLpYjlVV/3aesboMxTgIpTNuZN9abUplJIqxT1KMXZBeWeeuM+rzyhqnMo5l01E1uu5QjK1JMSpGxagY25RiVIyZjO+y6agU4zAYzUllbdMYtcYYiec5jmO5blg2axhGxt4QUFtbSv+lrTsaYyTa9HFZHJaz/WjrH0+rt11zG2CoUtfIpRkJ0fWwpWhD8cXa+g59n13h9nOpdkZbv47n09vngjYUX2/vLODX+d1jDFpJjweUafKbU40TvBjfEd09POPu1kvEqygjub5vdmEzBQPqPtphSGKhix0cfAXbh2c8yu7iza2ijDY4n2sDDw+2tYmvcEZn1I7EqSijuWZPnWACa4kudjLQGeSacUL9KsoIIbgbNLn51kWm403h8RHX0LWrKCO6RRMR8KnMOTId3NILbsDiO6ysfwp7DjyX/HU0FDYd2Nl/vy0dkbtiHfp77oCWcYEE3o27Gu6LxhEeP/+NKIURWv8MGqt7566Ghyy650lWBCCD0QQYW9hKeO4LBYesPoZHZ1YHGZ1P9lzUSqIbgqbjXeBRLoroAiOBDQG6GtkILgeN053Bo5nbY2UwajY4ecPeIw63I0HTsSfg4DEzApDDCIwRGKs5ElwOYqCYfZ8ZAUhhhCDAWPGig4o1HRyzf2ZFAHIYnQN7MmusxBNejzUdfQ6PvWfmAKQwwttkjZVbdFCxpoNHbFYEIIkRdTcm5uYWHVSs6aAFcmYEIIkRjbrNs7chz0zENjUKEpZZEYCs/CqMqhnXwKvfRIzpoFMyIwCt0XVHOiPsks9UAPlOYXyaDvmAR/Dishml1+ekMkJreQ4phwnTwBz6XF6h1Wd2BFCLSjBqhD37OdpYPwH2+TQdC8w7b/vGU3KRyjDCz1hJf2MDoA3rS88/AwqEsiOAWpTOmP78ESZtvpLRxgayBrBY4Z/hLU8EUIvKMELTSRqDjQ1OP2B58Ws6aCLIjgBqURlG6Bz3eLSxMd72DJIeieno7+CLckQAtajMeNQ00Z2y0+bSBPNIkkhG6Z4cEUAtKtOO8EMrg//Phwcm+8R0LLhAzhMBBGO4ueePfzFC06FLeTC9fxAYtHmizz2t6E9Ev7o4xByM0HS+4r32TNOeUWorbjEY6eaLAGTVrkDTocbKJmqCIeqA3BQdeQSmSfJFANLqc0CkQyNWtnPOXGShdCWNUlr5IgBpjMB0qLGy9xI+UgSmQ30Jpi1zRgDSGIF5RK4JUpLhK/+h6UQ/AoCy6PkiAGmM0HTC9SGbxIhaDZpO9LAYrqFzRgDSGOHyKsyxstF2NPqg6UTpO2irOSMAeTWBOvuBMMfK3n9099B0wkZDiaB8EYBERtAkQSMRh7t7mNY4hzvxwP/kzAHIYwQ5nSAcBZ2XviUSms43QbaaNwcgjxEs6I82MKE4OoVPb24ecqG8OQB5jNB0DGCZcWoDLjKCQAHa6iVnDkAeI0z7fxO21iHOi8McnG+jJc41Z0pOH1fWteR+K2A6U4ddLiZZZVjjYWjgz7LKnQNoct/c34zAdA42OxkmZgJXUmMHPCfZNl+W86uy+x/B06v9mbGT3zpGGAwtbJCP5OvomlOpPICGTMf/YeaJJL+DfAn8HZhsXgsq245g0l/9w/zj5olOeTv+AFttJ0NOVXqvLjAddtHxNEwYn/6w39R8YS57q2UZgekw0z1jmDArDiK5WTtPAahKMwLTYS7CGCZ8aAyerk4bL8xlVJoRP9lPxCyZdFG5DlUBRMutqp+yjMQU3z27ZEqNwwoU5lqzyhI8ws+5d15cqAKWTKLyuUgFHso1Gq9mMQoLjuCSyeTLIKnyBuSyGWGdTiJQOYYLAH+VNyCXzSg2HZA0TasQyB+QS2bktnIwH06UUunBb4joKKPYdGALpVTsZNbJd4YRV7+HQjFaSuVVVp18dxhFpoNiNLyZI1aRZ+RyGUUlgHjzFOFPKbg+lssoKuXk7lA0Zgutj+UyCgD4vUmCMcuWEXaekQfgJgVhoFCoZEUyI++aXC8UBQrFSlacRWV9VnifFe+aeAOZcHVyKFay4lRW6jstczDiSs23N36LNd5e9VZwONahSu9ewx8+8r1QsDppM10lvM1CjDhUEywL+W0tbVWQPVXtHXqmdR3vHp+H5X20nvinC5/C4PMdBYdjDar4nkBCiB6+74D+nJsoS2Pjy7c+HJt/F6L3uF0Ws9GExgur7a3FhwCxmn/fo+d5jhu+fcT2iG0IXpvQuNp8p2W5TQBeZXX+nZbetLLmXWeUHK+2IsWoGBWjYmxT6l2IilExKsY29QqMZg0/o9t1Ri3zt44zlV7X0RXG6ipbE9gnvTZjR96jW4Pqf/9q96QYh6HuM5LK6jwj8Zp7/qh9S4aL1eh7kF6AkbwC41U2HZViVIxZjNqHZLhYilExZjJ2RIpRMWYxvsTc8QKxXFfWVoqxGmNXco/qOXI1Rn0um46qSUbvIZuOqklGZyGbjsqt4dkcp/V3VJ/o3mXTxXKrP5zjRUsw7YlkthZktPDDU5LlPYbPePYHz2jv2viRNHkiju2ELxnRLIf/ZcP2VaObuuFPUobl++fvC93zp+0Xc8ew3cyfvGkWcV1JzzlxP9oHGq23E/+5bzN6s/NqMruMbcO0PEmkzcQ5gJHqtF4+vg3bdNonbY2R6jg67D7OQedtc5i2zEjlB8PUi4ZpOz9MIYMx0mpy/9wEw9T1mk7iyWOkOm1nt/dgmDZpSLIZqY7r5fR6Dg1puIxU/v6w00LSmg2pS4yRVv59MbdqjRs6x0gVxg2buuKGjjJSBXFDZEgV44ZOM1JVjht6wEjlx+F9idm0N4yRTmF4bxQdpv1ipIpn09ydt4+MVPk7b38ZIwVzzG1sZARIPWekCp1XSw8bBsEYKVnHWFyTDoeRKgobWmX8H4TuC0vlt0ywAAAAAElFTkSuQmCC",
+      "module": "open",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Read Document",
+        "description": "Extract text from a Word document",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Leer documento",
+        "description": "Extrae texto de documento Word.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Ler documento",
+        "description": "Extraia o texto do documento Word.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Variable",
+              "en": "Variable",
+              "pr": "Variável"
+            },
+            "description": {
+              "es": "Almacena el resultado en una variable",
+              "en": "Store the result in a variable",
+              "pr": "Armazenar o resultado em uma variável"
+            },
+            "title": {
+              "es": "Resultado",
+              "en": "Result",
+              "pr": "Resultado"
+            },
+            "help": {
+              "en": "Variable where the result is stored without {}",
+              "es": "Variable donde se almacena el resultado sin {}",
+              "pr": "Variável onde o resultado é armazenado sem {}"
+            },
+            "id": "result",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "checkbox",
+            "placeholder": {
+              "es": "True",
+              "en": "True",
+              "pr": "True"
+            },
+            "description": {
+              "es": "Escoje si los datos almacenados se guardarán con detalles como estilo, alineación, etc.",
+              "en": "Choose if the stored data will be saved with details like style, alignment, etc.",
+              "pr": "Escolha se os dados armazenados serão salvos com detalhes como estilo, alinhamento, etc."
+            },
+            "title": {
+              "es": "Agregar Detalles",
+              "en": "Add Details",
+              "pr": "Adicionar detalhes"
+            },
+            "help": {
+              "en": "Return paragraph with detail, like style, alignment, etc.",
+              "es": "Retorna el párrafo con detalles, como estilo, alineación, etc.",
+              "pr": "Retorna o parágrafo com detalhes, como estilo, alinhamento, etc."
+            },
+            "id": "details",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "read",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Copy and paste text",
+        "description": "Copy and paste text between ranges in a Word document and paste it in another document",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Copiar y pegar texto",
+        "description": "Copiar texto entre rangos del documento Word y pegarlo en otro documento.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Copie e cole o texto",
+        "description": "Copie o texto entre os intervalos no documento do Word e cole-o em outro documento.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "0",
+              "en": "0",
+              "pr": "0"
+            },
+            "description": {
+              "es": "Posición del rango desde donde comienza a copiar el comando.",
+              "en": "Position of the range from where the command starts to copy.",
+              "pr": "Posição do intervalo de onde o comando começa a copiar."
+            },
+            "title": {
+              "es": "Inicio del rango",
+              "en": "Start of range",
+              "pr": "Início do intervalo"
+            },
+            "help": {
+              "en": "Enter the beginning of the range of characters to copy from the document",
+              "es": "Ingrese el inicio del rango de caracteres a copiar del documento",
+              "pr": "Digite o início do intervalo de caracteres para copiar do documento"
+            },
+            "id": "startRange",
+            "css": "col-md-6"
+          },{
+            "type": "input",
+            "placeholder": {
+              "es": "40",
+              "en": "40",
+              "pr": "40"
+            },
+            "description": {
+              "es": "Posición del rango hasta donde copia el comando.",
+              "en": "Position of the range to which the command copies.",
+              "pr": "Posição do intervalo para o qual o comando copia."
+            },
+            "title": {
+              "es": "Fin del rango",
+              "en": "End of range",
+              "pr": "fim do intervalo"
+            },
+            "help": {
+              "en": "Enter the end of the range of characters to copy from the document",
+              "es": "Ingrese el fin del rango de caracteres a copiar del documento",
+              "pr": "Digite o final do intervalo de caracteres para copiar do documento"
+            },
+            "id": "endRange",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión del archivo a copiar",
+              "en": "Session of the archive to copy",
+              "pr": "Sessão do arquivo a ser copiado"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "file_select",
+            "placeholder": {
+              "es": "archivo.docx",
+              "en": "file.docx",
+              "pr": "arquivo.docx"
+            },
+            "description": {
+              "es": "Elige el documento donde se pega el contenido copiado.",
+              "en": "Choose the document where the copied content is pasted.",
+              "pr": "Escolha o documento onde o conteúdo copiado é colado."
+            },
+            "title": {
+              "es": "Archivo:",
+              "en": "File:",
+              "pr": "Arquivo:"
+            },
+            "help": {
+              "es": "Seleccione el archivo de Word para pegar el contenido",
+              "en": "Select Word file to paste the content",
+              "pr": "Selecione o arquivo do Word para colar o conteúdo"
+            },
+            "id": "path",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "copyPasteText",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Copy text",
+        "description": "Copy text to clipboard between ranges in a Word document",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Copiar texto",
+        "description": "Copiar texto al portapapeles entre rangos del documento Word",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Copiar texto",
+        "description": "Copiar texto para prancheta entre intervalos no documento Word",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "0",
+              "en": "0",
+              "pr": "0"
+            },
+            "description": {
+              "es": "Posición del rango desde donde comienza a copiar el comando.",
+              "en": "Position of the range from where the command starts to copy.",
+              "pr": "Posição do intervalo de onde o comando começa a copiar."
+            },
+            "title": {
+              "es": "Inicio del rango",
+              "en": "Start of range",
+              "pr": "Início do intervalo"
+            },
+            "help": {
+              "en": "Enter the beginning of the range of characters to copy from the document",
+              "es": "Ingrese el inicio del rango de caracteres a copiar del documento",
+              "pr": "Digite o início do intervalo de caracteres para copiar do documento"
+            },
+            "id": "startRange",
+            "css": "col-md-6"
+          },{
+            "type": "input",
+            "placeholder": {
+              "es": "40",
+              "en": "40",
+              "pr": "40"
+            },
+            "description": {
+              "es": "Posición del rango hasta donde copia el comando.",
+              "en": "Position of the range to which the command copies.",
+              "pr": "Posição do intervalo para o qual o comando copia."
+            },
+            "title": {
+              "es": "Fin del rango",
+              "en": "End of range",
+              "pr": "Fim do intevalo"
+            },
+            "help": {
+              "en": "Enter the end of the range of characters to copy from the document",
+              "es": "Ingrese el fin del rango de caracteres a copiar del documento",
+              "pr": "Digite o final do intervalo de caracteres para copiar do documento"
+            },
+            "id": "endRange",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAADeCAMAAAD4tEcNAAAAhFBMVEUqVpn///8lU5gAQ5ARSpS/ydtQb6YYTZULSJMcT5YWTJQmVJggUZfc4evT2eZzirWsuNFge6ySosOisMv2+PrK0uFHaaNYdanN1ONthbK8xdmbqsgyW5zl6fDv8fYAQZCGmb6Jm787YZ9+krpdeauyvdRBZaEANot4jrcALogAOowAM4oTwCZQAAAKIElEQVR4nO2daWOqOhCGKaAsAXfrVpdqbb33/v//d4FAzUxC2Qlg3m/ngMjTJG8mwwS1t9bl7w+7D6KxMhr9Qq3RqyMdR4fpx9k2HR0iDoPxNJld3g3btDxENwxGf7+YO4bterqIru+MQdfcBV3T5brmIBhP29ntj67Zc8bV5P65MQ3zz67ZX0Z/tNgRQ+Cag2A8rpePazgneEXh+sAYDrxxgYHXL8Zw4H0VHni9YQxmvLIDrweMYTB2jWa8muA6xVh0xusXY7kZrzeMYajpBaGmQ5poPNmM+UPNPjKegvn8PZrPW6FrmTEYeJeNbTRkK9IZkzWe0zpdK4zrKP3Q1sBLkbler7dUk8kWas1olKrocPTxiR/oeDz6x1XC6EromgLIX9lmJdmMzu8zyjhk6abuD51R08h5PXjGAPI0eEbN+xo+o3Y+yr6DWG41NxWLzhfWTDJbLDd94iuv9XcE6V0kw8VqJs4ZR4tBfSqbjqpJRu8hm45KMSrGLEb9FRhfwHNegnEnm45KMSpGxfgajOQVGOey6agUYzVGXTG2JmdZWYdVGuOXbLpYjlVV/3aesboMxTgIpTNuZN9abUplJIqxT1KMXZBeWeeuM+rzyhqnMo5l01E1uu5QjK1JMSpGxagY25RiVIyZjO+y6agU4zAYzUllbdMYtcYYiec5jmO5blg2axhGxt4QUFtbSv+lrTsaYyTa9HFZHJaz/WjrH0+rt11zG2CoUtfIpRkJ0fWwpWhD8cXa+g59n13h9nOpdkZbv47n09vngjYUX2/vLODX+d1jDFpJjweUafKbU40TvBjfEd09POPu1kvEqygjub5vdmEzBQPqPtphSGKhix0cfAXbh2c8yu7iza2ijDY4n2sDDw+2tYmvcEZn1I7EqSijuWZPnWACa4kudjLQGeSacUL9KsoIIbgbNLn51kWm403h8RHX0LWrKCO6RRMR8KnMOTId3NILbsDiO6ysfwp7DjyX/HU0FDYd2Nl/vy0dkbtiHfp77oCWcYEE3o27Gu6LxhEeP/+NKIURWv8MGqt7566Ghyy650lWBCCD0QQYW9hKeO4LBYesPoZHZ1YHGZ1P9lzUSqIbgqbjXeBRLoroAiOBDQG6GtkILgeN053Bo5nbY2UwajY4ecPeIw63I0HTsSfg4DEzApDDCIwRGKs5ElwOYqCYfZ8ZAUhhhCDAWPGig4o1HRyzf2ZFAHIYnQN7MmusxBNejzUdfQ6PvWfmAKQwwttkjZVbdFCxpoNHbFYEIIkRdTcm5uYWHVSs6aAFcmYEIIkRjbrNs7chz0zENjUKEpZZEYCs/CqMqhnXwKvfRIzpoFMyIwCt0XVHOiPsks9UAPlOYXyaDvmAR/Dishml1+ekMkJreQ4phwnTwBz6XF6h1Wd2BFCLSjBqhD37OdpYPwH2+TQdC8w7b/vGU3KRyjDCz1hJf2MDoA3rS88/AwqEsiOAWpTOmP78ESZtvpLRxgayBrBY4Z/hLU8EUIvKMELTSRqDjQ1OP2B58Ws6aCLIjgBqURlG6Bz3eLSxMd72DJIeieno7+CLckQAtajMeNQ00Z2y0+bSBPNIkkhG6Z4cEUAtKtOO8EMrg//Phwcm+8R0LLhAzhMBBGO4ueePfzFC06FLeTC9fxAYtHmizz2t6E9Ev7o4xByM0HS+4r32TNOeUWorbjEY6eaLAGTVrkDTocbKJmqCIeqA3BQdeQSmSfJFANLqc0CkQyNWtnPOXGShdCWNUlr5IgBpjMB0qLGy9xI+UgSmQ30Jpi1zRgDSGIF5RK4JUpLhK/+h6UQ/AoCy6PkiAGmM0HTC9SGbxIhaDZpO9LAYrqFzRgDSGOHyKsyxstF2NPqg6UTpO2irOSMAeTWBOvuBMMfK3n9099B0wkZDiaB8EYBERtAkQSMRh7t7mNY4hzvxwP/kzAHIYwQ5nSAcBZ2XviUSms43QbaaNwcgjxEs6I82MKE4OoVPb24ecqG8OQB5jNB0DGCZcWoDLjKCQAHa6iVnDkAeI0z7fxO21iHOi8McnG+jJc41Z0pOH1fWteR+K2A6U4ddLiZZZVjjYWjgz7LKnQNoct/c34zAdA42OxkmZgJXUmMHPCfZNl+W86uy+x/B06v9mbGT3zpGGAwtbJCP5OvomlOpPICGTMf/YeaJJL+DfAn8HZhsXgsq245g0l/9w/zj5olOeTv+AFttJ0NOVXqvLjAddtHxNEwYn/6w39R8YS57q2UZgekw0z1jmDArDiK5WTtPAahKMwLTYS7CGCZ8aAyerk4bL8xlVJoRP9lPxCyZdFG5DlUBRMutqp+yjMQU3z27ZEqNwwoU5lqzyhI8ws+5d15cqAKWTKLyuUgFHso1Gq9mMQoLjuCSyeTLIKnyBuSyGWGdTiJQOYYLAH+VNyCXzSg2HZA0TasQyB+QS2bktnIwH06UUunBb4joKKPYdGALpVTsZNbJd4YRV7+HQjFaSuVVVp18dxhFpoNiNLyZI1aRZ+RyGUUlgHjzFOFPKbg+lssoKuXk7lA0Zgutj+UyCgD4vUmCMcuWEXaekQfgJgVhoFCoZEUyI++aXC8UBQrFSlacRWV9VnifFe+aeAOZcHVyKFay4lRW6jstczDiSs23N36LNd5e9VZwONahSu9ewx8+8r1QsDppM10lvM1CjDhUEywL+W0tbVWQPVXtHXqmdR3vHp+H5X20nvinC5/C4PMdBYdjDar4nkBCiB6+74D+nJsoS2Pjy7c+HJt/F6L3uF0Ws9GExgur7a3FhwCxmn/fo+d5jhu+fcT2iG0IXpvQuNp8p2W5TQBeZXX+nZbetLLmXWeUHK+2IsWoGBWjYmxT6l2IilExKsY29QqMZg0/o9t1Ri3zt44zlV7X0RXG6ipbE9gnvTZjR96jW4Pqf/9q96QYh6HuM5LK6jwj8Zp7/qh9S4aL1eh7kF6AkbwC41U2HZViVIxZjNqHZLhYilExZjJ2RIpRMWYxvsTc8QKxXFfWVoqxGmNXco/qOXI1Rn0um46qSUbvIZuOqklGZyGbjsqt4dkcp/V3VJ/o3mXTxXKrP5zjRUsw7YlkthZktPDDU5LlPYbPePYHz2jv2viRNHkiju2ELxnRLIf/ZcP2VaObuuFPUobl++fvC93zp+0Xc8ew3cyfvGkWcV1JzzlxP9oHGq23E/+5bzN6s/NqMruMbcO0PEmkzcQ5gJHqtF4+vg3bdNonbY2R6jg67D7OQedtc5i2zEjlB8PUi4ZpOz9MIYMx0mpy/9wEw9T1mk7iyWOkOm1nt/dgmDZpSLIZqY7r5fR6Dg1puIxU/v6w00LSmg2pS4yRVv59MbdqjRs6x0gVxg2buuKGjjJSBXFDZEgV44ZOM1JVjht6wEjlx+F9idm0N4yRTmF4bxQdpv1ipIpn09ydt4+MVPk7b38ZIwVzzG1sZARIPWekCp1XSw8bBsEYKVnHWFyTDoeRKgobWmX8H4TuC0vlt0ywAAAAAElFTkSuQmCC",
+      "module": "copyText",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Paste text",
+        "description": "Paste text from clipboard in a Word document",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Pegar texto",
+        "description": "Pegar texto del portapapeles al documento Word",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Colar texto",
+        "description": "Colar texto da prancheta para documento Word",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "pasteText",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Count characters",
+        "description": "Count characters in a specific paragraph",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Contar caracteres",
+        "description": "Contar caracteres de un párrafo específico",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Contar caracteres",
+        "description": "Contar caracteres em um parágrafo específico",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "1",
+              "en": "1"
+            },
+            "description": {
+              "es": "Párrafo a contar caracteres",
+              "en": "Paragraph to count characters",
+              "pr": "Parágrafo para contar caracteres"
+            },
+            "title": {
+              "es": "Párrafo",
+              "en": "Paragraph",
+              "pr": "Parágrafo"
+            },
+            "help": {
+              "en": "Enter the paragraph number in which the characters will be counted",
+              "es": "Ingrese el número de párrafo en el cual se contarán los caracteres",
+              "pr": "Digite o número do parágrafo no qual os caracteres serão contados"
+            },
+            "id": "numParagraph",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Variable",
+              "en": "Variable",
+              "pr": "Variável"
+            },
+            "description": {
+              "es": "Almacena el resultado en una variable",
+              "en": "Store the result in a variable",
+              "pr": "Armazenar o resultado em uma variável"
+            },
+            "title": {
+              "es": "Resultado",
+              "en": "Result"
+            },
+            "help": {
+              "en": "Variable where the result is stored without {}",
+              "es": "Variable donde se almacena el resultado sin {}",
+              "pr": "Variável onde o resultado é armazenado sem {}"
+            },
+            "id": "result",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAADeCAMAAAD4tEcNAAAAhFBMVEUqVpn///8lU5gAQ5ARSpS/ydtQb6YYTZULSJMcT5YWTJQmVJggUZfc4evT2eZzirWsuNFge6ySosOisMv2+PrK0uFHaaNYdanN1ONthbK8xdmbqsgyW5zl6fDv8fYAQZCGmb6Jm787YZ9+krpdeauyvdRBZaEANot4jrcALogAOowAM4oTwCZQAAAKIElEQVR4nO2daWOqOhCGKaAsAXfrVpdqbb33/v//d4FAzUxC2Qlg3m/ngMjTJG8mwwS1t9bl7w+7D6KxMhr9Qq3RqyMdR4fpx9k2HR0iDoPxNJld3g3btDxENwxGf7+YO4bterqIru+MQdfcBV3T5brmIBhP29ntj67Zc8bV5P65MQ3zz67ZX0Z/tNgRQ+Cag2A8rpePazgneEXh+sAYDrxxgYHXL8Zw4H0VHni9YQxmvLIDrweMYTB2jWa8muA6xVh0xusXY7kZrzeMYajpBaGmQ5poPNmM+UPNPjKegvn8PZrPW6FrmTEYeJeNbTRkK9IZkzWe0zpdK4zrKP3Q1sBLkbler7dUk8kWas1olKrocPTxiR/oeDz6x1XC6EromgLIX9lmJdmMzu8zyjhk6abuD51R08h5PXjGAPI0eEbN+xo+o3Y+yr6DWG41NxWLzhfWTDJbLDd94iuv9XcE6V0kw8VqJs4ZR4tBfSqbjqpJRu8hm45KMSrGLEb9FRhfwHNegnEnm45KMSpGxfgajOQVGOey6agUYzVGXTG2JmdZWYdVGuOXbLpYjlVV/3aesboMxTgIpTNuZN9abUplJIqxT1KMXZBeWeeuM+rzyhqnMo5l01E1uu5QjK1JMSpGxagY25RiVIyZjO+y6agU4zAYzUllbdMYtcYYiec5jmO5blg2axhGxt4QUFtbSv+lrTsaYyTa9HFZHJaz/WjrH0+rt11zG2CoUtfIpRkJ0fWwpWhD8cXa+g59n13h9nOpdkZbv47n09vngjYUX2/vLODX+d1jDFpJjweUafKbU40TvBjfEd09POPu1kvEqygjub5vdmEzBQPqPtphSGKhix0cfAXbh2c8yu7iza2ijDY4n2sDDw+2tYmvcEZn1I7EqSijuWZPnWACa4kudjLQGeSacUL9KsoIIbgbNLn51kWm403h8RHX0LWrKCO6RRMR8KnMOTId3NILbsDiO6ysfwp7DjyX/HU0FDYd2Nl/vy0dkbtiHfp77oCWcYEE3o27Gu6LxhEeP/+NKIURWv8MGqt7566Ghyy650lWBCCD0QQYW9hKeO4LBYesPoZHZ1YHGZ1P9lzUSqIbgqbjXeBRLoroAiOBDQG6GtkILgeN053Bo5nbY2UwajY4ecPeIw63I0HTsSfg4DEzApDDCIwRGKs5ElwOYqCYfZ8ZAUhhhCDAWPGig4o1HRyzf2ZFAHIYnQN7MmusxBNejzUdfQ6PvWfmAKQwwttkjZVbdFCxpoNHbFYEIIkRdTcm5uYWHVSs6aAFcmYEIIkRjbrNs7chz0zENjUKEpZZEYCs/CqMqhnXwKvfRIzpoFMyIwCt0XVHOiPsks9UAPlOYXyaDvmAR/Dishml1+ekMkJreQ4phwnTwBz6XF6h1Wd2BFCLSjBqhD37OdpYPwH2+TQdC8w7b/vGU3KRyjDCz1hJf2MDoA3rS88/AwqEsiOAWpTOmP78ESZtvpLRxgayBrBY4Z/hLU8EUIvKMELTSRqDjQ1OP2B58Ws6aCLIjgBqURlG6Bz3eLSxMd72DJIeieno7+CLckQAtajMeNQ00Z2y0+bSBPNIkkhG6Z4cEUAtKtOO8EMrg//Phwcm+8R0LLhAzhMBBGO4ueePfzFC06FLeTC9fxAYtHmizz2t6E9Ev7o4xByM0HS+4r32TNOeUWorbjEY6eaLAGTVrkDTocbKJmqCIeqA3BQdeQSmSfJFANLqc0CkQyNWtnPOXGShdCWNUlr5IgBpjMB0qLGy9xI+UgSmQ30Jpi1zRgDSGIF5RK4JUpLhK/+h6UQ/AoCy6PkiAGmM0HTC9SGbxIhaDZpO9LAYrqFzRgDSGOHyKsyxstF2NPqg6UTpO2irOSMAeTWBOvuBMMfK3n9099B0wkZDiaB8EYBERtAkQSMRh7t7mNY4hzvxwP/kzAHIYwQ5nSAcBZ2XviUSms43QbaaNwcgjxEs6I82MKE4OoVPb24ecqG8OQB5jNB0DGCZcWoDLjKCQAHa6iVnDkAeI0z7fxO21iHOi8McnG+jJc41Z0pOH1fWteR+K2A6U4ddLiZZZVjjYWjgz7LKnQNoct/c34zAdA42OxkmZgJXUmMHPCfZNl+W86uy+x/B06v9mbGT3zpGGAwtbJCP5OvomlOpPICGTMf/YeaJJL+DfAn8HZhsXgsq245g0l/9w/zj5olOeTv+AFttJ0NOVXqvLjAddtHxNEwYn/6w39R8YS57q2UZgekw0z1jmDArDiK5WTtPAahKMwLTYS7CGCZ8aAyerk4bL8xlVJoRP9lPxCyZdFG5DlUBRMutqp+yjMQU3z27ZEqNwwoU5lqzyhI8ws+5d15cqAKWTKLyuUgFHso1Gq9mMQoLjuCSyeTLIKnyBuSyGWGdTiJQOYYLAH+VNyCXzSg2HZA0TasQyB+QS2bktnIwH06UUunBb4joKKPYdGALpVTsZNbJd4YRV7+HQjFaSuVVVp18dxhFpoNiNLyZI1aRZ+RyGUUlgHjzFOFPKbg+lssoKuXk7lA0Zgutj+UyCgD4vUmCMcuWEXaekQfgJgVhoFCoZEUyI++aXC8UBQrFSlacRWV9VnifFe+aeAOZcHVyKFay4lRW6jstczDiSs23N36LNd5e9VZwONahSu9ewx8+8r1QsDppM10lvM1CjDhUEywL+W0tbVWQPVXtHXqmdR3vHp+H5X20nvinC5/C4PMdBYdjDar4nkBCiB6+74D+nJsoS2Pjy7c+HJt/F6L3uF0Ws9GExgur7a3FhwCxmn/fo+d5jhu+fcT2iG0IXpvQuNp8p2W5TQBeZXX+nZbetLLmXWeUHK+2IsWoGBWjYmxT6l2IilExKsY29QqMZg0/o9t1Ri3zt44zlV7X0RXG6ipbE9gnvTZjR96jW4Pqf/9q96QYh6HuM5LK6jwj8Zp7/qh9S4aL1eh7kF6AkbwC41U2HZViVIxZjNqHZLhYilExZjJ2RIpRMWYxvsTc8QKxXFfWVoqxGmNXco/qOXI1Rn0um46qSUbvIZuOqklGZyGbjsqt4dkcp/V3VJ/o3mXTxXKrP5zjRUsw7YlkthZktPDDU5LlPYbPePYHz2jv2viRNHkiju2ELxnRLIf/ZcP2VaObuuFPUobl++fvC93zp+0Xc8ew3cyfvGkWcV1JzzlxP9oHGq23E/+5bzN6s/NqMruMbcO0PEmkzcQ5gJHqtF4+vg3bdNonbY2R6jg67D7OQedtc5i2zEjlB8PUi4ZpOz9MIYMx0mpy/9wEw9T1mk7iyWOkOm1nt/dgmDZpSLIZqY7r5fR6Dg1puIxU/v6w00LSmg2pS4yRVv59MbdqjRs6x0gVxg2buuKGjjJSBXFDZEgV44ZOM1JVjht6wEjlx+F9idm0N4yRTmF4bxQdpv1ipIpn09ydt4+MVPk7b38ZIwVzzG1sZARIPWekCp1XSw8bBsEYKVnHWFyTDoeRKgobWmX8H4TuC0vlt0ywAAAAAElFTkSuQmCC",
+      "module": "countCharacters",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Add table",
+        "description": "Add table in a Word document.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Agregar tabla",
+        "description": "Agregar tabla en un documento Word.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Adicionar tabela",
+        "description": "Adicionar tabela em um documento do Word.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "3 ",
+              "en": "3 ",
+              "pr": "3 "
+            },
+            "description": {
+              "es": "Numero de filas que tendrá la tabla",
+              "en": "Number of rows that the table will have",
+              "pr": "Número de linhas que a tabela terá"
+            },
+            "title": {
+              "es": "Numero de filas",
+              "en": "Number of rows",
+              "pr": "Numero de linhas"
+            },
+            "help": {
+              "en": "Enter the amount of rows the table will have",
+              "es": "Ingrese la cantidad de filas que tendrá la tabla",
+              "pr": "Digite o número de linhas que a tabela terá"
+            },
+            "id": "rows",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "4 ",
+              "en": "4 ",
+              "pr": "4 "
+            },
+            "description": {
+              "es": "Numero de columnas que tendrá la tabla",
+              "en": "Number of columns that the table will have",
+              "pr": "Número de colunas que a tabela terá"
+            },
+            "title": {
+              "es": "Numero de columnas",
+              "en": "Number of columns",
+              "pr": "Numero de colunas"
+            },
+            "help": {
+              "en": "Enter the amount of columns the table will have",
+              "es": "Ingrese la cantidad de columns que tendrá la tabla",
+              "pr": "Digite o número de colunas que a tabela terá"
+            },
+            "id": "cols",
+            "css": "col-md-6"
+          },
+          {
+            "type": "select",
+            "placeholder": {
+              "es": "Colorful Grid",
+              "en": "Colorful Grid",
+              "pr": "Colorful Grid"
+            },
+            "description": {
+              "es": "Estilo de tabla predeterminada de Microsoft Word",
+              "en": "Microsoft Word default table style",
+              "pr": "Estilo de tabela padrão do Microsoft Word"
+            },
+            "title": {
+              "es": "Estilo de tabla",
+              "en": "Table style",
+              "pr": "Estilo da tabela"
+            },
+            "help": {
+              "en": "Optional. Choose a predefined style from Microsoft Word",
+              "es": "Opcional. Escoja un estilo predefinido de Microsoft Word",
+              "pr": "Opcional. Escolha um estilo predefinido do Microsoft Word"
+            },
+            "options": [
+              {
+                "title": "Colorful Grid",
+                "value": "colorful_grid"
+              },
+              {
+                "title": "Colorful List",
+                "value": "colorful_list"
+              },
+              {
+                "title": "Colorful Shading",
+                "value": "colorful_shading"
+              },
+              {
+                "title": "Dark List",
+                "value": "dark_list"
+              },
+              {
+                "title": "Light Grid",
+                "value": "light_grid"
+              },
+              {
+                "title": "Light Grid Accent 1",
+                "value": "light_grid_accent_1"
+              },
+              {
+                "title": "Light List",
+                "value": "light_list"
+              },
+              {
+                "title": "Light List Accent 1",
+                "value": "light_list_accent_1"
+              },
+              {
+                "title": "Light Shading",
+                "value": "light_shading"
+              },
+              {
+                "title": "Light Shading Accent 1",
+                "value": "light_shading_accent_1"
+              },
+              {
+                "title": "Medium Grid 1",
+                "value": "medium_grid_1"
+              },
+              {
+                "title": "Medium Grid 2",
+                "value": "medium_grid_2"
+              },
+              {
+                "title": "Medium Grid 3",
+                "value": "medium_grid_3"
+              },
+              {
+                "title": "Medium List 1",
+                "value": "medium_list_1"
+              },
+              {
+                "title": "Medium List 1 Accent 1",
+                "value": "medium_list_accent_1"
+              },
+              {
+                "title": "Medium List 2",
+                "value": "medium_list_2"
+              },
+              {
+                "title": "Medium Shading 1",
+                "value": "medium_shading_1"
+              },
+              {
+                "title": "Medium Shading 1 Accent 1",
+                "value": "medium_shading_1_accent_1"
+              },
+              {
+                "title": "Medium Shading 2",
+                "value": "medium_shading_2"
+              },
+              {
+                "title": "Medium Shading 2 Accent 1",
+                "value": "medium_shading_2_accent_1"
+              }
+            ],
+            "id": "tableStyle",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "html",
+            "placeholder": {
+              "es": "Line type: Single wavy / Line size: 1 1/2 points",
+              "en": "Line type: Single wavy / Line size: 1 1/2 points",
+              "pr": "Line type: Single wavy / Line size: 1 1/2 points"
+            },
+            "description": {
+              "es": "Estilo de los bordes de la tabla. Tipo de línea y tamaño.",
+              "en": "Table border style. Line type and size.",
+              "pr": "Estilo de borda de tabela. Tipo e tamanho da linha."
+            },
+            "title": {
+              "es": "Estilos del borde",
+              "en": "Border styles",
+              "pr": "Estilos de borda"
+            },
+            "src": "index.html",
+            "css": "col-md-12",
+            "style": "height:70px;"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "addTable",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Read Tables",
+        "description": "Extract data from the Tables in the document",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Leer tablas",
+        "description": "Extrae los datos de las tablas en el documento",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Ler tabelas",
+        "description": "Extraia os dados das tabelas no documento",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "1",
+              "en": "1",
+              "pr": "1"
+            },
+            "description": {
+              "es": "Número de tabla de la cual se leerá el contenido",
+              "en": "Table number from which the content will be read",
+              "pr": "Número da tabela a partir da qual o conteúdo será lido"
+            },
+            "title": {
+              "es": "Tabla a leer",
+              "en": "Table to read",
+              "pr": "Tabela para ler"
+            },
+            "help": {
+              "en": "Choose the table number to read. If nothing is selected, it will read all the tables",
+              "es": "Elija el numero de tabla a leer. Si no se selecciona nada, leerá todas las tablas",
+              "pr": "Escolha o número da tabela para ler. Se nada for selecionado, ele lerá todas as tabelas"
+            },
+            "id": "tableToRead",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Variable",
+              "en": "Variable",
+              "pr": "Variável"
+            },
+            "description": {
+              "es": "Almacena el resultado en una variable",
+              "en": "Store the result in a variable",
+              "pr": "Armazenar o resultado em uma variável"
+            },
+            "title": {
+              "es": "Resultado",
+              "en": "Result"
+            },
+            "help": {
+              "en": "Variable where the result is stored without {}",
+              "es": "Variable donde se almacena el resultado sin {}",
+              "pr": "Variável onde o resultado é armazenado sem {}"
+            },
+            "id": "result",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "readTable",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Edit table",
+        "description": "Edit table from a Word document.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Editar tabla",
+        "description": "Editar tabla de un documento Word.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Editar tabela",
+        "description": "Editar uma tabela em um documento Word.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "1",
+              "en": "1",
+              "pr": "1"
+            },
+            "description": {
+              "es": "Número de tabla que será editada",
+              "en": "Table number to be edited",
+              "pr": "Número da tabela a ser editada"
+            },
+            "title": {
+              "es": "Numero de tabla",
+              "en": "Table number",
+              "pr": "Número da tabela"
+            },
+            "help": {
+              "en": "Enter the table to edit",
+              "es": "Ingrese la tabla a editar",
+              "pr": "Digite a tabela para editar"
+            },
+            "id": "numTable",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": " ",
+              "en": " ",
+              "pr": " "
+            },
+            "description": {
+              "es": "Opcional. El numero de fila ingresado determina qué fila será eliminada de la tabla.",
+              "en": "Optional. The row number entered determines which row will be removed from the table.",
+              "pr": "Opcional. O número da linha inserido determina qual linha será removida da tabela."
+            },
+            "title": {
+              "es": "Ingrese el numero de fila a eliminar",
+              "en": "Enter the row number to delete",
+              "pr": "Digite o número da linha para excluir"
+            },
+            "help": {
+              "en": "Optional. If nothing is entered, it does not delete any rows.",
+              "es": "Opcional. Si no se ingresa nada, no elimina ninguna fila.",
+              "pr": "Opcional. Se nada for inserido, ele não exclui nenhuma linha."
+            },
+            "id": "deleteRow",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": " ",
+              "en": " ",
+              "pr": " "
+            },
+            "description": {
+              "es": "Opcional. El numero de columna ingresado determina qué columna será eliminada de la tabla",
+              "en": "Optional. The column number entered determines which column will be removed from the table.",
+              "pr": "Opcional. O número da coluna inserido determina qual coluna será removida da tabela."
+            },
+            "title": {
+              "es": "Ingrese el numero de columna a eliminar",
+              "en": "Enter the column number to delete",
+              "pr": "Digite o número da coluna para excluir"
+            },
+            "help": {
+              "en": "Optional. If nothing is entered, it does not delete any columns.",
+              "es": "Opcional. Si no se ingresa nada, no elimina ninguna columna.",
+              "pr": "Opcional. Se nada for inserido, ele não remove nenhuma coluna."
+            },
+            "id": "deleteColumn",
+            "css": "col-md-6"
+          },
+          {
+            "type": "checkbox",
+            "placeholder": {
+              "es": "True",
+              "en": "True",
+              "pr": "True"
+            },
+            "description": {
+              "es": "Si se selecciona, agrega una fila al final de la tabla",
+              "en": "If selected, adds a row to the end of the table",
+              "pr": "Se selecionado, adiciona uma linha ao final da tabela"
+            },
+            "title": {
+              "es": "Insertar fila",
+              "en": "Insert row",
+              "pr": "Inserir linha"
+            },
+            "id": "addRow",
+            "css": "col-md-6"
+          },
+          {
+            "type": "checkbox",
+            "placeholder": {
+              "es": "False",
+              "en": "False",
+              "pr": "False"
+            },
+            "description": {
+              "es": "Si se selecciona, agrega una columna al final de la tabla",
+              "en": "If selected, adds a column to the end of the table",
+              "pr": "Se selecionado, adiciona uma coluna ao final da tabela"
+            },
+            "title": {
+              "es": "Insertar columna",
+              "en": "Insert column",
+              "pr": "Inserir coluna"
+            },
+            "id": "addColumn",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "140",
+              "en": "140",
+              "pr": "140"
+            },
+            "description": {
+              "es": "Ancho en puntos que tendrá cada columna de la tabla",
+              "en": "Width in points that each column of the table will have",
+              "pr": "Largura em pontos que cada coluna da tabela terá"
+            },
+            "title": {
+              "es": "Ancho de columna",
+              "en": "Column Width",
+              "pr": "Largura da coluna"
+            },
+            "help": {
+              "en": "Optional. If nothing is entered, it does not change the width of the column.",
+              "es": "Opcional. Si no se ingresa nada, no modifica el ancho de la columna.",
+              "pr": "Opcional. Se nada for inserido, isso não altera a largura da coluna."
+            },
+            "id": "columnWidth",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "25",
+              "en": "25",
+              "pr": "25"
+            },
+            "description": {
+              "es": "Alto en puntos que tendrá cada fila de la tabla",
+              "en": "Height in points that each row of the table will have",
+              "pr": "Altura em pontos que cada linha da tabela terá"
+            },
+            "title": {
+              "es": "Alto de fila",
+              "en": "Row height",
+              "pr": "Altura da linha"
+            },
+            "help": {
+              "en": "Optional. If nothing is entered, it does not change the height of the row.",
+              "es": "Opcional. Si no se ingresa nada, no modifica el alto de la fila.",
+              "pr": "Opcional. Se nada for inserido, isso não altera a altura da linha."
+            },
+            "id": "rowHeight",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "editTable",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Save document",
+        "description": "Extract text from file.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Guardar documento",
+        "description": "Guarda el documento Word abierto",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Salvar documento",
+        "description": "Salve o documento Word aberto",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "file_new",
+            "placeholder": {
+              "es": "archivo.docx",
+              "en": "file.docx",
+              "pr": "arquivo.docx"
+            },
+            "description": {
+              "es": "Guarda el archivo en la ruta especificada",
+              "en": "Save the file to the specified path",
+              "pr": "Salve o arquivo no caminho especificado"
+            },
+            "title": {
+              "es": "Guardar archivo",
+              "en": "Save file",
+              "pr": "Salvar arquivo"
+            },
+            "id": "path",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "save",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Write in Document",
+        "description": "Write in a Word document.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Escribir en documento",
+        "description": "Escribe en un documento Word.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Escrever no documento",
+        "description": "Escreva em um documento Word.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-md",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Lorem ipsum ",
+              "en": "Lorem ipsum ",
+              "pr": "Lorem ipsum "
+            },
+            "description": {
+              "es": "Texto que se escribirá en el documento",
+              "en": "Text to be written on the document",
+              "pr": "Texto a ser escrito no documento"
+            },
+            "title": {
+              "es": "Escriba texto",
+              "en": "Write text",
+              "pr": "Escrever texto"
+            },
+            "help": {
+              "en": "Separate each paragraph with \\n",
+              "es": "Separe cada párrafo con \\n",
+              "pr": "Separe cada parágrafo com \\n"
+            },
+            "id": "text",
+            "css": "col-md-12"
+          },
+          {
+            "type": "select",
+            "placeholder": {
+              "es": "Subtitle",
+              "en": "Subtitle",
+              "pr": "Subtitle"
+            },
+            "description": {
+              "es": "Selector del tipo de texto que tendrá el texto escrito.",
+              "en": "Text type selector that will have the written text.",
+              "pr": "Seletor de tipo de texto que terá o texto escrito."
+            },
+            "title": {
+              "es": "Tipo de texto",
+              "en": "Text type",
+              "pr": "Tipo de texto"
+            },
+            "options": [
+              {
+                "title": "Title",
+                "value": "title"
+              },
+              {
+                "title": "Subtitle",
+                "value": "subtitle"
+              },
+              {
+                "title": "Heading ",
+                "value": "heading"
+              },
+              {
+                "title": "Paragraph",
+                "value": "paragraph"
+              },
+              {
+                "title": "List Bullet",
+                "value": "bullet"
+              },
+              {
+                "title": "List Number",
+                "value": "number"
+              },
+              {
+                "title": "Caption",
+                "value": "caption"
+              },
+              {
+                "title": "Quote",
+                "value": "quote"
+              },
+              {
+                "title": "Intense Quote",
+                "value": "intense_quote"
+              },
+              {
+                "title": "Book title",
+                "value": "book"
+              }
+            ],
+            "id": "type",
+            "css": "col-md-4"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "1-9",
+              "en": "1-9",
+              "pr": "1-9"
+            },
+            "description": {
+              "es": "Nivel que tendrá el texto escrito.",
+              "en": "Level that the written text will have.",
+              "pr": "Nível que o texto escrito terá."
+            },
+            "title": {
+              "es": "Nivel",
+              "en": "Level",
+              "pr": "Nível"
+            },
+            "id": "level",
+            "css": "col-md-4"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "12",
+              "en": "12",
+              "pr": "12"
+            },
+            "description": {
+              "es": "Tamaño de fuente que tendrá el texto escrito.",
+              "en": "Font size that the written text will have.",
+              "pr": "Tamanho da fonte que o texto escrito terá."
+            },
+            "title": {
+              "es": "Tamaño de fuente",
+              "en": "Font size",
+              "pr": "Tamanho da fonte"
+            },
+            "id": "size",
+            "css": "col-md-4"
+          },
+          {
+            "type": "select",
+            "placeholder": {
+              "es": "Left",
+              "en": "Left",
+              "pr": "Left"
+            },
+            "description": {
+              "es": "Alineación que tendrá el texto escrito.",
+              "en": "Align that the written text will have.",
+              "pr": "Alinhamento que o texto escrito terá."
+            },
+            "title": {
+              "es": "Alineación",
+              "en": "Align",
+              "pr": "Alinhamento"
+            },
+            "options": [
+              {
+                "title": "Left",
+                "value": "0"
+              },
+              {
+                "title": "Center",
+                "value": "1"
+              },
+              {
+                "title": "Right",
+                "value": "2"
+              },
+              {
+                "title": "Justify",
+                "value": "3"
+              }
+            ],
+            "id": "align",
+            "css": "col-md-3"
+          },
+          {
+            "type": "checkbox",
+            "placeholder": {
+              "es": "True",
+              "en": "True",
+              "pr": "True"
+            },
+            "description": {
+              "es": "Seleccionar si el texto irá en negrita.",
+              "en": "Select whether the text will be bold.",
+              "pr": "Selecione se o texto ficará em negrito."
+            },
+            "title": {
+              "es": "Negrita",
+              "en": "Bold",
+              "pr": "Negrito"
+            },
+            "id": "bold",
+            "css": "col-md-3"
+          },
+          {
+            "type": "checkbox",
+            "placeholder": {
+              "es": "True",
+              "en": "True",
+              "pr": "True"
+            },
+            "description": {
+              "es": "Seleccionar si el texto irá en cursiva.",
+              "en": "Select whether the text will be italic.",
+              "pr": "Selecione se o texto ficará em itálico."
+            },
+            "title": {
+              "es": "Cursiva",
+              "en": "Italic",
+              "pr": "Itálico"
+            },
+            "id": "italic",
+            "css": "col-md-3"
+          },
+          {
+            "type": "checkbox",
+            "placeholder": {
+              "es": "False",
+              "en": "False",
+              "pr": "False"
+            },
+            "description": {
+              "es": "Seleccionar si el texto irá subrayado.",
+              "en": "Select whether the text will be underlined.",
+              "pr": "Selecione se o texto será sublinhado."
+            },
+            "title": {
+              "es": "Subrayar",
+              "en": "Underline",
+              "pr": "Sublinhar"
+            },
+            "id": "underline",
+            "css": "col-md-3"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "write",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Close Document",
+        "description": "Close the document that is running",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Cerrar documento",
+        "description": "Cierra el documento que se está ejecutando",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Fechar documento",
+        "description": "Feche o documento que está sendo executado",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "close",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Add Page",
+        "description": "Add a new page to the document",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Insertar página",
+        "description": "Inserta una nueva página al documento",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Inserir página",
+        "description": "Inserir uma nova página no documento",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "new_page",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Add Picture",
+        "description": "Add an image to the document.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Agregar imagen",
+        "description": "Agrega una imagen al documento",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Adicionar imagem",
+        "description": "Adicionar uma imagem ao documento",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "file_select",
+            "placeholder": {
+              "es": "imagen.jpg",
+              "en": "image.jpg",
+              "pr": "imagem.jpg"
+            },
+            "description": {
+              "es": "Ruta de imagen que sera agregada debajo del ultimo parrafo",
+              "en": "Image path that will be added below the last paragraph",
+              "pr": "Direção da imagem que será adicionado abaixo do último parágrafo"
+            },
+            "title": {
+              "es": "Ruta de la imagen",
+              "en": "Image path",
+              "pr": "Rota da imagem"
+            },
+            "help": {
+              "es": "La imagen se agregará en tamaño real",
+              "en": "The real size image will be added",
+              "pr": "A imagem será adicionada em tamanho real"
+            },
+            "id": "img_path",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAADeCAMAAAD4tEcNAAAAhFBMVEUqVpn///8lU5gAQ5ARSpS/ydtQb6YYTZULSJMcT5YWTJQmVJggUZfc4evT2eZzirWsuNFge6ySosOisMv2+PrK0uFHaaNYdanN1ONthbK8xdmbqsgyW5zl6fDv8fYAQZCGmb6Jm787YZ9+krpdeauyvdRBZaEANot4jrcALogAOowAM4oTwCZQAAAKIElEQVR4nO2daWOqOhCGKaAsAXfrVpdqbb33/v//d4FAzUxC2Qlg3m/ngMjTJG8mwwS1t9bl7w+7D6KxMhr9Qq3RqyMdR4fpx9k2HR0iDoPxNJld3g3btDxENwxGf7+YO4bterqIru+MQdfcBV3T5brmIBhP29ntj67Zc8bV5P65MQ3zz67ZX0Z/tNgRQ+Cag2A8rpePazgneEXh+sAYDrxxgYHXL8Zw4H0VHni9YQxmvLIDrweMYTB2jWa8muA6xVh0xusXY7kZrzeMYajpBaGmQ5poPNmM+UPNPjKegvn8PZrPW6FrmTEYeJeNbTRkK9IZkzWe0zpdK4zrKP3Q1sBLkbler7dUk8kWas1olKrocPTxiR/oeDz6x1XC6EromgLIX9lmJdmMzu8zyjhk6abuD51R08h5PXjGAPI0eEbN+xo+o3Y+yr6DWG41NxWLzhfWTDJbLDd94iuv9XcE6V0kw8VqJs4ZR4tBfSqbjqpJRu8hm45KMSrGLEb9FRhfwHNegnEnm45KMSpGxfgajOQVGOey6agUYzVGXTG2JmdZWYdVGuOXbLpYjlVV/3aesboMxTgIpTNuZN9abUplJIqxT1KMXZBeWeeuM+rzyhqnMo5l01E1uu5QjK1JMSpGxagY25RiVIyZjO+y6agU4zAYzUllbdMYtcYYiec5jmO5blg2axhGxt4QUFtbSv+lrTsaYyTa9HFZHJaz/WjrH0+rt11zG2CoUtfIpRkJ0fWwpWhD8cXa+g59n13h9nOpdkZbv47n09vngjYUX2/vLODX+d1jDFpJjweUafKbU40TvBjfEd09POPu1kvEqygjub5vdmEzBQPqPtphSGKhix0cfAXbh2c8yu7iza2ijDY4n2sDDw+2tYmvcEZn1I7EqSijuWZPnWACa4kudjLQGeSacUL9KsoIIbgbNLn51kWm403h8RHX0LWrKCO6RRMR8KnMOTId3NILbsDiO6ysfwp7DjyX/HU0FDYd2Nl/vy0dkbtiHfp77oCWcYEE3o27Gu6LxhEeP/+NKIURWv8MGqt7566Ghyy650lWBCCD0QQYW9hKeO4LBYesPoZHZ1YHGZ1P9lzUSqIbgqbjXeBRLoroAiOBDQG6GtkILgeN053Bo5nbY2UwajY4ecPeIw63I0HTsSfg4DEzApDDCIwRGKs5ElwOYqCYfZ8ZAUhhhCDAWPGig4o1HRyzf2ZFAHIYnQN7MmusxBNejzUdfQ6PvWfmAKQwwttkjZVbdFCxpoNHbFYEIIkRdTcm5uYWHVSs6aAFcmYEIIkRjbrNs7chz0zENjUKEpZZEYCs/CqMqhnXwKvfRIzpoFMyIwCt0XVHOiPsks9UAPlOYXyaDvmAR/Dishml1+ekMkJreQ4phwnTwBz6XF6h1Wd2BFCLSjBqhD37OdpYPwH2+TQdC8w7b/vGU3KRyjDCz1hJf2MDoA3rS88/AwqEsiOAWpTOmP78ESZtvpLRxgayBrBY4Z/hLU8EUIvKMELTSRqDjQ1OP2B58Ws6aCLIjgBqURlG6Bz3eLSxMd72DJIeieno7+CLckQAtajMeNQ00Z2y0+bSBPNIkkhG6Z4cEUAtKtOO8EMrg//Phwcm+8R0LLhAzhMBBGO4ueePfzFC06FLeTC9fxAYtHmizz2t6E9Ev7o4xByM0HS+4r32TNOeUWorbjEY6eaLAGTVrkDTocbKJmqCIeqA3BQdeQSmSfJFANLqc0CkQyNWtnPOXGShdCWNUlr5IgBpjMB0qLGy9xI+UgSmQ30Jpi1zRgDSGIF5RK4JUpLhK/+h6UQ/AoCy6PkiAGmM0HTC9SGbxIhaDZpO9LAYrqFzRgDSGOHyKsyxstF2NPqg6UTpO2irOSMAeTWBOvuBMMfK3n9099B0wkZDiaB8EYBERtAkQSMRh7t7mNY4hzvxwP/kzAHIYwQ5nSAcBZ2XviUSms43QbaaNwcgjxEs6I82MKE4OoVPb24ecqG8OQB5jNB0DGCZcWoDLjKCQAHa6iVnDkAeI0z7fxO21iHOi8McnG+jJc41Z0pOH1fWteR+K2A6U4ddLiZZZVjjYWjgz7LKnQNoct/c34zAdA42OxkmZgJXUmMHPCfZNl+W86uy+x/B06v9mbGT3zpGGAwtbJCP5OvomlOpPICGTMf/YeaJJL+DfAn8HZhsXgsq245g0l/9w/zj5olOeTv+AFttJ0NOVXqvLjAddtHxNEwYn/6w39R8YS57q2UZgekw0z1jmDArDiK5WTtPAahKMwLTYS7CGCZ8aAyerk4bL8xlVJoRP9lPxCyZdFG5DlUBRMutqp+yjMQU3z27ZEqNwwoU5lqzyhI8ws+5d15cqAKWTKLyuUgFHso1Gq9mMQoLjuCSyeTLIKnyBuSyGWGdTiJQOYYLAH+VNyCXzSg2HZA0TasQyB+QS2bktnIwH06UUunBb4joKKPYdGALpVTsZNbJd4YRV7+HQjFaSuVVVp18dxhFpoNiNLyZI1aRZ+RyGUUlgHjzFOFPKbg+lssoKuXk7lA0Zgutj+UyCgD4vUmCMcuWEXaekQfgJgVhoFCoZEUyI++aXC8UBQrFSlacRWV9VnifFe+aeAOZcHVyKFay4lRW6jstczDiSs23N36LNd5e9VZwONahSu9ewx8+8r1QsDppM10lvM1CjDhUEywL+W0tbVWQPVXtHXqmdR3vHp+H5X20nvinC5/C4PMdBYdjDar4nkBCiB6+74D+nJsoS2Pjy7c+HJt/F6L3uF0Ws9GExgur7a3FhwCxmn/fo+d5jhu+fcT2iG0IXpvQuNp8p2W5TQBeZXX+nZbetLLmXWeUHK+2IsWoGBWjYmxT6l2IilExKsY29QqMZg0/o9t1Ri3zt44zlV7X0RXG6ipbE9gnvTZjR96jW4Pqf/9q96QYh6HuM5LK6jwj8Zp7/qh9S4aL1eh7kF6AkbwC41U2HZViVIxZjNqHZLhYilExZjJ2RIpRMWYxvsTc8QKxXFfWVoqxGmNXco/qOXI1Rn0um46qSUbvIZuOqklGZyGbjsqt4dkcp/V3VJ/o3mXTxXKrP5zjRUsw7YlkthZktPDDU5LlPYbPePYHz2jv2viRNHkiju2ELxnRLIf/ZcP2VaObuuFPUobl++fvC93zp+0Xc8ew3cyfvGkWcV1JzzlxP9oHGq23E/+5bzN6s/NqMruMbcO0PEmkzcQ5gJHqtF4+vg3bdNonbY2R6jg67D7OQedtc5i2zEjlB8PUi4ZpOz9MIYMx0mpy/9wEw9T1mk7iyWOkOm1nt/dgmDZpSLIZqY7r5fR6Dg1puIxU/v6w00LSmg2pS4yRVv59MbdqjRs6x0gVxg2buuKGjjJSBXFDZEgV44ZOM1JVjht6wEjlx+F9idm0N4yRTmF4bxQdpv1ipIpn09ydt4+MVPk7b38ZIwVzzG1sZARIPWekCp1XSw8bBsEYKVnHWFyTDoeRKgobWmX8H4TuC0vlt0ywAAAAAElFTkSuQmCC",
+      "module": "add_pic",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Convert to PDF",
+        "description": "Convert Word document to PDF.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Convertir a PDF",
+        "description": "Convierte documento Word a PDF.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Converter para PDF",
+        "description": "Converter documento Word para PDF.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "file_new",
+            "placeholder": {
+              "es": "archivo.pdf",
+              "en": "file.pdf",
+              "pr": "arquivo.pdf"
+            },
+            "description": {
+              "es": "Ruta del archivo donde se creará el PDF",
+              "en": "Path of the file where the PDF will be created",
+              "pr": "Caminho do arquivo onde o PDF será criado"
+            },
+            "title": {
+              "es": "Guardar archivo",
+              "en": "Save file",
+              "pr": "Salvar arquivo"
+            },
+            "id": "to",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "to_pdf",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": false,
+      "docker": false
+    },
+    {
+      "en": {
+        "title": "Locate Text in Paragraph",
+        "description": "Locate in which paragraph there is an indicated text.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Buscar Texto en párrafo",
+        "description": "Busca el párrafo donde se encuentra el texto indicado.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Localizar texto no parágrafo",
+        "description": "Localize o parágrafo onde se encontra o texto indicado.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Hola mundo",
+              "en": "Hello Word",
+              "pr": "Olá mundo"
+            },
+            "description": {
+              "es": "Texto que sera usado para localizar el parrafo",
+              "en": "Text that will be used to locate the paragraph",
+              "pr": "Texto que será usado para localizar o parágrafo"
+            },
+            "title": {
+              "es": "Texto a Buscar",
+              "en": "Text to Search",
+              "pr": "Texto para pesquisar"
+            },
+            "id": "text_search",
+            "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Variable",
+              "en": "Variable",
+              "pr": "Variável"
+            },
+            "description": {
+              "es": "Almacena el resultado en una variable",
+              "en": "Store the result in a variable",
+              "pr": "Armazenar o resultado em uma variável"
+            },
+            "title": {
+              "es": "Nombre de la variable",
+              "en": "variable name",
+              "pr": "Nome variável"
+            },
+            "help": {
+              "en": "variable without the {}",
+              "es": "variable sin los {}",
+              "pr": "Variável sem o {}"
+            },
+            "id": "variable",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAADeCAMAAAD4tEcNAAAAhFBMVEUqVpn///8lU5gAQ5ARSpS/ydtQb6YYTZULSJMcT5YWTJQmVJggUZfc4evT2eZzirWsuNFge6ySosOisMv2+PrK0uFHaaNYdanN1ONthbK8xdmbqsgyW5zl6fDv8fYAQZCGmb6Jm787YZ9+krpdeauyvdRBZaEANot4jrcALogAOowAM4oTwCZQAAAKIElEQVR4nO2daWOqOhCGKaAsAXfrVpdqbb33/v//d4FAzUxC2Qlg3m/ngMjTJG8mwwS1t9bl7w+7D6KxMhr9Qq3RqyMdR4fpx9k2HR0iDoPxNJld3g3btDxENwxGf7+YO4bterqIru+MQdfcBV3T5brmIBhP29ntj67Zc8bV5P65MQ3zz67ZX0Z/tNgRQ+Cag2A8rpePazgneEXh+sAYDrxxgYHXL8Zw4H0VHni9YQxmvLIDrweMYTB2jWa8muA6xVh0xusXY7kZrzeMYajpBaGmQ5poPNmM+UPNPjKegvn8PZrPW6FrmTEYeJeNbTRkK9IZkzWe0zpdK4zrKP3Q1sBLkbler7dUk8kWas1olKrocPTxiR/oeDz6x1XC6EromgLIX9lmJdmMzu8zyjhk6abuD51R08h5PXjGAPI0eEbN+xo+o3Y+yr6DWG41NxWLzhfWTDJbLDd94iuv9XcE6V0kw8VqJs4ZR4tBfSqbjqpJRu8hm45KMSrGLEb9FRhfwHNegnEnm45KMSpGxfgajOQVGOey6agUYzVGXTG2JmdZWYdVGuOXbLpYjlVV/3aesboMxTgIpTNuZN9abUplJIqxT1KMXZBeWeeuM+rzyhqnMo5l01E1uu5QjK1JMSpGxagY25RiVIyZjO+y6agU4zAYzUllbdMYtcYYiec5jmO5blg2axhGxt4QUFtbSv+lrTsaYyTa9HFZHJaz/WjrH0+rt11zG2CoUtfIpRkJ0fWwpWhD8cXa+g59n13h9nOpdkZbv47n09vngjYUX2/vLODX+d1jDFpJjweUafKbU40TvBjfEd09POPu1kvEqygjub5vdmEzBQPqPtphSGKhix0cfAXbh2c8yu7iza2ijDY4n2sDDw+2tYmvcEZn1I7EqSijuWZPnWACa4kudjLQGeSacUL9KsoIIbgbNLn51kWm403h8RHX0LWrKCO6RRMR8KnMOTId3NILbsDiO6ysfwp7DjyX/HU0FDYd2Nl/vy0dkbtiHfp77oCWcYEE3o27Gu6LxhEeP/+NKIURWv8MGqt7566Ghyy650lWBCCD0QQYW9hKeO4LBYesPoZHZ1YHGZ1P9lzUSqIbgqbjXeBRLoroAiOBDQG6GtkILgeN053Bo5nbY2UwajY4ecPeIw63I0HTsSfg4DEzApDDCIwRGKs5ElwOYqCYfZ8ZAUhhhCDAWPGig4o1HRyzf2ZFAHIYnQN7MmusxBNejzUdfQ6PvWfmAKQwwttkjZVbdFCxpoNHbFYEIIkRdTcm5uYWHVSs6aAFcmYEIIkRjbrNs7chz0zENjUKEpZZEYCs/CqMqhnXwKvfRIzpoFMyIwCt0XVHOiPsks9UAPlOYXyaDvmAR/Dishml1+ekMkJreQ4phwnTwBz6XF6h1Wd2BFCLSjBqhD37OdpYPwH2+TQdC8w7b/vGU3KRyjDCz1hJf2MDoA3rS88/AwqEsiOAWpTOmP78ESZtvpLRxgayBrBY4Z/hLU8EUIvKMELTSRqDjQ1OP2B58Ws6aCLIjgBqURlG6Bz3eLSxMd72DJIeieno7+CLckQAtajMeNQ00Z2y0+bSBPNIkkhG6Z4cEUAtKtOO8EMrg//Phwcm+8R0LLhAzhMBBGO4ueePfzFC06FLeTC9fxAYtHmizz2t6E9Ev7o4xByM0HS+4r32TNOeUWorbjEY6eaLAGTVrkDTocbKJmqCIeqA3BQdeQSmSfJFANLqc0CkQyNWtnPOXGShdCWNUlr5IgBpjMB0qLGy9xI+UgSmQ30Jpi1zRgDSGIF5RK4JUpLhK/+h6UQ/AoCy6PkiAGmM0HTC9SGbxIhaDZpO9LAYrqFzRgDSGOHyKsyxstF2NPqg6UTpO2irOSMAeTWBOvuBMMfK3n9099B0wkZDiaB8EYBERtAkQSMRh7t7mNY4hzvxwP/kzAHIYwQ5nSAcBZ2XviUSms43QbaaNwcgjxEs6I82MKE4OoVPb24ecqG8OQB5jNB0DGCZcWoDLjKCQAHa6iVnDkAeI0z7fxO21iHOi8McnG+jJc41Z0pOH1fWteR+K2A6U4ddLiZZZVjjYWjgz7LKnQNoct/c34zAdA42OxkmZgJXUmMHPCfZNl+W86uy+x/B06v9mbGT3zpGGAwtbJCP5OvomlOpPICGTMf/YeaJJL+DfAn8HZhsXgsq245g0l/9w/zj5olOeTv+AFttJ0NOVXqvLjAddtHxNEwYn/6w39R8YS57q2UZgekw0z1jmDArDiK5WTtPAahKMwLTYS7CGCZ8aAyerk4bL8xlVJoRP9lPxCyZdFG5DlUBRMutqp+yjMQU3z27ZEqNwwoU5lqzyhI8ws+5d15cqAKWTKLyuUgFHso1Gq9mMQoLjuCSyeTLIKnyBuSyGWGdTiJQOYYLAH+VNyCXzSg2HZA0TasQyB+QS2bktnIwH06UUunBb4joKKPYdGALpVTsZNbJd4YRV7+HQjFaSuVVVp18dxhFpoNiNLyZI1aRZ+RyGUUlgHjzFOFPKbg+lssoKuXk7lA0Zgutj+UyCgD4vUmCMcuWEXaekQfgJgVhoFCoZEUyI++aXC8UBQrFSlacRWV9VnifFe+aeAOZcHVyKFay4lRW6jstczDiSs23N36LNd5e9VZwONahSu9ewx8+8r1QsDppM10lvM1CjDhUEywL+W0tbVWQPVXtHXqmdR3vHp+H5X20nvinC5/C4PMdBYdjDar4nkBCiB6+74D+nJsoS2Pjy7c+HJt/F6L3uF0Ws9GExgur7a3FhwCxmn/fo+d5jhu+fcT2iG0IXpvQuNp8p2W5TQBeZXX+nZbetLLmXWeUHK+2IsWoGBWjYmxT6l2IilExKsY29QqMZg0/o9t1Ri3zt44zlV7X0RXG6ipbE9gnvTZjR96jW4Pqf/9q96QYh6HuM5LK6jwj8Zp7/qh9S4aL1eh7kF6AkbwC41U2HZViVIxZjNqHZLhYilExZjJ2RIpRMWYxvsTc8QKxXFfWVoqxGmNXco/qOXI1Rn0um46qSUbvIZuOqklGZyGbjsqt4dkcp/V3VJ/o3mXTxXKrP5zjRUsw7YlkthZktPDDU5LlPYbPePYHz2jv2viRNHkiju2ELxnRLIf/ZcP2VaObuuFPUobl++fvC93zp+0Xc8ew3cyfvGkWcV1JzzlxP9oHGq23E/+5bzN6s/NqMruMbcO0PEmkzcQ5gJHqtF4+vg3bdNonbY2R6jg67D7OQedtc5i2zEjlB8PUi4ZpOz9MIYMx0mpy/9wEw9T1mk7iyWOkOm1nt/dgmDZpSLIZqY7r5fR6Dg1puIxU/v6w00LSmg2pS4yRVv59MbdqjRs6x0gVxg2buuKGjjJSBXFDZEgV44ZOM1JVjht6wEjlx+F9idm0N4yRTmF4bxQdpv1ipIpn09ydt4+MVPk7b38ZIwVzzG1sZARIPWekCp1XSw8bBsEYKVnHWFyTDoeRKgobWmX8H4TuC0vlt0ywAAAAAElFTkSuQmCC",
+      "module": "search_text",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": false,
+      "docker": false
+    },
+    {
+      "en": {
+        "title": "Count Paragraphs",
+        "description": "Count the number of paragraphs in the document. Includes table fields.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Contar párrafos",
+        "description": "Cuenta la cantidad de párrafos del documento. Incluye los campos de tablas.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Contar parágrafos",
+        "description": "Conte o número de parágrafos no documento.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Variable",
+              "en": "Variable",
+              "pr": "Variável"
+            },
+            "description": {
+              "es": "Almacena el número de párrafos en una variable",
+              "en": "Store the number of paragraphs in a variable",
+              "pr": "Armazenar o número de parágrafos em uma variável"
+            },
+            "title": {
+              "es": "Nombre de la variable",
+              "en": "variable name",
+              "pr": "Nome variável"
+            },
+            "help": {
+              "en": "variable without the {}",
+              "es": "variable sin los {}",
+              "pr": "variável sem o {}"
+            },
+            "id": "variable",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "count_paragraphs",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": false,
+      "docker": false
+    },
+    {
+      "en": {
+        "title": "Replace text in paragraph",
+        "description": "Replace the text of a paragraph.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Remplazar texto en párrafo",
+        "description": "Remplaza el texto de un párrafo.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Substituir texto no parágrafo",
+        "description": "Substituir o texto de um parágrafo.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Hola mundo",
+              "en": "Hello Word",
+              "pr": "Olá mundo"
+            },
+            "description": {
+              "es": "Texto que será buscado en los párrafos listados.",
+              "en": "Text to be searched for in the listed paragraphs.",
+              "pr": "Texto a ser pesquisado nos parágrafos listados."
+            },
+            "title": {
+              "es": "Texto a Buscar",
+              "en": "Text to Search",
+              "pr": "Texto para pesquisar"
+            },
+            "id": "text_search",
+            "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Hola mundo",
+              "en": "Hello Word",
+              "pr": "Olá mundo"
+            },
+            "description": {
+              "es": "Texto que sera reemplazado",
+              "en": "Text to be replaced",
+              "pr": "Texto a ser substituído"
+            },
+            "title": {
+              "es": "Texto a Remplazar",
+              "en": "Text to replace",
+              "pr": "Texto a substituir"
+            },
+            "id": "text_replace",
+            "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Separados por comas ',' ejemplo: 1,2",
+              "en": "Comma separated ',' example: 1,2",
+              "pr": "Exemplo ',' separado por vírgula: 1,2"
+            },
+            "description": {
+              "es": "Parrafos donde buscara el texto especificado",
+              "en": "Paragraphs where the specified text will be searched",
+              "pr": "Parágrafos onde o texto especificado será pesquisado"
+            },
+            "title": {
+              "es": "Lista de párrafo",
+              "en": "Paragraph numbers",
+              "pr": "Lista de parágrafos"
+            },
+            "help": {
+              "es": "Separados por comas ',' ejemplo: 1,2. En caso que no se indique buscara y remplazara en todos los párrafos",
+              "en": "Comma separated ',' example: 1,2. In case it is not indicated, it will search and replace all the paragraphs",
+              "pr": "Separados por vírgulas ',' exemplo: 1,2. Se não indicado, pesquisa e substitua em todos os parágrafos"
+            },
+            "id": "numParagraphs",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "search_replace_text",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": false,
+      "docker": false
+    },
+    {
+      "en": {
+        "title": "Delete paragraph",
+        "description": "Delete paragraph from the document.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Borrar párrafo",
+        "description": "Borra un párrafo del documento.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Excluir parágrafo",
+        "description": "Excluir um parágrafo do documento.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "1",
+              "en": "1",
+              "pr": "1"
+            },
+            "description": {
+              "es": "Numero de parrafo que será eliminado",
+              "en": "Paragraph number to be deleted",
+              "pr": "Número do parágrafo a ser excluído"
+            },
+            "title": {
+              "es": "Número de párrafo",
+              "en": "Paragraph number",
+              "pr": "Número do parágrafo"
+            },
+            "help": {
+              "en": "If a number of paragraphs greater than the content of the file is chosen, the last paragraph will be deleted",
+              "es": "Si se escoge un numero de parrafos mayor al contenido del archivo, se borrará el último párrafo",
+              "pr": "Se você escolher um número de parágrafos maior que o conteúdo do arquivo, o último parágrafo será excluído"
+            },
+            "id": "numParagraph",
+            "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Variable",
+              "en": "Variable",
+              "pr": "Variável"
+            },
+            "description": {
+              "es": "Variable donde se guardará el texto que incluía el párrafo eliminado",
+              "en": "Variable where the text that included the deleted paragraph will be saved",
+              "pr": "Variável onde será salvo o texto que incluiu o parágrafo excluído"
+            },
+            "title": {
+              "es": "Nombre de la variable donde se guardará el párrafo eliminado",
+              "en": "Variable name where the deleted paragraph will be saved",
+              "pr": "Nome da variável onde o parágrafo excluído será salvo"
+            },
+            "help": {
+              "en": "variable without the {}",
+              "es": "variable sin los {}",
+              "pr": "variável sem o {}"
+            },
+            "id": "variable",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "deleteParagraph",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": false,
+      "docker": false
+    },
+    {
+      "en": {
+        "title": "Add text at the end of bookmark",
+        "description": "Add text at the end of bookmark.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Agregar texto a un bookmark",
+        "description": "Agregar texto a un bookmark.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Adicionar texto a um bookmark",
+        "description": "Adicionar texto a um bookmark.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Hola mundo",
+              "en": "Hello Word",
+              "pr": "Olá mundo"
+            },
+            "description": {
+              "es": "Texto que será agregado al marcador elegido.",
+              "en": "Text that will be added to the chosen bookmark.",
+              "pr": "Texto que será adicionado ao marcador escolhido."
+            },
+            "title": {
+              "es": "Texto a agregar",
+              "en": "Text to add",
+              "pr": "Texto a adicionar"
+            },
+            "id": "text",
+            "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Marcador 1",
+              "en": "Bookmark 1",
+              "pr": "Marcador 1"
+            },
+            "description": {
+              "es": "Nombre del marcador donde se agregará el texto.",
+              "en": "Name of the bookmark where the text will be added.",
+              "pr": "Nome do marcador onde o texto será adicionado."
+            },
+            "title": {
+              "es": "Nombre del Marcador",
+              "en": "Bookmark Name",
+              "pr": "Nome do marcador"
+            },
+            "id": "bookmark",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAADeCAMAAAD4tEcNAAAAhFBMVEUqVpn///8lU5gAQ5ARSpS/ydtQb6YYTZULSJMcT5YWTJQmVJggUZfc4evT2eZzirWsuNFge6ySosOisMv2+PrK0uFHaaNYdanN1ONthbK8xdmbqsgyW5zl6fDv8fYAQZCGmb6Jm787YZ9+krpdeauyvdRBZaEANot4jrcALogAOowAM4oTwCZQAAAKIElEQVR4nO2daWOqOhCGKaAsAXfrVpdqbb33/v//d4FAzUxC2Qlg3m/ngMjTJG8mwwS1t9bl7w+7D6KxMhr9Qq3RqyMdR4fpx9k2HR0iDoPxNJld3g3btDxENwxGf7+YO4bterqIru+MQdfcBV3T5brmIBhP29ntj67Zc8bV5P65MQ3zz67ZX0Z/tNgRQ+Cag2A8rpePazgneEXh+sAYDrxxgYHXL8Zw4H0VHni9YQxmvLIDrweMYTB2jWa8muA6xVh0xusXY7kZrzeMYajpBaGmQ5poPNmM+UPNPjKegvn8PZrPW6FrmTEYeJeNbTRkK9IZkzWe0zpdK4zrKP3Q1sBLkbler7dUk8kWas1olKrocPTxiR/oeDz6x1XC6EromgLIX9lmJdmMzu8zyjhk6abuD51R08h5PXjGAPI0eEbN+xo+o3Y+yr6DWG41NxWLzhfWTDJbLDd94iuv9XcE6V0kw8VqJs4ZR4tBfSqbjqpJRu8hm45KMSrGLEb9FRhfwHNegnEnm45KMSpGxfgajOQVGOey6agUYzVGXTG2JmdZWYdVGuOXbLpYjlVV/3aesboMxTgIpTNuZN9abUplJIqxT1KMXZBeWeeuM+rzyhqnMo5l01E1uu5QjK1JMSpGxagY25RiVIyZjO+y6agU4zAYzUllbdMYtcYYiec5jmO5blg2axhGxt4QUFtbSv+lrTsaYyTa9HFZHJaz/WjrH0+rt11zG2CoUtfIpRkJ0fWwpWhD8cXa+g59n13h9nOpdkZbv47n09vngjYUX2/vLODX+d1jDFpJjweUafKbU40TvBjfEd09POPu1kvEqygjub5vdmEzBQPqPtphSGKhix0cfAXbh2c8yu7iza2ijDY4n2sDDw+2tYmvcEZn1I7EqSijuWZPnWACa4kudjLQGeSacUL9KsoIIbgbNLn51kWm403h8RHX0LWrKCO6RRMR8KnMOTId3NILbsDiO6ysfwp7DjyX/HU0FDYd2Nl/vy0dkbtiHfp77oCWcYEE3o27Gu6LxhEeP/+NKIURWv8MGqt7566Ghyy650lWBCCD0QQYW9hKeO4LBYesPoZHZ1YHGZ1P9lzUSqIbgqbjXeBRLoroAiOBDQG6GtkILgeN053Bo5nbY2UwajY4ecPeIw63I0HTsSfg4DEzApDDCIwRGKs5ElwOYqCYfZ8ZAUhhhCDAWPGig4o1HRyzf2ZFAHIYnQN7MmusxBNejzUdfQ6PvWfmAKQwwttkjZVbdFCxpoNHbFYEIIkRdTcm5uYWHVSs6aAFcmYEIIkRjbrNs7chz0zENjUKEpZZEYCs/CqMqhnXwKvfRIzpoFMyIwCt0XVHOiPsks9UAPlOYXyaDvmAR/Dishml1+ekMkJreQ4phwnTwBz6XF6h1Wd2BFCLSjBqhD37OdpYPwH2+TQdC8w7b/vGU3KRyjDCz1hJf2MDoA3rS88/AwqEsiOAWpTOmP78ESZtvpLRxgayBrBY4Z/hLU8EUIvKMELTSRqDjQ1OP2B58Ws6aCLIjgBqURlG6Bz3eLSxMd72DJIeieno7+CLckQAtajMeNQ00Z2y0+bSBPNIkkhG6Z4cEUAtKtOO8EMrg//Phwcm+8R0LLhAzhMBBGO4ueePfzFC06FLeTC9fxAYtHmizz2t6E9Ev7o4xByM0HS+4r32TNOeUWorbjEY6eaLAGTVrkDTocbKJmqCIeqA3BQdeQSmSfJFANLqc0CkQyNWtnPOXGShdCWNUlr5IgBpjMB0qLGy9xI+UgSmQ30Jpi1zRgDSGIF5RK4JUpLhK/+h6UQ/AoCy6PkiAGmM0HTC9SGbxIhaDZpO9LAYrqFzRgDSGOHyKsyxstF2NPqg6UTpO2irOSMAeTWBOvuBMMfK3n9099B0wkZDiaB8EYBERtAkQSMRh7t7mNY4hzvxwP/kzAHIYwQ5nSAcBZ2XviUSms43QbaaNwcgjxEs6I82MKE4OoVPb24ecqG8OQB5jNB0DGCZcWoDLjKCQAHa6iVnDkAeI0z7fxO21iHOi8McnG+jJc41Z0pOH1fWteR+K2A6U4ddLiZZZVjjYWjgz7LKnQNoct/c34zAdA42OxkmZgJXUmMHPCfZNl+W86uy+x/B06v9mbGT3zpGGAwtbJCP5OvomlOpPICGTMf/YeaJJL+DfAn8HZhsXgsq245g0l/9w/zj5olOeTv+AFttJ0NOVXqvLjAddtHxNEwYn/6w39R8YS57q2UZgekw0z1jmDArDiK5WTtPAahKMwLTYS7CGCZ8aAyerk4bL8xlVJoRP9lPxCyZdFG5DlUBRMutqp+yjMQU3z27ZEqNwwoU5lqzyhI8ws+5d15cqAKWTKLyuUgFHso1Gq9mMQoLjuCSyeTLIKnyBuSyGWGdTiJQOYYLAH+VNyCXzSg2HZA0TasQyB+QS2bktnIwH06UUunBb4joKKPYdGALpVTsZNbJd4YRV7+HQjFaSuVVVp18dxhFpoNiNLyZI1aRZ+RyGUUlgHjzFOFPKbg+lssoKuXk7lA0Zgutj+UyCgD4vUmCMcuWEXaekQfgJgVhoFCoZEUyI++aXC8UBQrFSlacRWV9VnifFe+aeAOZcHVyKFay4lRW6jstczDiSs23N36LNd5e9VZwONahSu9ewx8+8r1QsDppM10lvM1CjDhUEywL+W0tbVWQPVXtHXqmdR3vHp+H5X20nvinC5/C4PMdBYdjDar4nkBCiB6+74D+nJsoS2Pjy7c+HJt/F6L3uF0Ws9GExgur7a3FhwCxmn/fo+d5jhu+fcT2iG0IXpvQuNp8p2W5TQBeZXX+nZbetLLmXWeUHK+2IsWoGBWjYmxT6l2IilExKsY29QqMZg0/o9t1Ri3zt44zlV7X0RXG6ipbE9gnvTZjR96jW4Pqf/9q96QYh6HuM5LK6jwj8Zp7/qh9S4aL1eh7kF6AkbwC41U2HZViVIxZjNqHZLhYilExZjJ2RIpRMWYxvsTc8QKxXFfWVoqxGmNXco/qOXI1Rn0um46qSUbvIZuOqklGZyGbjsqt4dkcp/V3VJ/o3mXTxXKrP5zjRUsw7YlkthZktPDDU5LlPYbPePYHz2jv2viRNHkiju2ELxnRLIf/ZcP2VaObuuFPUobl++fvC93zp+0Xc8ew3cyfvGkWcV1JzzlxP9oHGq23E/+5bzN6s/NqMruMbcO0PEmkzcQ5gJHqtF4+vg3bdNonbY2R6jg67D7OQedtc5i2zEjlB8PUi4ZpOz9MIYMx0mpy/9wEw9T1mk7iyWOkOm1nt/dgmDZpSLIZqY7r5fR6Dg1puIxU/v6w00LSmg2pS4yRVv59MbdqjRs6x0gVxg2buuKGjjJSBXFDZEgV44ZOM1JVjht6wEjlx+F9idm0N4yRTmF4bxQdpv1ipIpn09ydt4+MVPk7b38ZIwVzzG1sZARIPWekCp1XSw8bBsEYKVnHWFyTDoeRKgobWmX8H4TuC0vlt0ywAAAAAElFTkSuQmCC",
+      "module": "addTextBookmark",
+      "module_name": "MicrosoftWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": false,
+      "docker": false
+    }
+  ]
+}
