@@ -367,15 +367,6 @@ if module == "countCharacters":
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-
 if module == "readTable":
     try:
 

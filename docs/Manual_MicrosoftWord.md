@@ -1,6 +1,6 @@
 # Microsoft Word
   
-Modulo para trabajar con Microsoft Word  
+Module to work with Microsoft Word  
 
 *Read this in other languages: [English](Manual_MicrosoftWord.md), [Portugues](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md).*
   
@@ -36,6 +36,21 @@ Extract text from a Word document
 |Result|Store the result in a variable|Variable|
 |Session|File session|Word1|
 |Add Details|Choose if the stored data will be saved with details like style, alignment, etc.|True|
+
+### Write in Document
+  
+Write in a Word document.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Session|File session|Word1|
+|Write text|Text to be written on the document|Lorem ipsum |
+|Text type|Text type selector that will have the written text.|Subtitle|
+|Level|Level that the written text will have.|1-9|
+|Font size|Font size that the written text will have.|12|
+|Align|Align that the written text will have.|Left|
+|Bold|Select whether the text will be bold.|True|
+|Italic|Select whether the text will be italic.|True|
+|Underline|Select whether the text will be underlined.|False|
 
 ### Copy and paste text
   
@@ -106,36 +121,6 @@ Edit table from a Word document.
 |Column Width|Width in points that each column of the table will have|140|
 |Row height|Height in points that each row of the table will have|25|
 
-### Save document
-  
-Extract text from file.
-|Parameters|Description|example|
-| --- | --- | --- |
-|Session|File session|Word1|
-|Save file|Save the file to the specified path|file.docx|
-
-### Write in Document
-  
-Write in a Word document.
-|Parameters|Description|example|
-| --- | --- | --- |
-|Session|File session|Word1|
-|Write text|Text to be written on the document|Lorem ipsum |
-|Text type|Text type selector that will have the written text.|Subtitle|
-|Level|Level that the written text will have.|1-9|
-|Font size|Font size that the written text will have.|12|
-|Align|Align that the written text will have.|Left|
-|Bold|Select whether the text will be bold.|True|
-|Italic|Select whether the text will be italic.|True|
-|Underline|Select whether the text will be underlined.|False|
-
-### Close Document
-  
-Close the document that is running
-|Parameters|Description|example|
-| --- | --- | --- |
-|Session|File session|Word1|
-
 ### Add Page
   
 Add a new page to the document
@@ -188,7 +173,7 @@ Replace the text of a paragraph.
 
 ### Delete paragraph
   
-Delete paragraph from the document.
+Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to locate the paragraph to be deleted.
 |Parameters|Description|example|
 | --- | --- | --- |
 |Session|File session|Word1|
@@ -203,3 +188,18 @@ Add text at the end of bookmark.
 |Session|File session|Word1|
 |Text to add|Text that will be added to the chosen bookmark.|Hello Word|
 |Bookmark Name|Name of the bookmark where the text will be added.|Bookmark 1|
+
+### Save document
+  
+Extract text from file.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Session|File session|Word1|
+|Save file|Save the file to the specified path|file.docx|
+
+### Close Document
+  
+Close the document that is running
+|Parameters|Description|example|
+| --- | --- | --- |
+|Session|File session|Word1|
