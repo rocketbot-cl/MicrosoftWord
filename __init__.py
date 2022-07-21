@@ -25,19 +25,36 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 """
 import os
 import sys
-import xlwings as xl
-import time
+import re
+
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + 'modules' + os.sep + 'MicrosoftWord' + os.sep + 'libs' + os.sep
+
 sys.path.append(cur_path)
 
 # Import local libraries
 import win32com.client
 
-module = GetParams("module")
-global word_document
-global ms_word
+global mod_microsoft_word
+SESSION_DEFAULT = "default"
+try:
+    if not mod_microsoft_word: #type:ignore
+        mod_microsoft_word = {SESSION_DEFAULT: {}}
+except NameError:
+    mod_microsoft_word = {SESSION_DEFAULT: {}}
 
+
+module = GetParams("module")
+session = GetParams("session")
+if not session:
+    session = SESSION_DEFAULT
+    
+
+try:
+    ms_word = mod_microsoft_word[session].get("app", None)
+    word_document = mod_microsoft_word[session].get("doc", None)
+except:
+    pass
 
 def alignments(WdParagraphAlignment):
     return ["Left", "Center", "Rigth", "Justify"][WdParagraphAlignment]
@@ -67,19 +84,95 @@ WdBuiltinStyle = {
     "number5": -62,
     "title": -63,
     "subtitle": -75,
+    "colorful_grid": -172,
+    "colorful_list": -171,
+    "colorful_shading": -170,
+    "dark_list": -169,
+    "light_grid": -161,
+    "light_grid_accent_1": -175,
+    "light_list": -160,
+    "light_list_accent_1": -174,
+    "light_shading": -159,
+    "light_shading_accent_1": -173,
+    "medium_grid_1": -166,
+    "medium_grid_2": -167,
+    "medium_grid_3": -168,
+    "medium_list_1": -164,
+    "medium_list_accent_1": -178,
+    "medium_list_2": -165,
+    "medium_shading_1": -162,
+    "medium_shading_1_accent_1": -176,
+    "medium_shading_2": -163,
+    "medium_shading_2_accent_1": -177,
     "quote": -181,
     "intense_quote": -182,
     "book": -265
 }
+
+WdLineWidth = {
+    "25_point": 2,
+    "50_point": 4,
+    "75_point": 6,
+    "100_point": 8,
+    "150_points": 12,
+    "225_points": 18,
+    "300_points": 24,
+    "450_points": 36,
+    "600_points": 48
+}
+
+WdBorderType = {
+    "border_top": -1,
+    "border_left": -2,
+    "border_bottom": -3,
+    "border_right": -4,
+    "border_horizontal": -5,
+    "border_vertical": -6
+}
+
+WdLineStyle = {
+    "dash_dot": 5,
+    "dash_dot_dot": 6,
+    "dash_dot_stroked": 20,
+    "dash_large_gap": 4,
+    "dash_small_gap": 3,
+    "dot": 2,
+    "double": 7,
+    "double_wavy": 19,
+    "emboss_3d": 21,
+    "engrave_3d": 22,
+    "inset": 24,
+    "none": 0,
+    "outset": 23,
+    "single": 1,
+    "single_wavy": 18,
+    "thick_thin_large_gap": 16,
+    "thick_thin_med_gap": 13,
+    "thick_thin_small_gap": 10,
+    "thin_thick_large_gap": 15,
+    "thin_thick_med_gap": 12,
+    "thin_thick_small_gap": 9,
+    "thin_thick_thin_large_gap": 17,
+    "thin_thick_thin_med_gap": 14,
+    "thin_thick_thin_small_gap": 11,
+    "triple": 8
+}
+
+
 
 if module == "new":
     try:
         ms_word = win32com.client.DispatchEx("Word.Application")
         word_document = ms_word.Documents.Add()
         ms_word.Visible = True
-        # print("test")
+
+        mod_microsoft_word[session] = {
+            "app": ms_word, 
+            "doc": word_document
+        }
+
     except Exception as e:
-        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
 
@@ -91,8 +184,13 @@ if module == "open":
         ms_word = win32com.client.DispatchEx("Word.Application")
         word_document = ms_word.Documents.Open(path)
         ms_word.Visible = True
+        mod_microsoft_word[session] = {
+            "app": ms_word, 
+            "doc": word_document
+        }
+        
     except Exception as e:
-        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
 
@@ -103,11 +201,12 @@ if module == "read":
 
     try:
         text = []
+        word_document = mod_microsoft_word[session]["doc"]
         paragraphs = word_document.Paragraphs
         for paragraph in paragraphs:
             range_ = paragraph.Range
             font = range_.Font
-            if details:
+            if details == "True":
                 text.append({
                     "text": range_.Text,
                     "style": str(paragraph.Style),
@@ -126,17 +225,171 @@ if module == "read":
         if result:
             SetVar(result, text)
     except Exception as e:
-        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
+
+if module == "addTable":
+        
+    rows = GetParams("rows")
+    cols = GetParams("cols")
+    tableStyle = GetParams("tableStyle")
+    iframe = eval(GetParams("iframe"))
+    lineType = iframe.get('lineType')
+    lineSize = iframe.get('lineSize')
+    
+        
+    try:
+
+        word_document.Paragraphs.Add()
+        paragraph = word_document.Paragraphs.Last
+        range_ = paragraph.Range
+        
+        word_document.Tables.Add(Range=range_, NumRows=rows, NumColumns=cols)
+        
+        lastTable = word_document.Tables[str(word_document.Tables.count)]
+        
+        
+        if tableStyle in WdBuiltinStyle:
+            lastTable.Style = WdBuiltinStyle[tableStyle]
+            
+        try:
+            for border in WdBorderType:
+                lastTable.Borders(WdBorderType[border]).LineStyle = WdLineStyle[lineType]
+                lastTable.Borders(WdBorderType[border]).LineWidth = WdLineWidth[lineSize]
+        except Exception as e:
+            print("\x1B[" + "31;40mError\x1B[" + "0m")
+            print('El estilo de linea elegido no acepta ese tamano de linea. Por favor, escoja un tamano valido')
+            PrintException()
+            raise e
+            
+
+
+
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
+    
+  
+if module == "copyPasteText":
+    
+    startRange = GetParams("startRange")
+    endRange = GetParams("endRange")
+    path = GetParams("path")
+    path = path.replace("/", os.sep)
+
+    try:
+
+        mod_microsoft_word[session] = {
+            "app": ms_word, 
+            "doc": word_document
+        }
+        
+        word_document = mod_microsoft_word[session]["doc"]
+        
+        range_ = word_document.Range(Start=startRange, End=endRange)
+        range_.Copy()
+        
+        
+
+        word_documentPaste = ms_word.Documents.Open(path)
+        ms_word.Visible = True
+
+        word_documentPaste.Paragraphs.Last.Range.PasteAndFormat(Type=16)
+        word_documentPaste.Paragraphs.Add()
+        
+        word_documentPaste.Save()
+        word_documentPaste.Close()
+        
+
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
+
+
+if module == "copyText":
+    
+    startRange = GetParams("startRange")
+    endRange = GetParams("endRange")
+    
+    try:
+        mod_microsoft_word[session] = {
+            "app": ms_word, 
+            "doc": word_document
+        }
+
+        word_document = mod_microsoft_word[session]["doc"]
+        
+        range_ = word_document.Range(Start=startRange, End=endRange)
+        range_.Copy()
+    
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
+
+if module == "pasteText":
+    
+    try:
+        mod_microsoft_word[session] = {
+            "app": ms_word, 
+            "doc": word_document
+        }
+    
+        word_document = mod_microsoft_word[session]["doc"]
+        word_document.Paragraphs.Last.Range.PasteAndFormat(Type=16)
+        word_document.Paragraphs.Add()
+
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
+    
+if module == "countCharacters":
+    
+    numParagraph = GetParams("numParagraph")
+    result = GetParams("result")
+    
+    try:
+        word_document = mod_microsoft_word[session].get("doc", None)
+        count = word_document.Paragraphs.count
+    
+        paragraph =  word_document.Paragraphs(numParagraph)
+        range_ = paragraph.Range
+        characters = range_.Characters.Count - 1
+        
+        SetVar(result, characters)
+        
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 if module == "readTable":
     try:
 
         result = GetParams("result")
+        tableToRead = GetParams("tableToRead")
+        
+        
         tablesDoc = []
-        for table in word_document.tables:
+
+        if tableToRead:
             table_ = []
+            table = word_document.tables(tableToRead)
             for row in table.rows:
                 array_row = []
                 for cell in row.cells:
@@ -146,16 +399,114 @@ if module == "readTable":
                     else:
                         print("test")"""
                     information = cell.range.text
-                    information.replace("\r", "").replace("\x07", "")
-                    array_row.append(information)
+                    
+                    text1 = re.sub(r"[\r\x07,]", "", information)
+                    # text2 = re.sub(r"[\x07]", "", text1)
+                    # text3 = re.sub(", , ", ", ", text2)
+                    
+                    array_row.append(text1)
                 table_.append(array_row)
-            tablesDoc.append(table_)
-        if result:
-            SetVar(result, tablesDoc)
+            if result:
+                SetVar(result, table_)
+        else:
+            for table in word_document.tables:
+                table_ = []
+                for row in table.rows:
+                    array_row = []
+                    for cell in row.cells:
+                        """if len(array_row) > 0:
+                            if array_row[-1] != cell.text:
+                                array_row.append(cell.text)
+                        else:
+                            print("test")"""
+                        information = cell.range.text
+                        
+                        text1 = re.sub(r"[\r\x07,]", "", information)
+                        # text2 = re.sub(r"[\x07]", "", text1)
+                        # text3 = re.sub(", , ", ", ", text2)
+                        
+                        array_row.append(text1)
+                    table_.append(array_row)
+                tablesDoc.append(table_)
+            if result:
+                SetVar(result, tablesDoc)
+            
+        
     except Exception as e:
-        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
+    
+    
+if module == "editTable":
+    
+    numTable = GetParams("numTable")
+    session = GetParams("session")
+    deleteRow = GetParams("deleteRow")
+    deleteColumn = GetParams("deleteColumn")
+    addRow = GetParams("addRow")
+    addColumn = GetParams("addColumn")
+    columnWidth = GetParams("columnWidth")
+    rowHeight = GetParams("rowHeight")
+    
+    try:
+        
+    
+        table_ = word_document.Tables[numTable]
+
+        if deleteRow:
+            table_.Rows(deleteRow).Delete()
+        if deleteColumn:
+            table_.Columns(deleteColumn).Delete()
+        if columnWidth:
+            table_.Columns.SetWidth(columnWidth, 0)
+        if rowHeight:
+            table_.Rows.SetHeight(rowHeight, 2)
+        if addRow == "True":
+            table_.Rows.Add()
+        if addColumn == "True":
+            table_.Columns.Add()
+    
+    
+    
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
+    
+    
+    
+    
+    
+    
+if module == "deleteParagraph":
+    
+    try:
+        numParagraph = GetParams("numParagraph")
+        var = GetParams("variable")
+        word_document = mod_microsoft_word[session].get("doc", None)
+        
+        count = word_document.Paragraphs.count
+        
+        
+        if int(numParagraph) < count:
+            paragraph =  word_document.Paragraphs(numParagraph)
+            range_ = paragraph.Range
+            SetVar(var, range_)
+            range_.Delete()
+        else:
+            range_ = word_document.Paragraphs.Last.Range
+            SetVar(var, range_)
+            range_.Delete()
+            
+        
+        
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
+    
+     
 
 if module == "addTextBookmark":
 
@@ -220,22 +571,17 @@ if module == "save":
         else:
             word_document.SaveAs2()
     except Exception as e:
-        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
 
 if module == "to_pdf":
-    path = GetParams("from")
     to = GetParams("to")
     wdFormatPDF = 17
     try:
-        if path:
-            ms_word = win32com.client.DispatchEx("Word.Application")
-            word_document = ms_word.Documents.Open(path)
+
         word_document.ExportAsFixedFormat(OutputFileName=to, ExportFormat=wdFormatPDF, IncludeDocProps=True)
-        if path:
-            word_document.Close()
-            ms_word.Quit()
+
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
@@ -296,10 +642,12 @@ if module == "write":
 if module == "close":
 
     try:
+        ms_word = mod_microsoft_word[session]["app"]
+        word_document = mod_microsoft_word[session]["doc"]
         word_document.Close()
         ms_word.Quit()
-        word_document = None
-        ms_word = None
+        del mod_microsoft_word[session]
+
     except Exception as e:
         PrintException()
         raise e
@@ -328,7 +676,7 @@ if module == "add_pic":
         img = paragraph.Range.InlineShapes.AddPicture(FileName=img_path, LinkToFile=False, SaveWithDocument=True)
         # print(img)
     except Exception as e:
-        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
 if module == "count_paragraphs":
@@ -338,7 +686,7 @@ if module == "count_paragraphs":
         SetVar(number, count)
 
     except Exception as e:
-        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
 
@@ -385,7 +733,7 @@ if module == "search_text":
         SetVar(whichParagraph, paragraphList)
         # print(paragraphList)
     except Exception as e:
-        print("\x1B[" + "31;40mError\u2193\x1B[" + "0m")
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
 

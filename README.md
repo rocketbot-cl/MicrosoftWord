@@ -1,18 +1,12 @@
-
-
-
-
 # Microsoft Word
   
-Module for work with Microsoft Word
+Modulo para trabajar con Microsoft Word  
 
-![banner](Docs/imgs/Banner_MicrosoftWord.png)
+*Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
 
 ## How to install this module
   
 __Download__ and __install__ the content in 'modules' folder in Rocketbot path  
-
-
 
 ## Overview
 
@@ -26,61 +20,69 @@ Open a Word document.
 3. Read Document  
 Extract text from a Word document
 
-4. Read Table  
-Extract text from a Table in a Word document
+4. Copy and paste text  
+Copy and paste text between ranges in a Word document and paste it in another document
 
-5. Save document  
+5. Copy text  
+Copy text to clipboard between ranges in a Word document
+
+6. Paste text  
+Paste text from clipboard in a Word document
+
+7. Count characters  
+Count characters in a specific paragraph
+
+8. Add table  
+Add table in a Word document.
+
+9. Read Tables  
+Extract data from the Tables in the document
+
+10. Edit table  
+Edit table from a Word document.
+
+11. Save document  
 Extract text from file.
 
-6. Write in Document  
+12. Write in Document  
 Write in a Word document.
 
-7. Close Document  
+13. Close Document  
 Close the document that is running
 
-8. Add Page  
+14. Add Page  
 Add a new page to the document
 
-9. Add Picture  
+15. Add Picture  
 Add an image to the document.
 
-10. Convert to PDF  
+16. Convert to PDF  
 Convert Word document to PDF.
 
-11. Locate Text in Paragraph  
+17. Locate Text in Paragraph  
 Locate in which paragraph there is an indicated text.
 
-12. Count Paragraphs  
-Count the number of paragraphs in the document.
+18. Count Paragraphs  
+Count the number of paragraphs in the document. Includes table fields.
 
-13. Replace text in paragraph  
+19. Replace text in paragraph  
 Replace the text of a paragraph.
 
-14. Add text at the end of bookmark  
-Replace the text of a paragraph.
+20. Delete paragraph  
+Delete paragraph from the document.
 
-15. Copy from Excel to Word  
-Copies the specified range from an Excel file to a previously opened Word Document.  
+21. Add text at the end of bookmark  
+Add text at the end of bookmark.  
 
 ----
-
-### In the example robot you must change the URLs for yours
-
-![image](docs/imgs/word.png)
-
-![image](docs/imgs/word2.png)
-
-<h2>Video Example:</h2>
-
-[![microsoftWord](https://img.youtube.com/vi/q_jHgN2Zg5A/0.jpg)](https://www.youtube.com/watch?v=q_jHgN2Zg5A "Office Word")
-
-<h2>Link to example</h2>
 
 ### OS
 
 - windows
 
 ### Dependencies
+
+- [**pywin32**](https://pypi.org/project/pywin32/)
 
 ### License
   
