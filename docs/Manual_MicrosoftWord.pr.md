@@ -1,6 +1,6 @@
 # Microsoft Word
   
-Modulo para trabajar con Microsoft Word  
+Modulo para trabalhar com Microsoft Word  
 
 *Read this in other languages: [English](Manual_MicrosoftWord.md), [Portugues](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md).*
   
@@ -36,6 +36,21 @@ Extraia o texto do documento Word.
 |Resultado|Armazenar o resultado em uma variável|Variável|
 |Sessão|sessão de arquivo|Word1|
 |Adicionar detalhes|Escolha se os dados armazenados serão salvos com detalhes como estilo, alinhamento, etc.|True|
+
+### Escrever no documento
+  
+Escreva em um documento Word.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|
+|Escrever texto|Texto a ser escrito no documento|Lorem ipsum |
+|Tipo de texto|Seletor de tipo de texto que terá o texto escrito.|Subtitle|
+|Nível|Nível que o texto escrito terá.|1-9|
+|Tamanho da fonte|Tamanho da fonte que o texto escrito terá.|12|
+|Alinhamento|Alinhamento que o texto escrito terá.|Left|
+|Negrito|Selecione se o texto ficará em negrito.|True|
+|Itálico|Selecione se o texto ficará em itálico.|True|
+|Sublinhar|Selecione se o texto será sublinhado.|False|
 
 ### Copie e cole o texto
   
@@ -106,36 +121,6 @@ Editar uma tabela em um documento Word.
 |Largura da coluna|Largura em pontos que cada coluna da tabela terá|140|
 |Altura da linha|Altura em pontos que cada linha da tabela terá|25|
 
-### Salvar documento
-  
-Salve o documento Word aberto
-|Parâmetros|Descrição|exemplo|
-| --- | --- | --- |
-|Sessão|sessão de arquivo|Word1|
-|Salvar arquivo|Salve o arquivo no caminho especificado|arquivo.docx|
-
-### Escrever no documento
-  
-Escreva em um documento Word.
-|Parâmetros|Descrição|exemplo|
-| --- | --- | --- |
-|Sessão|sessão de arquivo|Word1|
-|Escrever texto|Texto a ser escrito no documento|Lorem ipsum |
-|Tipo de texto|Seletor de tipo de texto que terá o texto escrito.|Subtitle|
-|Nível|Nível que o texto escrito terá.|1-9|
-|Tamanho da fonte|Tamanho da fonte que o texto escrito terá.|12|
-|Alinhamento|Alinhamento que o texto escrito terá.|Left|
-|Negrito|Selecione se o texto ficará em negrito.|True|
-|Itálico|Selecione se o texto ficará em itálico.|True|
-|Sublinhar|Selecione se o texto será sublinhado.|False|
-
-### Fechar documento
-  
-Feche o documento que está sendo executado
-|Parâmetros|Descrição|exemplo|
-| --- | --- | --- |
-|Sessão|sessão de arquivo|Word1|
-
 ### Inserir página
   
 Inserir uma nova página no documento
@@ -188,7 +173,7 @@ Substituir o texto de um parágrafo.
 
 ### Excluir parágrafo
   
-Excluir um parágrafo do documento.
+Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado para localizar o parágrafo a ser excluído.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Sessão|sessão de arquivo|Word1|
@@ -203,3 +188,18 @@ Adicionar texto a um bookmark.
 |Sessão|sessão de arquivo|Word1|
 |Texto a adicionar|Texto que será adicionado ao marcador escolhido.|Olá mundo|
 |Nome do marcador|Nome do marcador onde o texto será adicionado.|Marcador 1|
+
+### Salvar documento
+  
+Salve o documento Word aberto
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|
+|Salvar arquivo|Salve o arquivo no caminho especificado|arquivo.docx|
+
+### Fechar documento
+  
+Feche o documento que está sendo executado
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|

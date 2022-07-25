@@ -37,6 +37,21 @@ Extrae texto de documento Word.
 |Sesión|Sesión del archivo|Word1|
 |Agregar Detalles|Escoje si los datos almacenados se guardarán con detalles como estilo, alineación, etc.|True|
 
+### Escribir en documento
+  
+Escribe en un documento Word.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Sesión|Sesión del archivo|Word1|
+|Escriba texto|Texto que se escribirá en el documento|Lorem ipsum |
+|Tipo de texto|Selector del tipo de texto que tendrá el texto escrito.|Subtitle|
+|Nivel|Nivel que tendrá el texto escrito.|1-9|
+|Tamaño de fuente|Tamaño de fuente que tendrá el texto escrito.|12|
+|Alineación|Alineación que tendrá el texto escrito.|Left|
+|Negrita|Seleccionar si el texto irá en negrita.|True|
+|Cursiva|Seleccionar si el texto irá en cursiva.|True|
+|Subrayar|Seleccionar si el texto irá subrayado.|False|
+
 ### Copiar y pegar texto
   
 Copiar texto entre rangos del documento Word y pegarlo en otro documento.
@@ -106,36 +121,6 @@ Editar tabla de un documento Word.
 |Ancho de columna|Ancho en puntos que tendrá cada columna de la tabla|140|
 |Alto de fila|Alto en puntos que tendrá cada fila de la tabla|25|
 
-### Guardar documento
-  
-Guarda el documento Word abierto
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|Sesión|Sesión del archivo|Word1|
-|Guardar archivo|Guarda el archivo en la ruta especificada|archivo.docx|
-
-### Escribir en documento
-  
-Escribe en un documento Word.
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|Sesión|Sesión del archivo|Word1|
-|Escriba texto|Texto que se escribirá en el documento|Lorem ipsum |
-|Tipo de texto|Selector del tipo de texto que tendrá el texto escrito.|Subtitle|
-|Nivel|Nivel que tendrá el texto escrito.|1-9|
-|Tamaño de fuente|Tamaño de fuente que tendrá el texto escrito.|12|
-|Alineación|Alineación que tendrá el texto escrito.|Left|
-|Negrita|Seleccionar si el texto irá en negrita.|True|
-|Cursiva|Seleccionar si el texto irá en cursiva.|True|
-|Subrayar|Seleccionar si el texto irá subrayado.|False|
-
-### Cerrar documento
-  
-Cierra el documento que se está ejecutando
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|Sesión|Sesión del archivo|Word1|
-
 ### Insertar página
   
 Inserta una nueva página al documento
@@ -188,7 +173,7 @@ Remplaza el texto de un párrafo.
 
 ### Borrar párrafo
   
-Borra un párrafo del documento.
+Borra un párrafo del documento. Si se incluyen tablas, debe utilizarse el comando Buscar texto en párrafo para ubicar el que se desea eliminar.
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Sesión|Sesión del archivo|Word1|
@@ -203,3 +188,18 @@ Agregar texto a un bookmark.
 |Sesión|Sesión del archivo|Word1|
 |Texto a agregar|Texto que será agregado al marcador elegido.|Hola mundo|
 |Nombre del Marcador|Nombre del marcador donde se agregará el texto.|Marcador 1|
+
+### Guardar documento
+  
+Guarda el documento Word abierto
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Sesión|Sesión del archivo|Word1|
+|Guardar archivo|Guarda el archivo en la ruta especificada|archivo.docx|
+
+### Cerrar documento
+  
+Cierra el documento que se está ejecutando
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Sesión|Sesión del archivo|Word1|
