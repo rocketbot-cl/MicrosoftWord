@@ -157,6 +157,24 @@ WdLineStyle = {
     "triple": 8
 }
 
+WdColorIndex = {
+    "black": 1,
+    "blue": 2,
+    "brightGreen": 4,
+    "darkBlue": 9,
+    "darkRed": 13,
+    "darkYellow": 14,
+    "gray25": 16,
+    "gray50": 15,
+    "green": 11,
+    "pink": 5,
+    "red": 6,
+    "teal": 10,
+    "turquoise": 3,
+    "white": 8,
+    "yellow": 7
+}
+
 
 
 if module == "new":
@@ -582,6 +600,7 @@ if module == "write":
     type_ = GetParams("type")
     level = GetParams("level")
     align = GetParams("align")
+    color = GetParams("color")
     size = GetParams("size")
     bold = GetParams("bold")
     italic = GetParams("italic")
@@ -596,7 +615,26 @@ if module == "write":
 
         size = float(size) if size else 12
 
+        if color == None:
+            color = "black"
+
+        style = type_ + level if level is not None else ""
+
+
+        if style in WdBuiltinStyle:
+            paragraph.Style = WdBuiltinStyle[style]
+        elif (type_ == "number" or type_ == "bullet") and int(level) > 5:
+            level = 5
+            style = type_ + str(level)
+            paragraph.Style = WdBuiltinStyle[style]
+        else:
+            style = type_
+            paragraph.Style = WdBuiltinStyle[style]
+            
+        font.ColorIndex = WdColorIndex[color]
+        paragraph.Alignment = int(align) if align else 0
         font.Size = size
+        
         if bold == "True":
             boldInt = -1
         else:
@@ -612,18 +650,7 @@ if module == "write":
         else:
             underlineInt = 0
         font.Underline = underlineInt
-
-        paragraph.Alignment = int(align) if align else 0
-        style = type_ + level if level is not None else ""
-        if style in WdBuiltinStyle:
-            paragraph.Style = WdBuiltinStyle[style]
-        elif (type_ == "number" or type_ == "bullet") and int(level) > 5:
-            level = 5
-            style = type_ + str(level)
-            paragraph.Style = WdBuiltinStyle[style]
-        else:
-            style = type_
-            paragraph.Style = WdBuiltinStyle[style]
+            
     except Exception as e:
         PrintException()
         raise e

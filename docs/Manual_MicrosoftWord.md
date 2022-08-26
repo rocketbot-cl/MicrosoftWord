@@ -3,8 +3,8 @@
 Module to work with Microsoft Word  
 
 *Read this in other languages: [English](Manual_MicrosoftWord.md), [Portugues](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md).*
-  
-![banner](/docs/imgs/Banner_MicrosoftWord.png)
+
+![banner](imgs/Banner_MicrosoftWord.png)
 ## How to install this module
   
 __Download__ and __install__ the content in 'modules' folder in Rocketbot path  
@@ -48,6 +48,7 @@ Write in a Word document.
 |Level|Level that the written text will have.|1-9|
 |Font size|Font size that the written text will have.|12|
 |Align|Align that the written text will have.|Left|
+|Text color|Color that the written text will have|Black|
 |Bold|Select whether the text will be bold.|True|
 |Italic|Select whether the text will be italic.|True|
 |Underline|Select whether the text will be underlined.|False|
