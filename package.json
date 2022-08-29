@@ -1,9 +1,9 @@
 {
 
-  "author": "Danilo Toro - Sudhan Annamalai",
+  "author": "Danilo Toro - Sudhan Annamalai - Nicolas Garcia",
   "description": "Modulo para trabajar con Microsoft Word",
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "license": "MIT",
   "homepage": "http://rocketbot.co",
   "linux": false,
@@ -471,7 +471,89 @@
               }
             ],
             "id": "align",
-            "css": "col-md-3"
+            "css": "col-md-6"
+          },
+          {
+            "type": "select",
+            "placeholder": {
+              "es": "Black",
+              "en": "Black",
+              "pr": "Black"
+            },
+            "description": {
+              "es": "Color que tendrá el texto escrito",
+              "en": "Color that the written text will have",
+              "pr": "Cor que o texto escrito terá"
+            },
+            "title": {
+              "es": "Color de texto",
+              "en": "Text color",
+              "pr": "Cor do texto"
+            },
+            "options": [
+              {
+                "title": "Black",
+                "value": "black"
+              },
+              {
+                "title": "Blue",
+                "value": "blue"
+              },
+              {
+                "title": "Bright Green",
+                "value": "brightGreen"
+              },
+              {
+                "title": "Dark Blue",
+                "value": "darkBlue"
+              },
+              {
+                "title": "Dark Red",
+                "value": "darkRed"
+              },
+              {
+                "title": "Dark Yellow",
+                "value": "darkYellow"
+              },
+              {
+                "title": "Gray 25%",
+                "value": "gray25"
+              },
+              {
+                "title": "Gray 50%",
+                "value": "gray50"
+              },
+              {
+                "title": "Green",
+                "value": "green"
+              },
+              {
+                "title": "Pink",
+                "value": "pink"
+              },
+              {
+                "title": "Red",
+                "value": "red"
+              },
+              {
+                "title": "Teal",
+                "value": "teal"
+              },
+              {
+                "title": "Turquoise",
+                "value": "turquoise"
+              },
+              {
+                "title": "White",
+                "value": "white"
+              },
+              {
+                "title": "Yellow",
+                "value": "yellow"
+              }
+            ],
+            "id": "color",
+            "css": "col-md-6"
           },
           {
             "type": "checkbox",
@@ -491,7 +573,7 @@
               "pr": "Negrito"
             },
             "id": "bold",
-            "css": "col-md-3"
+            "css": "col-md-4"
           },
           {
             "type": "checkbox",
@@ -511,7 +593,7 @@
               "pr": "Itálico"
             },
             "id": "italic",
-            "css": "col-md-3"
+            "css": "col-md-4"
           },
           {
             "type": "checkbox",
@@ -531,7 +613,7 @@
               "pr": "Sublinhar"
             },
             "id": "underline",
-            "css": "col-md-3"
+            "css": "col-md-4"
           }
         ]
       },
