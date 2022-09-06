@@ -607,9 +607,12 @@ if module == "write":
     underline = GetParams("underline")
 
     try:
+        
+        
         word_document.Paragraphs.Add()
         paragraph = word_document.Paragraphs.Last
         range_ = paragraph.Range
+        text = text.replace("\\n", "\n")
         range_.Text = text
         font = paragraph.Range.Font
 
