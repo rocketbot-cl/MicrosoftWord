@@ -3,8 +3,8 @@
 Modulo para trabalhar com Microsoft Word  
 
 *Read this in other languages: [English](Manual_MicrosoftWord.md), [Portugues](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md).*
-  
-![banner](/docs/imgs/Banner_MicrosoftWord.png)
+
+![banner](imgs/Banner_MicrosoftWord.png)
 ## Como instalar este módulo
   
 __Baixe__ e __instale__ o conteúdo na pasta 'modules' no caminho do Rocketbot  
@@ -48,6 +48,7 @@ Escreva em um documento Word.
 |Nível|Nível que o texto escrito terá.|1-9|
 |Tamanho da fonte|Tamanho da fonte que o texto escrito terá.|12|
 |Alinhamento|Alinhamento que o texto escrito terá.|Left|
+|Cor do texto|Cor que o texto escrito terá|Black|
 |Negrito|Selecione se o texto ficará em negrito.|True|
 |Itálico|Selecione se o texto ficará em itálico.|True|
 |Sublinhar|Selecione se o texto será sublinhado.|False|
