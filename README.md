@@ -1,8 +1,10 @@
+
+
+
+
 # Microsoft Word
   
-Module to work with Microsoft Word  
-
-*Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
+Module to work with Microsof Word  
 
 ## How to install this module
   
@@ -46,38 +48,44 @@ Extract data from the Tables in the document
 11. Edit table  
 Edit table from a Word document.
 
-12. Add Page  
+12. Update linked fields  
+Update linked fields (e.i. Excel spreadsheets)
+
+13. Add Page  
 Add a new page to the document
 
-13. Add Picture  
+14. Add Picture  
 Add an image to the document.
 
-14. Convert to PDF  
+15. Convert to PDF  
 Convert Word document to PDF.
 
-15. Locate Text in Paragraph  
+16. Locate Text in Paragraph  
 Locate in which paragraph there is an indicated text.
 
-16. Count Paragraphs  
+17. Count Paragraphs  
 Count the number of paragraphs in the document. Includes table fields.
 
-17. Replace text in paragraph  
+18. Replace text in paragraph  
 Replace the text of a paragraph.
 
-18. Delete paragraph  
-Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to locate the paragraph to be deleted.
+19. Delete paragraph  
+Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to 
+locate the paragraph to be deleted.
 
-19. Add text at the end of bookmark  
+20. Add text at the end of bookmark  
 Add text at the end of bookmark.
 
-20. Save document  
+21. Save document  
 Extract text from file.
 
-21. Close Document  
+22. Close Document  
 Close the document that is running  
 
 
 
+### Changes
+Thu Jul 21 01:32:22 2022  Merge branch qa into branch-nico
 
 ----
 ### OS

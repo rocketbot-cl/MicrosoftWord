@@ -458,9 +458,14 @@ if module == "editTable":
     
     try:
         
+        # table_ = word_document.Fields
+        
+        table_ = word_document.Fields(2).Update()
+        
+        # for table in table_:
+        #     print(table.Index)
+        #     table.Update()
     
-        table_ = word_document.Tables[numTable]
-
         if deleteRow:
             table_.Rows(deleteRow).Delete()
         if deleteColumn:
@@ -481,7 +486,25 @@ if module == "editTable":
         PrintException()
         raise e
     
+if module == "updateExcelChart":
     
+    numTable = GetParams("numTable")
+    session = GetParams("session")    
+    
+    try:
+        
+        if numTable:
+            table_ = word_document.Fields(numTable).Update()
+        else:
+            table_ = word_document.Fields
+        
+            for table in table_:
+                table.Update()
+
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e    
     
     
     
