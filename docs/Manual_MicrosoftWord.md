@@ -1,9 +1,9 @@
 # Microsoft Word
   
-Module to work with Microsoft Word  
+Module to work with Microsof Word
 
 *Read this in other languages: [English](Manual_MicrosoftWord.md), [Portugues](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md).*
-
+  
 ![banner](imgs/Banner_MicrosoftWord.png)
 ## How to install this module
   
@@ -122,6 +122,14 @@ Edit table from a Word document.
 |Column Width|Width in points that each column of the table will have|140|
 |Row height|Height in points that each row of the table will have|25|
 
+### Update linked fields
+  
+Update linked fields (e.i. Excel spreadsheets)
+|Parameters|Description|example|
+| --- | --- | --- |
+|Field number|Field number to be updated|1|
+|Session|File session|Word1|
+
 ### Add Page
   
 Add a new page to the document
@@ -174,7 +182,8 @@ Replace the text of a paragraph.
 
 ### Delete paragraph
   
-Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to locate the paragraph to be deleted.
+Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to 
+locate the paragraph to be deleted.
 |Parameters|Description|example|
 | --- | --- | --- |
 |Session|File session|Word1|

@@ -3,7 +3,7 @@
 Modulo para trabajar con Microsoft Word  
 
 *Read this in other languages: [English](Manual_MicrosoftWord.md), [Portugues](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md).*
-  
+
 ![banner](imgs/Banner_MicrosoftWord.png)
 ## Como instalar este módulo
   
@@ -122,6 +122,14 @@ Editar tabla de un documento Word.
 |Ancho de columna|Ancho en puntos que tendrá cada columna de la tabla|140|
 |Alto de fila|Alto en puntos que tendrá cada fila de la tabla|25|
 
+### Actualizar campos vinculados
+  
+Actualizar campos vinculados (ej. hoja de cálculo de Excel)
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Numero de campo|Número de campo que será actualizado|1|
+|Sesión|Sesión del archivo|Word1|
+
 ### Insertar página
   
 Inserta una nueva página al documento
@@ -174,7 +182,8 @@ Remplaza el texto de un párrafo.
 
 ### Borrar párrafo
   
-Borra un párrafo del documento. Si se incluyen tablas, debe utilizarse el comando Buscar texto en párrafo para ubicar el que se desea eliminar.
+Borra un párrafo del documento. Si se incluyen tablas, debe utilizarse el comando Buscar texto en párrafo para ubicar el
+ que se desea eliminar.
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Sesión|Sesión del archivo|Word1|

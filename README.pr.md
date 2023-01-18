@@ -1,8 +1,10 @@
+
+
+
+
 # Microsoft Word
   
 Modulo para trabalhar com Microsoft Word  
-
-*Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
 
 ## Como instalar este módulo
   
@@ -46,38 +48,44 @@ Extraia os dados das tabelas no documento
 11. Editar tabela  
 Editar uma tabela em um documento Word.
 
-12. Inserir página  
+12. Atualizar campos vinculados  
+Atualizar campos vinculados (ex. planilha do Excel)
+
+13. Inserir página  
 Inserir uma nova página no documento
 
-13. Adicionar imagem  
+14. Adicionar imagem  
 Adicionar uma imagem ao documento
 
-14. Converter para PDF  
+15. Converter para PDF  
 Converter documento Word para PDF.
 
-15. Localizar texto no parágrafo  
+16. Localizar texto no parágrafo  
 Localize o parágrafo onde se encontra o texto indicado.
 
-16. Contar parágrafos  
+17. Contar parágrafos  
 Conte o número de parágrafos no documento.
 
-17. Substituir texto no parágrafo  
+18. Substituir texto no parágrafo  
 Substituir o texto de um parágrafo.
 
-18. Excluir parágrafo  
-Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado para localizar o parágrafo a ser excluído.
+19. Excluir parágrafo  
+Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado 
+para localizar o parágrafo a ser excluído.
 
-19. Adicionar texto a um bookmark  
+20. Adicionar texto a um bookmark  
 Adicionar texto a um bookmark.
 
-20. Salvar documento  
+21. Salvar documento  
 Salve o documento Word aberto
 
-21. Fechar documento  
+22. Fechar documento  
 Feche o documento que está sendo executado  
 
 
 
+### Changes
+Thu Jul 21 01:32:22 2022  Merge branch qa into branch-nico
 
 ----
 ### OS
