@@ -1,8 +1,10 @@
+
+
+
+
 # Microsoft Word
   
 Modulo para trabajar con Microsoft Word  
-
-*Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
 
 ## Como instalar este módulo
   
@@ -46,38 +48,44 @@ Extrae los datos de las tablas en el documento
 11. Editar tabla  
 Editar tabla de un documento Word.
 
-12. Insertar página  
+12. Actualizar campos vinculados  
+Actualizar campos vinculados (ej. hoja de cálculo de Excel)
+
+13. Insertar página  
 Inserta una nueva página al documento
 
-13. Agregar imagen  
+14. Agregar imagen  
 Agrega una imagen al documento
 
-14. Convertir a PDF  
+15. Convertir a PDF  
 Convierte documento Word a PDF.
 
-15. Buscar Texto en párrafo  
+16. Buscar Texto en párrafo  
 Busca el párrafo donde se encuentra el texto indicado.
 
-16. Contar párrafos  
+17. Contar párrafos  
 Cuenta la cantidad de párrafos del documento. Incluye los campos de tablas.
 
-17. Remplazar texto en párrafo  
+18. Remplazar texto en párrafo  
 Remplaza el texto de un párrafo.
 
-18. Borrar párrafo  
-Borra un párrafo del documento. Si se incluyen tablas, debe utilizarse el comando Buscar texto en párrafo para ubicar el que se desea eliminar.
+19. Borrar párrafo  
+Borra un párrafo del documento. Si se incluyen tablas, debe utilizarse el comando Buscar texto en párrafo para ubicar el
+ que se desea eliminar.
 
-19. Agregar texto a un bookmark  
+20. Agregar texto a un bookmark  
 Agregar texto a un bookmark.
 
-20. Guardar documento  
+21. Guardar documento  
 Guarda el documento Word abierto
 
-21. Cerrar documento  
+22. Cerrar documento  
 Cierra el documento que se está ejecutando  
 
 
 
+### Changes
+Thu Jul 21 01:32:22 2022  Merge branch qa into branch-nico
 
 ----
 ### OS

@@ -122,6 +122,14 @@ Editar uma tabela em um documento Word.
 |Largura da coluna|Largura em pontos que cada coluna da tabela terá|140|
 |Altura da linha|Altura em pontos que cada linha da tabela terá|25|
 
+### Atualizar campos vinculados
+  
+Atualizar campos vinculados (ex. planilha do Excel)
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Número da campo|Número do campo a ser atualizado|1|
+|Sessão|sessão de arquivo|Word1|
+
 ### Inserir página
   
 Inserir uma nova página no documento
@@ -174,7 +182,8 @@ Substituir o texto de um parágrafo.
 
 ### Excluir parágrafo
   
-Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado para localizar o parágrafo a ser excluído.
+Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado 
+para localizar o parágrafo a ser excluído.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Sessão|sessão de arquivo|Word1|
