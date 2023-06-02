@@ -26,6 +26,7 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 import os
 import sys
 import re
+import time
 
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + 'modules' + os.sep + 'MicrosoftWord' + os.sep + 'libs' + os.sep
@@ -197,13 +198,25 @@ if module == "open":
 
     try:
         path = path.replace("/", os.sep)
-        ms_word = win32com.client.DispatchEx("Word.Application")
-        word_document = ms_word.Documents.Open(path)
-        ms_word.Visible = True
-        mod_microsoft_word[session] = {
-            "app": ms_word, 
-            "doc": word_document
-        }
+        try:
+            ms_word = win32com.client.DispatchEx("Word.Application")
+            word_document = ms_word.Documents.Open(path)
+            ms_word.Visible = True
+            mod_microsoft_word[session] = {
+                "app": ms_word, 
+                "doc": word_document
+            }
+        except:
+            os.startfile(path)
+            time.sleep(3)
+            ms_word = win32com.client.GetObject(None, "Word.Application")
+            time.sleep(1)
+            word_document = ms_word.Application.Documents.Open(path)
+            mod_microsoft_word[session] = {
+                "app": ms_word.Application, 
+                "doc": word_document
+            }
+
         
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
@@ -496,17 +509,13 @@ if module == "updateExcelChart":
         if numTable:
             table_ = word_document.Fields(numTable).Update()
         else:
-            table_ = word_document.Fields
-        
-            for table in table_:
+            for table in word_document.Fields:
                 table.Update()
 
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
-        raise e    
-    
-    
+        raise e
     
     
 if module == "deleteParagraph":
@@ -518,7 +527,6 @@ if module == "deleteParagraph":
         
         count = word_document.Paragraphs.count
         
-        
         if int(numParagraph) < count:
             paragraph =  word_document.Paragraphs(numParagraph)
             range_ = paragraph.Range
@@ -528,14 +536,11 @@ if module == "deleteParagraph":
             range_ = word_document.Paragraphs.Last.Range
             SetVar(var, range_)
             range_.Delete()
-            
-        
         
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
-    
      
 
 if module == "addTextBookmark":
@@ -617,6 +622,20 @@ if module == "to_pdf":
         PrintException()
         raise e
 
+if module == "getParagraphs":
+    result = GetParams("result")
+    
+    paragraphs = {}
+    try:
+        for i in range(word_document.Paragraphs.count):
+            paragraphs["Paragraph "+str(i+1)] = word_document.Paragraphs(i+1).Range.Text.replace("\r", "")
+            
+        SetVar(result, paragraphs)
+    except Exception as e:
+        SetVar(result, False)
+        PrintException()
+        raise e
+    
 if module == "write":
 
     text = GetParams("text")
@@ -628,16 +647,41 @@ if module == "write":
     bold = GetParams("bold")
     italic = GetParams("italic")
     underline = GetParams("underline")
-
-    try:
-        
-        
-        word_document.Paragraphs.Add()
-        paragraph = word_document.Paragraphs.Last
-        range_ = paragraph.Range
+    paragraph_num = GetParams("numParagraph")
+    insert = GetParams("insert")
+    try:     
+        if not text:
+            text = ''
         text = text.replace("\\n", "\n")
-        range_.Text = text
-        font = paragraph.Range.Font
+        
+        if not type_:
+            type_ = "paragraph"
+            
+        count = word_document.Paragraphs.count
+        
+        paragraph_num = 2
+        if paragraph_num:
+            paragraph_num = int(paragraph_num)
+            paragraph_num = count if paragraph_num > count else paragraph_num
+            insert = "after" if not insert else insert
+
+            paragraph = word_document.Paragraphs(paragraph_num)
+            range_ = paragraph.Range
+            if insert == "before":
+                range_.InsertBefore(text + "\n")
+            if insert == "after":
+                range_.InsertAfter(text + "\n")
+            if insert == "replace":
+                range_.Text = text + "\n"
+            font = paragraph.Range.Font
+        else:
+            word_document.Paragraphs.Add()
+            paragraph = word_document.Paragraphs.Last
+            range_ = paragraph.Range
+            text = text.replace("\\n", "\n")
+            range_.Text = text
+            font = paragraph.Range.Font
+        
 
         size = float(size) if size else 12
 
