@@ -4,12 +4,15 @@
 
 # Microsoft Word
   
-Module to work with Microsof Word  
+Module to work with text files using Microsoft Word. Create and edit word documents, work with tables, format your texts and more.  
+
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## How to install this module
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
-
+To install the module in Rocketbot Studio, it can be done in two ways:
+1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 
 ## Overview
@@ -24,62 +27,64 @@ Open a Word document.
 3. Read Document  
 Extract text from a Word document
 
-4. Write in Document  
+4. Get paragraphs  
+Get the list of paragraphs that make up a Word document in dictionary format {number: text}.
+
+5. Write in Document  
 Write in a Word document.
 
-5. Copy and paste text  
+6. Copy and paste text  
 Copy and paste text between ranges in a Word document and paste it in another document
 
-6. Copy text  
+7. Copy text  
 Copy text to clipboard between ranges in a Word document
 
-7. Paste text  
+8. Paste text  
 Paste text from clipboard in a Word document
 
-8. Count characters  
+9. Count characters  
 Count characters in a specific paragraph
 
-9. Add table  
+10. Add table  
 Add table in a Word document.
 
-10. Read Tables  
+11. Read Tables  
 Extract data from the Tables in the document
 
-11. Edit table  
+12. Edit table  
 Edit table from a Word document.
 
-12. Update linked fields  
+13. Update linked fields  
 Update linked fields (e.i. Excel spreadsheets)
 
-13. Add Page  
+14. Add Page  
 Add a new page to the document
 
-14. Add Picture  
+15. Add Picture  
 Add an image to the document.
 
-15. Convert to PDF  
+16. Convert to PDF  
 Convert Word document to PDF.
 
-16. Locate Text in Paragraph  
+17. Locate Text in Paragraph  
 Locate in which paragraph there is an indicated text.
 
-17. Count Paragraphs  
+18. Count Paragraphs  
 Count the number of paragraphs in the document. Includes table fields.
 
-18. Replace text in paragraph  
+19. Replace text in paragraph  
 Replace the text of a paragraph.
 
-19. Delete paragraph  
-Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to 
-locate the paragraph to be deleted.
+20. Delete paragraph  
+Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to locate the paragraph to be deleted. Returns the deleted text.
 
-20. Add text at the end of bookmark  
+21. Add text at the end of bookmark  
 Add text at the end of bookmark.
 
-21. Save document  
+22. Save document  
 Extract text from file.
 
-22. Close Document  
+23. Close Document  
 Close the document that is running  
 
 

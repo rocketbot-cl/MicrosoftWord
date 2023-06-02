@@ -4,12 +4,15 @@
 
 # Microsoft Word
   
-Modulo para trabalhar com Microsoft Word  
+Módulo para trabalhar com arquivos de texto usando o Microsoft Word. Crie e edite documentos do word, trabalhe com tabelas, formate seus textos e muito mais.  
+
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## Como instalar este módulo
   
-__Baixe__ e __instale__ o conteúdo na pasta 'modules' no caminho do Rocketbot  
-
+Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
+1. Manual: __Baixe__ o arquivo .zip e descompacte-o na pasta módulos. O nome da pasta deve ser o mesmo do módulo e dentro dela devem ter os seguintes arquivos e pastas: \__init__.py, package.json, docs, example e libs. Se você tiver o aplicativo aberto, atualize seu navegador para poder usar o novo módulo.
+2. Automático: Ao entrar no Rocketbot Studio na margem direita você encontrará a seção **Addons**, selecione **Install Mods**, procure o módulo desejado e aperte instalar.  
 
 
 ## Overview
@@ -24,62 +27,64 @@ Abra um documento do Word.
 3. Ler documento  
 Extraia o texto do documento Word.
 
-4. Escrever no documento  
+4. Obter parágrafos  
+Obtenha a lista de parágrafos que compõem um documento do Word no formato de dicionário {número: texto}.
+
+5. Escrever no documento  
 Escreva em um documento Word.
 
-5. Copie e cole o texto  
+6. Copie e cole o texto  
 Copie o texto entre os intervalos no documento do Word e cole-o em outro documento.
 
-6. Copiar texto  
+7. Copiar texto  
 Copiar texto para prancheta entre intervalos no documento Word
 
-7. Colar texto  
+8. Colar texto  
 Colar texto da prancheta para documento Word
 
-8. Contar caracteres  
+9. Contar caracteres  
 Contar caracteres em um parágrafo específico
 
-9. Adicionar tabela  
+10. Adicionar tabela  
 Adicionar tabela em um documento do Word.
 
-10. Ler tabelas  
+11. Ler tabelas  
 Extraia os dados das tabelas no documento
 
-11. Editar tabela  
+12. Editar tabela  
 Editar uma tabela em um documento Word.
 
-12. Atualizar campos vinculados  
+13. Atualizar campos vinculados  
 Atualizar campos vinculados (ex. planilha do Excel)
 
-13. Inserir página  
+14. Inserir página  
 Inserir uma nova página no documento
 
-14. Adicionar imagem  
+15. Adicionar imagem  
 Adicionar uma imagem ao documento
 
-15. Converter para PDF  
+16. Converter para PDF  
 Converter documento Word para PDF.
 
-16. Localizar texto no parágrafo  
+17. Localizar texto no parágrafo  
 Localize o parágrafo onde se encontra o texto indicado.
 
-17. Contar parágrafos  
+18. Contar parágrafos  
 Conte o número de parágrafos no documento.
 
-18. Substituir texto no parágrafo  
+19. Substituir texto no parágrafo  
 Substituir o texto de um parágrafo.
 
-19. Excluir parágrafo  
-Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado 
-para localizar o parágrafo a ser excluído.
+20. Excluir parágrafo  
+Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado para localizar o parágrafo a ser excluído. Retorna o texto deletado.
 
-20. Adicionar texto a um bookmark  
+21. Adicionar texto a um bookmark  
 Adicionar texto a um bookmark.
 
-21. Salvar documento  
+22. Salvar documento  
 Salve o documento Word aberto
 
-22. Fechar documento  
+23. Fechar documento  
 Feche o documento que está sendo executado  
 
 
