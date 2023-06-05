@@ -1,14 +1,19 @@
+
+
+
+
 # Microsoft Word
   
-Modulo para trabalhar com Microsoft Word  
+Módulo para trabalhar com arquivos de texto usando o Microsoft Word. Crie e edite documentos do word, trabalhe com tabelas, formate seus textos e muito mais.  
 
-*Read this in other languages: [English](Manual_MicrosoftWord.md), [Portugues](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md).*
-
+*Read this in other languages: [English](Manual_MicrosoftWord.md), [Português](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md)*
+  
 ![banner](imgs/Banner_MicrosoftWord.png)
 ## Como instalar este módulo
   
-__Baixe__ e __instale__ o conteúdo na pasta 'modules' no caminho do Rocketbot  
-
+Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
+1. Manual: __Baixe__ o arquivo .zip e descompacte-o na pasta módulos. O nome da pasta deve ser o mesmo do módulo e dentro dela devem ter os seguintes arquivos e pastas: \__init__.py, package.json, docs, example e libs. Se você tiver o aplicativo aberto, atualize seu navegador para poder usar o novo módulo.
+2. Automático: Ao entrar no Rocketbot Studio na margem direita você encontrará a seção **Addons**, selecione **Install Mods**, procure o módulo desejado e aperte instalar.  
 
 
 ## Descrição do comando
@@ -37,6 +42,14 @@ Extraia o texto do documento Word.
 |Sessão|sessão de arquivo|Word1|
 |Adicionar detalhes|Escolha se os dados armazenados serão salvos com detalhes como estilo, alinhamento, etc.|True|
 
+### Obter parágrafos
+  
+Obtenha a lista de parágrafos que compõem um documento do Word no formato de dicionário {número: texto}.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|
+|Resultado|Armazenar o resultado em uma variável|Variável|
+
 ### Escrever no documento
   
 Escreva em um documento Word.
@@ -44,6 +57,8 @@ Escreva em um documento Word.
 | --- | --- | --- |
 |Sessão|sessão de arquivo|Word1|
 |Escrever texto|Texto a ser escrito no documento|Lorem ipsum |
+|Número do parágrafo - Opcional|Número do parágrafo de referência para inserir o texto|1|
+|Inserir método - Opcional|Método a ser usado para inserir o novo texto||
 |Tipo de texto|Seletor de tipo de texto que terá o texto escrito.|Subtitle|
 |Nível|Nível que o texto escrito terá.|1-9|
 |Tamanho da fonte|Tamanho da fonte que o texto escrito terá.|12|
@@ -182,8 +197,7 @@ Substituir o texto de um parágrafo.
 
 ### Excluir parágrafo
   
-Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado 
-para localizar o parágrafo a ser excluído.
+Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado para localizar o parágrafo a ser excluído. Retorna o texto deletado.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Sessão|sessão de arquivo|Word1|

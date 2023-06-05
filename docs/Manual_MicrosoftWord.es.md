@@ -1,14 +1,19 @@
+
+
+
+
 # Microsoft Word
   
-Modulo para trabajar con Microsoft Word  
+Modulo para trabajar con archivos de texto mediante Microsoft Word. Crea y edita documentos word, trabaja con tablas, da formato a tus textos y mas.   
 
-*Read this in other languages: [English](Manual_MicrosoftWord.md), [Portugues](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md).*
-
+*Read this in other languages: [English](Manual_MicrosoftWord.md), [Português](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md)*
+  
 ![banner](imgs/Banner_MicrosoftWord.png)
 ## Como instalar este módulo
   
-__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Rocketbot.  
-
+Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
+1. Manual: __Descargar__ el archivo .zip y descomprimirlo en la carpeta modules. El nombre de la carpeta debe ser el mismo al del módulo y dentro debe tener los siguientes archivos y carpetas: \__init__.py, package.json, docs, example y libs. Si tiene abierta la aplicación, refresca el navegador para poder utilizar el nuevo modulo.
+2. Automática: Al ingresar a Rocketbot Studio sobre el margen derecho encontrara la sección de **Addons**, seleccionar **Install Mods**, buscar el modulo deseado y presionar install.  
 
 
 ## Descripción de los comandos
@@ -37,6 +42,14 @@ Extrae texto de documento Word.
 |Sesión|Sesión del archivo|Word1|
 |Agregar Detalles|Escoje si los datos almacenados se guardarán con detalles como estilo, alineación, etc.|True|
 
+### Obtener párrafos
+  
+Obtener el listado de los parrafos que componen un documento Word en fomato diccionario {numero: texto}.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Sesión|Sesión del archivo|Word1|
+|Resultado|Almacena el resultado en una variable|Variable|
+
 ### Escribir en documento
   
 Escribe en un documento Word.
@@ -44,6 +57,8 @@ Escribe en un documento Word.
 | --- | --- | --- |
 |Sesión|Sesión del archivo|Word1|
 |Escriba texto|Texto que se escribirá en el documento|Lorem ipsum |
+|Número de párrafo - Opcional|Número de párrafo de referencia para insertar el texto|1|
+|Metodo de inserción - Opcional|Método a utilizar para insertar el nuevo texto||
 |Tipo de texto|Selector del tipo de texto que tendrá el texto escrito.|Subtitle|
 |Nivel|Nivel que tendrá el texto escrito.|1-9|
 |Tamaño de fuente|Tamaño de fuente que tendrá el texto escrito.|12|
@@ -182,8 +197,7 @@ Remplaza el texto de un párrafo.
 
 ### Borrar párrafo
   
-Borra un párrafo del documento. Si se incluyen tablas, debe utilizarse el comando Buscar texto en párrafo para ubicar el
- que se desea eliminar.
+Borra un párrafo del documento. Si se incluyen tablas, debe utilizarse el comando Buscar texto en párrafo para ubicar el que se desea eliminar. Retorna el texto eliminado.
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Sesión|Sesión del archivo|Word1|

@@ -1,14 +1,19 @@
+
+
+
+
 # Microsoft Word
   
-Module to work with Microsof Word
+Module to work with text files using Microsoft Word. Create and edit word documents, work with tables, format your texts and more.  
 
-*Read this in other languages: [English](Manual_MicrosoftWord.md), [Portugues](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md).*
+*Read this in other languages: [English](Manual_MicrosoftWord.md), [Português](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md)*
   
 ![banner](imgs/Banner_MicrosoftWord.png)
 ## How to install this module
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
-
+To install the module in Rocketbot Studio, it can be done in two ways:
+1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 
 ## Description of the commands
@@ -37,6 +42,14 @@ Extract text from a Word document
 |Session|File session|Word1|
 |Add Details|Choose if the stored data will be saved with details like style, alignment, etc.|True|
 
+### Get paragraphs
+  
+Get the list of paragraphs that make up a Word document in dictionary format {number: text}.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Session|File session|Word1|
+|Result|Store the result in a variable|Variable|
+
 ### Write in Document
   
 Write in a Word document.
@@ -44,6 +57,8 @@ Write in a Word document.
 | --- | --- | --- |
 |Session|File session|Word1|
 |Write text|Text to be written on the document|Lorem ipsum |
+|Paragraph number - Optional|Reference paragraph number to insert the text|1|
+|Insert method - Opcional|Method to be used to insert the new text||
 |Text type|Text type selector that will have the written text.|Subtitle|
 |Level|Level that the written text will have.|1-9|
 |Font size|Font size that the written text will have.|12|
@@ -182,8 +197,7 @@ Replace the text of a paragraph.
 
 ### Delete paragraph
   
-Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to 
-locate the paragraph to be deleted.
+Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to locate the paragraph to be deleted. Returns the deleted text.
 |Parameters|Description|example|
 | --- | --- | --- |
 |Session|File session|Word1|
