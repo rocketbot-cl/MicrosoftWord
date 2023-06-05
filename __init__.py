@@ -195,11 +195,18 @@ if module == "new":
 
 if module == "open":
     path = GetParams("path")
-
+    no_alerts = GetParams("no_alerts")
     try:
+        
+        if no_alerts and eval(no_alerts):
+            alerts = False
+        else:
+            alerts = True
+        
         path = path.replace("/", os.sep)
         try:
             ms_word = win32com.client.DispatchEx("Word.Application")
+            ms_word.DisplayAlerts = alerts
             word_document = ms_word.Documents.Open(path)
             ms_word.Visible = True
             mod_microsoft_word[session] = {
@@ -210,6 +217,7 @@ if module == "open":
             os.startfile(path)
             time.sleep(3)
             ms_word = win32com.client.GetObject(None, "Word.Application")
+            ms_word.DisplayAlerts = alerts
             time.sleep(1)
             word_document = ms_word.Application.Documents.Open(path)
             mod_microsoft_word[session] = {
