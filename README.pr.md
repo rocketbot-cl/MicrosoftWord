@@ -30,61 +30,70 @@ Extraia o texto do documento Word.
 4. Obter parágrafos  
 Obtenha a lista de parágrafos que compõem um documento do Word no formato de dicionário {número: texto}.
 
-5. Escrever no documento  
+5. Obter faixa de texto  
+Encontre texto em um documento e obtenha seu intervalo de posição.
+
+6. Escrever no documento  
 Escreva em um documento Word.
 
-6. Copie e cole o texto  
+7. Copie e cole o texto  
 Copie o texto entre os intervalos no documento do Word e cole-o em outro documento.
 
-7. Copiar texto  
+8. Copie/cole sim prancheta  
+Copie e cole texto entre intervalos em um documento do Word e cole-o em outro documento sem usar a área de transferência do SO.
+
+9. Copiar texto  
 Copiar texto para prancheta entre intervalos no documento Word
 
-8. Colar texto  
+10. Colar texto  
 Colar texto da prancheta para documento Word
 
-9. Contar caracteres  
+11. Contar caracteres  
 Contar caracteres em um parágrafo específico
 
-10. Adicionar tabela  
+12. Adicionar tabela  
 Adicionar tabela em um documento do Word.
 
-11. Ler tabelas  
+13. Ler tabelas  
 Extraia os dados das tabelas no documento
 
-12. Editar tabela  
+14. Editar tabela  
 Editar uma tabela em um documento Word.
 
-13. Atualizar campos vinculados  
+15. Copiar e colar tabela  
+Selecione uma tabela de um documento do Word, copie e cole no mesmo documento ou em outro.
+
+16. Atualizar campos vinculados  
 Atualizar campos vinculados (ex. planilha do Excel)
 
-14. Inserir página  
+17. Inserir página  
 Inserir uma nova página no documento
 
-15. Adicionar imagem  
+18. Adicionar imagem  
 Adicionar uma imagem ao documento
 
-16. Converter para PDF  
+19. Converter para PDF  
 Converter documento Word para PDF.
 
-17. Localizar texto no parágrafo  
+20. Localizar texto no parágrafo  
 Localize o parágrafo onde se encontra o texto indicado.
 
-18. Contar parágrafos  
+21. Contar parágrafos  
 Conte o número de parágrafos no documento.
 
-19. Substituir texto no parágrafo  
+22. Substituir texto no parágrafo  
 Substituir o texto de um parágrafo.
 
-20. Excluir parágrafo  
+23. Excluir parágrafo  
 Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado para localizar o parágrafo a ser excluído. Retorna o texto deletado.
 
-21. Adicionar texto a um bookmark  
+24. Adicionar texto a um bookmark  
 Adicionar texto a um bookmark.
 
-22. Salvar documento  
+25. Salvar documento  
 Salve o documento Word aberto
 
-23. Fechar documento  
+26. Fechar documento  
 Feche o documento que está sendo executado  
 
 

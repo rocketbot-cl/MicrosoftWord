@@ -204,27 +204,29 @@ if module == "open":
             alerts = True
         
         path = path.replace("/", os.sep)
-        try:
-            ms_word = win32com.client.DispatchEx("Word.Application")
-            ms_word.DisplayAlerts = alerts
-            word_document = ms_word.Documents.Open(path)
-            ms_word.Visible = True
-            mod_microsoft_word[session] = {
-                "app": ms_word, 
-                "doc": word_document
-            }
-        except:
-            os.startfile(path)
-            time.sleep(3)
-            ms_word = win32com.client.GetObject(None, "Word.Application")
-            ms_word.DisplayAlerts = alerts
-            time.sleep(1)
-            word_document = ms_word.Application.Documents.Open(path)
-            mod_microsoft_word[session] = {
-                "app": ms_word.Application, 
-                "doc": word_document
-            }
-
+        if os.path.exists(path):
+            try:
+                ms_word = win32com.client.DispatchEx("Word.Application")
+                ms_word.DisplayAlerts = alerts
+                word_document = ms_word.Documents.Open(path)
+                ms_word.Visible = True
+                mod_microsoft_word[session] = {
+                    "app": ms_word, 
+                    "doc": word_document
+                }
+            except:
+                os.startfile(path)
+                time.sleep(3)
+                ms_word = win32com.client.GetObject(None, "Word.Application")
+                ms_word.DisplayAlerts = alerts
+                time.sleep(1)
+                word_document = ms_word.Application.Documents.Open(path)
+                mod_microsoft_word[session] = {
+                    "app": ms_word.Application, 
+                    "doc": word_document
+                }
+        else:
+            raise Exception ('File does not exist...')
         
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
@@ -345,6 +347,55 @@ if module == "copyPasteText":
         PrintException()
         raise e
 
+if module == "copyPasteText_2":
+    
+    startRangeSource = GetParams("startRangeSource")
+    endRangeSource = GetParams("endRangeSource")
+    startRangeTarget = GetParams("startRangeTarget")
+    path = GetParams("path")
+    path = path.replace("/", os.sep)
+
+    try:
+        target = ms_word.Documents.Open(path)
+
+        source_range = word_document.Range(Start=startRangeSource, End=endRangeSource)
+        target_range = target.Range(Start=startRangeTarget)
+        target_range.FormattedText = source_range.FormattedText
+
+        target.Save()
+        #target.Close(SaveChanges=False)
+
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
+
+
+if module == "copyPasteTable":
+    try:
+        result = GetParams("result")
+        tableToCopy = GetParams("tableToCopy")
+        startRange = GetParams("startRange")
+        path = GetParams("path")
+        
+        table = word_document.tables(tableToCopy).Range
+        table.Copy()
+        
+        if path:
+            path = path.replace("/", os.sep)
+            word_documentPaste = ms_word.Documents.Open(path)
+            ms_word.Visible = True
+            word_documentPaste.Range(Start=startRange).PasteAndFormat(Type=0)
+        
+            word_documentPaste.Save()
+            #word_documentPaste.Close()
+        else:
+            word_document.Range(Start=startRange).PasteAndFormat(Type=0)
+        
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
 
 if module == "copyText":
     
@@ -383,7 +434,9 @@ if module == "pasteText":
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
-    
+
+
+
 if module == "countCharacters":
     
     numParagraph = GetParams("numParagraph")
@@ -500,8 +553,6 @@ if module == "editTable":
         if addColumn == "True":
             table_.Columns.Add()
     
-    
-    
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
@@ -612,7 +663,7 @@ if module == "save":
         if path:
             word_document.SaveAs2(path)
         else:
-            word_document.SaveAs2()
+            word_document.Save()
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
@@ -632,13 +683,37 @@ if module == "to_pdf":
 
 if module == "getParagraphs":
     result = GetParams("result")
+    more = GetParams("more")
     
     paragraphs = {}
     try:
         for i in range(word_document.Paragraphs.count):
-            paragraphs["Paragraph "+str(i+1)] = word_document.Paragraphs(i+1).Range.Text.replace("\r", "")
+            p_range = word_document.Paragraphs(i+1).Range
+            if more and eval(more):
+                paragraphs["Paragraph "+str(i+1)] = {'text': p_range.Text.replace("\r", ""), 'range': [p_range.Start, p_range.End-1]}
+            else:
+                paragraphs["Paragraph "+str(i+1)] = p_range.Text.replace("\r", "")
             
         SetVar(result, paragraphs)
+    except Exception as e:
+        SetVar(result, False)
+        PrintException()
+        raise e
+    
+if module == "findRange":
+    text = GetParams("text")
+    result = GetParams("result")
+
+    try:
+        found_range = word_document.Content
+        find = found_range.Find
+        find.Text = text
+        found = find.Execute()
+        if found:
+            text_range = found_range.Duplicate
+            SetVar(result, [text_range.Start, text_range.End])
+        else:
+            SetVar(result, False)
     except Exception as e:
         SetVar(result, False)
         PrintException()
@@ -773,6 +848,7 @@ if module == "add_pic":
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
+    
 if module == "count_paragraphs":
     number = GetParams("variable")
     try:

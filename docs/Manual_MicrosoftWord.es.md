@@ -31,6 +31,7 @@ Abre un documento de Word.
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Archivo|Abre el documento especificado|archivo.docx|
+|Abrir sin alertas|Si se marca esta opción, no se mostraran alertas al abrir un archivo.|True|
 |Sesión|Sesión del archivo|Word1|
 
 ### Leer documento
@@ -47,6 +48,16 @@ Extrae texto de documento Word.
 Obtener el listado de los parrafos que componen un documento Word en fomato diccionario {numero: texto}.
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
+|Sesión|Sesión del archivo|Word1|
+|Obtener rango|Obtener listado de párrafos con su rango.|True|
+|Resultado|Almacena el resultado en una variable|Variable|
+
+### Obtener rango de texto
+  
+Buscar texto en un documento y obtener su rango de posición.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Texto a encontrar|Texto a buscar en el documento para obtener el rango en que se ubica.|Hola|
 |Sesión|Sesión del archivo|Word1|
 |Resultado|Almacena el resultado en una variable|Variable|
 
@@ -75,6 +86,17 @@ Copiar texto entre rangos del documento Word y pegarlo en otro documento.
 | --- | --- | --- |
 |Inicio del rango|Posición del rango desde donde comienza a copiar el comando.|0|
 |Fin del rango|Posición del rango hasta donde copia el comando.|40|
+|Sesión del archivo a copiar|Sesión del archivo|Word1|
+|Archivo|Elige el documento donde se pega el contenido copiado.|archivo.docx|
+
+### Copiar/pegar sin portapapeles
+  
+Copie y pegue texto entre rangos en un documento de Word y péguelo en otro documento sin usar el portapapeles del SO.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Inicio del rango|Posición del rango desde donde comienza a copiar el comando.|0|
+|Fin del rango|Posición del rango hasta donde copia el comando.|40|
+|Rango donde pegar|Posición del rango desde donde pegar.|0|
 |Sesión del archivo a copiar|Sesión del archivo|Word1|
 |Archivo|Elige el documento donde se pega el contenido copiado.|archivo.docx|
 
@@ -136,6 +158,16 @@ Editar tabla de un documento Word.
 |Insertar columna|Si se selecciona, agrega una columna al final de la tabla|False|
 |Ancho de columna|Ancho en puntos que tendrá cada columna de la tabla|140|
 |Alto de fila|Alto en puntos que tendrá cada fila de la tabla|25|
+
+### Copiar y pegar tabla
+  
+Seleccione una tabla de un documento de Word, cópiela y péguela en el mismo documento o en otro.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Tabla a copiar|Número de tabla a copiar|1|
+|Rango|Posición del rango donde pegar.|0|
+|Archivo|Elige el documento donde se pega el contenido copiado.|archivo.docx|
+|Sesión|Sesión del archivo|Word1|
 
 ### Actualizar campos vinculados
   

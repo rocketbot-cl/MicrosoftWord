@@ -30,61 +30,70 @@ Extrae texto de documento Word.
 4. Obtener párrafos  
 Obtener el listado de los parrafos que componen un documento Word en fomato diccionario {numero: texto}.
 
-5. Escribir en documento  
+5. Obtener rango de texto  
+Buscar texto en un documento y obtener su rango de posición.
+
+6. Escribir en documento  
 Escribe en un documento Word.
 
-6. Copiar y pegar texto  
+7. Copiar y pegar texto  
 Copiar texto entre rangos del documento Word y pegarlo en otro documento.
 
-7. Copiar texto  
+8. Copiar/pegar sin portapapeles  
+Copie y pegue texto entre rangos en un documento de Word y péguelo en otro documento sin usar el portapapeles del SO.
+
+9. Copiar texto  
 Copiar texto al portapapeles entre rangos del documento Word
 
-8. Pegar texto  
+10. Pegar texto  
 Pegar texto del portapapeles al documento Word
 
-9. Contar caracteres  
+11. Contar caracteres  
 Contar caracteres de un párrafo específico
 
-10. Agregar tabla  
+12. Agregar tabla  
 Agregar tabla en un documento Word.
 
-11. Leer tablas  
+13. Leer tablas  
 Extrae los datos de las tablas en el documento
 
-12. Editar tabla  
+14. Editar tabla  
 Editar tabla de un documento Word.
 
-13. Actualizar campos vinculados  
+15. Copiar y pegar tabla  
+Seleccione una tabla de un documento de Word, cópiela y péguela en el mismo documento o en otro.
+
+16. Actualizar campos vinculados  
 Actualizar campos vinculados (ej. hoja de cálculo de Excel)
 
-14. Insertar página  
+17. Insertar página  
 Inserta una nueva página al documento
 
-15. Agregar imagen  
+18. Agregar imagen  
 Agrega una imagen al documento
 
-16. Convertir a PDF  
+19. Convertir a PDF  
 Convierte documento Word a PDF.
 
-17. Buscar Texto en párrafo  
+20. Buscar Texto en párrafo  
 Busca el párrafo donde se encuentra el texto indicado.
 
-18. Contar párrafos  
+21. Contar párrafos  
 Cuenta la cantidad de párrafos del documento. Incluye los campos de tablas.
 
-19. Remplazar texto en párrafo  
+22. Remplazar texto en párrafo  
 Remplaza el texto de un párrafo.
 
-20. Borrar párrafo  
+23. Borrar párrafo  
 Borra un párrafo del documento. Si se incluyen tablas, debe utilizarse el comando Buscar texto en párrafo para ubicar el que se desea eliminar. Retorna el texto eliminado.
 
-21. Agregar texto a un bookmark  
+24. Agregar texto a un bookmark  
 Agregar texto a un bookmark.
 
-22. Guardar documento  
+25. Guardar documento  
 Guarda el documento Word abierto
 
-23. Cerrar documento  
+26. Cerrar documento  
 Cierra el documento que se está ejecutando  
 
 

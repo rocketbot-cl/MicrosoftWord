@@ -31,6 +31,7 @@ Open a Word document.
 |Parameters|Description|example|
 | --- | --- | --- |
 |File|Open the specified document|file.docx|
+|Open without alerts|If this option is checked, alerts will not be displayed when opening a file.|True|
 |Session|File session|Word1|
 
 ### Read Document
@@ -47,6 +48,16 @@ Extract text from a Word document
 Get the list of paragraphs that make up a Word document in dictionary format {number: text}.
 |Parameters|Description|example|
 | --- | --- | --- |
+|Session|File session|Word1|
+|Get range|Get list of paragraphs with its range.|True|
+|Result|Store the result in a variable|Variable|
+
+### Get text range
+  
+Find text in a document and get its position range.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Text to find|Text to search in the document to obtain the range in which it is located.|Hello|
 |Session|File session|Word1|
 |Result|Store the result in a variable|Variable|
 
@@ -75,6 +86,17 @@ Copy and paste text between ranges in a Word document and paste it in another do
 | --- | --- | --- |
 |Start of range|Position of the range from where the command starts to copy.|0|
 |End of range|Position of the range to which the command copies.|40|
+|Session of the archive to copy|File session|Word1|
+|File|Choose the document where the copied content is pasted.|file.docx|
+
+### No clipboard copy/paste
+  
+Copy and paste text between ranges in a Word document and paste it in another document without using OS clipboard.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Start of range|Position of the range from where the command starts to copy.|0|
+|End of range|Position of the range to which the command copies.|40|
+|Range where to paste|Range position to paste from.|0|
 |Session of the archive to copy|File session|Word1|
 |File|Choose the document where the copied content is pasted.|file.docx|
 
@@ -136,6 +158,16 @@ Edit table from a Word document.
 |Insert column|If selected, adds a column to the end of the table|False|
 |Column Width|Width in points that each column of the table will have|140|
 |Row height|Height in points that each row of the table will have|25|
+
+### Copy and Paste table
+  
+Select a table from a word document, copy and paste it into the same document or another one.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Table to copy|Number of the table to copy|1|
+|Range|Position of the range where to paste.|0|
+|File|Choose the document where the copied content is pasted.|file.docx|
+|Session|File session|Word1|
 
 ### Update linked fields
   

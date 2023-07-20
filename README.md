@@ -30,61 +30,70 @@ Extract text from a Word document
 4. Get paragraphs  
 Get the list of paragraphs that make up a Word document in dictionary format {number: text}.
 
-5. Write in Document  
+5. Get text range  
+Find text in a document and get its position range.
+
+6. Write in Document  
 Write in a Word document.
 
-6. Copy and paste text  
+7. Copy and paste text  
 Copy and paste text between ranges in a Word document and paste it in another document
 
-7. Copy text  
+8. No clipboard copy/paste  
+Copy and paste text between ranges in a Word document and paste it in another document without using OS clipboard.
+
+9. Copy text  
 Copy text to clipboard between ranges in a Word document
 
-8. Paste text  
+10. Paste text  
 Paste text from clipboard in a Word document
 
-9. Count characters  
+11. Count characters  
 Count characters in a specific paragraph
 
-10. Add table  
+12. Add table  
 Add table in a Word document.
 
-11. Read Tables  
+13. Read Tables  
 Extract data from the Tables in the document
 
-12. Edit table  
+14. Edit table  
 Edit table from a Word document.
 
-13. Update linked fields  
+15. Copy and Paste table  
+Select a table from a word document, copy and paste it into the same document or another one.
+
+16. Update linked fields  
 Update linked fields (e.i. Excel spreadsheets)
 
-14. Add Page  
+17. Add Page  
 Add a new page to the document
 
-15. Add Picture  
+18. Add Picture  
 Add an image to the document.
 
-16. Convert to PDF  
+19. Convert to PDF  
 Convert Word document to PDF.
 
-17. Locate Text in Paragraph  
+20. Locate Text in Paragraph  
 Locate in which paragraph there is an indicated text.
 
-18. Count Paragraphs  
+21. Count Paragraphs  
 Count the number of paragraphs in the document. Includes table fields.
 
-19. Replace text in paragraph  
+22. Replace text in paragraph  
 Replace the text of a paragraph.
 
-20. Delete paragraph  
+23. Delete paragraph  
 Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to locate the paragraph to be deleted. Returns the deleted text.
 
-21. Add text at the end of bookmark  
+24. Add text at the end of bookmark  
 Add text at the end of bookmark.
 
-22. Save document  
+25. Save document  
 Extract text from file.
 
-23. Close Document  
+26. Close Document  
 Close the document that is running  
 
 
