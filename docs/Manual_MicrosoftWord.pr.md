@@ -31,6 +31,7 @@ Abra um documento do Word.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Arquivo|Abra o documento especificado|arquivo.docx|
+|Abrir sem alertas|Se esta opção estiver marcada, os alertas não serão exibidos ao abrir um arquivo.|True|
 |Sessão|sessão de arquivo|Word1|
 
 ### Ler documento
@@ -47,6 +48,16 @@ Extraia o texto do documento Word.
 Obtenha a lista de parágrafos que compõem um documento do Word no formato de dicionário {número: texto}.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|
+|Obter faixa|Obter lista de parágrafos com seu intervalo.|True|
+|Resultado|Armazenar o resultado em uma variável|Variável|
+
+### Obter faixa de texto
+  
+Encontre texto em um documento e obtenha seu intervalo de posição.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Texto para encontrar|Texto para pesquisar no documento para obter a faixa em que está localizado.|Olá|
 |Sessão|sessão de arquivo|Word1|
 |Resultado|Armazenar o resultado em uma variável|Variável|
 
@@ -75,6 +86,17 @@ Copie o texto entre os intervalos no documento do Word e cole-o em outro documen
 | --- | --- | --- |
 |Início do intervalo|Posição do intervalo de onde o comando começa a copiar.|0|
 |fim do intervalo|Posição do intervalo para o qual o comando copia.|40|
+|Sessão do arquivo a ser copiado|sessão de arquivo|Word1|
+|Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
+
+### Copie/cole sim prancheta
+  
+Copie e cole texto entre intervalos em um documento do Word e cole-o em outro documento sem usar a área de transferência do SO.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Início do intervalo|Posição do intervalo de onde o comando começa a copiar.|0|
+|fim do intervalo|Posição do intervalo para o qual o comando copia.|40|
+|Intervalo onde colar|Posição do intervalo a partir da qual colar.|0|
 |Sessão do arquivo a ser copiado|sessão de arquivo|Word1|
 |Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
 
@@ -136,6 +158,16 @@ Editar uma tabela em um documento Word.
 |Inserir coluna|Se selecionado, adiciona uma coluna ao final da tabela|False|
 |Largura da coluna|Largura em pontos que cada coluna da tabela terá|140|
 |Altura da linha|Altura em pontos que cada linha da tabela terá|25|
+
+### Copiar e colar tabela
+  
+Selecione uma tabela de um documento do Word, copie e cole no mesmo documento ou em outro.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Tabela a copiar|Número da tabela a copiar|1|
+|Intervalo|Posição do intervalo onde colar.|0|
+|Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
+|Sessão|sessão de arquivo|Word1|
 
 ### Atualizar campos vinculados
   
