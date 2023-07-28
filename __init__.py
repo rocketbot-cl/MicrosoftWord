@@ -339,7 +339,7 @@ if module == "copyPasteText":
         word_documentPaste.Paragraphs.Add()
         
         word_documentPaste.Save()
-        word_documentPaste.Close()
+        word_documentPaste.Close(SaveChanges=0)
         
 
     except Exception as e:
@@ -363,7 +363,7 @@ if module == "copyPasteText_2":
         target_range.FormattedText = source_range.FormattedText
 
         target.Save()
-        #target.Close(SaveChanges=False)
+        target.Close(SaveChanges=0)
 
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
@@ -388,7 +388,7 @@ if module == "copyPasteTable":
             word_documentPaste.Range(Start=startRange).PasteAndFormat(Type=0)
         
             word_documentPaste.Save()
-            #word_documentPaste.Close()
+            word_documentPaste.Close(SaveChanges=0)
         else:
             word_document.Range(Start=startRange).PasteAndFormat(Type=0)
         
@@ -813,8 +813,8 @@ if module == "close":
     try:
         ms_word = mod_microsoft_word[session]["app"]
         word_document = mod_microsoft_word[session]["doc"]
-        word_document.Close()
-        ms_word.Quit()
+        word_document.Close(SaveChanges=0)
+        ms_word.Quit(SaveChanges=0)
         del mod_microsoft_word[session]
 
     except Exception as e:
