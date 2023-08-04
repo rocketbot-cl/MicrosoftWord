@@ -26,6 +26,7 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 import os
 import sys
 import re
+import time
 
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + 'modules' + os.sep + 'MicrosoftWord' + os.sep + 'libs' + os.sep
@@ -194,16 +195,38 @@ if module == "new":
 
 if module == "open":
     path = GetParams("path")
-
+    no_alerts = GetParams("no_alerts")
     try:
+        
+        if no_alerts and eval(no_alerts):
+            alerts = False
+        else:
+            alerts = True
+        
         path = path.replace("/", os.sep)
-        ms_word = win32com.client.DispatchEx("Word.Application")
-        word_document = ms_word.Documents.Open(path)
-        ms_word.Visible = True
-        mod_microsoft_word[session] = {
-            "app": ms_word, 
-            "doc": word_document
-        }
+        if os.path.exists(path):
+            try:
+                ms_word = win32com.client.DispatchEx("Word.Application")
+                ms_word.DisplayAlerts = alerts
+                word_document = ms_word.Documents.Open(path)
+                ms_word.Visible = True
+                mod_microsoft_word[session] = {
+                    "app": ms_word, 
+                    "doc": word_document
+                }
+            except:
+                os.startfile(path)
+                time.sleep(3)
+                ms_word = win32com.client.GetObject(None, "Word.Application")
+                ms_word.DisplayAlerts = alerts
+                time.sleep(1)
+                word_document = ms_word.Application.Documents.Open(path)
+                mod_microsoft_word[session] = {
+                    "app": ms_word.Application, 
+                    "doc": word_document
+                }
+        else:
+            raise Exception ('File does not exist...')
         
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
@@ -316,7 +339,7 @@ if module == "copyPasteText":
         word_documentPaste.Paragraphs.Add()
         
         word_documentPaste.Save()
-        word_documentPaste.Close()
+        word_documentPaste.Close(SaveChanges=0)
         
 
     except Exception as e:
@@ -324,6 +347,55 @@ if module == "copyPasteText":
         PrintException()
         raise e
 
+if module == "copyPasteText_2":
+    
+    startRangeSource = GetParams("startRangeSource")
+    endRangeSource = GetParams("endRangeSource")
+    startRangeTarget = GetParams("startRangeTarget")
+    path = GetParams("path")
+    path = path.replace("/", os.sep)
+
+    try:
+        target = ms_word.Documents.Open(path)
+
+        source_range = word_document.Range(Start=startRangeSource, End=endRangeSource)
+        target_range = target.Range(Start=startRangeTarget)
+        target_range.FormattedText = source_range.FormattedText
+
+        target.Save()
+        target.Close(SaveChanges=0)
+
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
+
+
+if module == "copyPasteTable":
+    try:
+        result = GetParams("result")
+        tableToCopy = GetParams("tableToCopy")
+        startRange = GetParams("startRange")
+        path = GetParams("path")
+        
+        table = word_document.tables(tableToCopy).Range
+        table.Copy()
+        
+        if path:
+            path = path.replace("/", os.sep)
+            word_documentPaste = ms_word.Documents.Open(path)
+            ms_word.Visible = True
+            word_documentPaste.Range(Start=startRange).PasteAndFormat(Type=0)
+        
+            word_documentPaste.Save()
+            word_documentPaste.Close(SaveChanges=0)
+        else:
+            word_document.Range(Start=startRange).PasteAndFormat(Type=0)
+        
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
 
 if module == "copyText":
     
@@ -362,7 +434,9 @@ if module == "pasteText":
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
-    
+
+
+
 if module == "countCharacters":
     
     numParagraph = GetParams("numParagraph")
@@ -479,8 +553,6 @@ if module == "editTable":
         if addColumn == "True":
             table_.Columns.Add()
     
-    
-    
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
@@ -496,17 +568,13 @@ if module == "updateExcelChart":
         if numTable:
             table_ = word_document.Fields(numTable).Update()
         else:
-            table_ = word_document.Fields
-        
-            for table in table_:
+            for table in word_document.Fields:
                 table.Update()
 
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
-        raise e    
-    
-    
+        raise e
     
     
 if module == "deleteParagraph":
@@ -518,7 +586,6 @@ if module == "deleteParagraph":
         
         count = word_document.Paragraphs.count
         
-        
         if int(numParagraph) < count:
             paragraph =  word_document.Paragraphs(numParagraph)
             range_ = paragraph.Range
@@ -528,14 +595,11 @@ if module == "deleteParagraph":
             range_ = word_document.Paragraphs.Last.Range
             SetVar(var, range_)
             range_.Delete()
-            
-        
         
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
-    
      
 
 if module == "addTextBookmark":
@@ -599,7 +663,7 @@ if module == "save":
         if path:
             word_document.SaveAs2(path)
         else:
-            word_document.SaveAs2()
+            word_document.Save()
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
@@ -617,6 +681,44 @@ if module == "to_pdf":
         PrintException()
         raise e
 
+if module == "getParagraphs":
+    result = GetParams("result")
+    more = GetParams("more")
+    
+    paragraphs = {}
+    try:
+        for i in range(word_document.Paragraphs.count):
+            p_range = word_document.Paragraphs(i+1).Range
+            if more and eval(more):
+                paragraphs["Paragraph "+str(i+1)] = {'text': p_range.Text.replace("\r", ""), 'range': [p_range.Start, p_range.End-1]}
+            else:
+                paragraphs["Paragraph "+str(i+1)] = p_range.Text.replace("\r", "")
+            
+        SetVar(result, paragraphs)
+    except Exception as e:
+        SetVar(result, False)
+        PrintException()
+        raise e
+    
+if module == "findRange":
+    text = GetParams("text")
+    result = GetParams("result")
+
+    try:
+        found_range = word_document.Content
+        find = found_range.Find
+        find.Text = text
+        found = find.Execute()
+        if found:
+            text_range = found_range.Duplicate
+            SetVar(result, [text_range.Start, text_range.End])
+        else:
+            SetVar(result, False)
+    except Exception as e:
+        SetVar(result, False)
+        PrintException()
+        raise e
+    
 if module == "write":
 
     text = GetParams("text")
@@ -628,16 +730,41 @@ if module == "write":
     bold = GetParams("bold")
     italic = GetParams("italic")
     underline = GetParams("underline")
-
-    try:
-        
-        
-        word_document.Paragraphs.Add()
-        paragraph = word_document.Paragraphs.Last
-        range_ = paragraph.Range
+    paragraph_num = GetParams("numParagraph")
+    insert = GetParams("insert")
+    try:     
+        if not text:
+            text = ''
         text = text.replace("\\n", "\n")
-        range_.Text = text
-        font = paragraph.Range.Font
+        
+        if not type_:
+            type_ = "paragraph"
+            
+        count = word_document.Paragraphs.count
+        
+        paragraph_num = 2
+        if paragraph_num:
+            paragraph_num = int(paragraph_num)
+            paragraph_num = count if paragraph_num > count else paragraph_num
+            insert = "after" if not insert else insert
+
+            paragraph = word_document.Paragraphs(paragraph_num)
+            range_ = paragraph.Range
+            if insert == "before":
+                range_.InsertBefore(text + "\n")
+            if insert == "after":
+                range_.InsertAfter(text + "\n")
+            if insert == "replace":
+                range_.Text = text + "\n"
+            font = paragraph.Range.Font
+        else:
+            word_document.Paragraphs.Add()
+            paragraph = word_document.Paragraphs.Last
+            range_ = paragraph.Range
+            text = text.replace("\\n", "\n")
+            range_.Text = text
+            font = paragraph.Range.Font
+        
 
         size = float(size) if size else 12
 
@@ -686,8 +813,8 @@ if module == "close":
     try:
         ms_word = mod_microsoft_word[session]["app"]
         word_document = mod_microsoft_word[session]["doc"]
-        word_document.Close()
-        ms_word.Quit()
+        word_document.Close(SaveChanges=0)
+        ms_word.Quit(SaveChanges=0)
         del mod_microsoft_word[session]
 
     except Exception as e:
@@ -721,6 +848,7 @@ if module == "add_pic":
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
+    
 if module == "count_paragraphs":
     number = GetParams("variable")
     try:
@@ -774,6 +902,40 @@ if module == "search_text":
             count += 1
         SetVar(whichParagraph, paragraphList)
         print(paragraphList)
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
+
+#deprecated, kept for compatibility
+if module == "write_paragraph":
+    paragraph = GetParams("paragraph")
+    text = GetParams("text")
+
+    try:
+        paragraph = int(paragraph)
+        word_document.Paragraphs(paragraph).Range.Text = text
+
+    except Exception as e:
+        PrintException()
+        raise e
+
+if module == "addDataTable": 
+    numTable = int(GetParams("numTable")) - 1
+    data = GetParams("data")
+    
+    try:
+        table = word_document.Tables[numTable]
+        
+        if data:
+            data = eval(data)
+            for i in range(len(data)):
+                for j in range(len(data[0])):
+                    table.Cell(i+1, j+1).Range.Text = data[i][j]
+                    
+        else:
+            raise Exception("No data provided")
+    
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()

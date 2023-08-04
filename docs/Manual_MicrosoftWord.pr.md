@@ -1,14 +1,15 @@
 # Microsoft Word
   
-Modulo para trabalhar com Microsoft Word  
+Módulo para trabalhar com arquivos de texto usando o Microsoft Word. Crie e edite documentos do word, trabalhe com tabelas, formate seus textos e muito mais.  
 
-*Read this in other languages: [English](Manual_MicrosoftWord.md), [Portugues](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md).*
-
+*Read this in other languages: [English](Manual_MicrosoftWord.md), [Português](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md)*
+  
 ![banner](imgs/Banner_MicrosoftWord.png)
 ## Como instalar este módulo
   
-__Baixe__ e __instale__ o conteúdo na pasta 'modules' no caminho do Rocketbot  
-
+Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
+1. Manual: __Baixe__ o arquivo .zip e descompacte-o na pasta módulos. O nome da pasta deve ser o mesmo do módulo e dentro dela devem ter os seguintes arquivos e pastas: \__init__.py, package.json, docs, example e libs. Se você tiver o aplicativo aberto, atualize seu navegador para poder usar o novo módulo.
+2. Automático: Ao entrar no Rocketbot Studio na margem direita você encontrará a seção **Addons**, selecione **Install Mods**, procure o módulo desejado e aperte instalar.  
 
 
 ## Descrição do comando
@@ -26,6 +27,7 @@ Abra um documento do Word.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Arquivo|Abra o documento especificado|arquivo.docx|
+|Abrir sem alertas|Se esta opção estiver marcada, os alertas não serão exibidos ao abrir um arquivo.|True|
 |Sessão|sessão de arquivo|Word1|
 
 ### Ler documento
@@ -37,6 +39,24 @@ Extraia o texto do documento Word.
 |Sessão|sessão de arquivo|Word1|
 |Adicionar detalhes|Escolha se os dados armazenados serão salvos com detalhes como estilo, alinhamento, etc.|True|
 
+### Obter parágrafos
+  
+Obtenha a lista de parágrafos que compõem um documento do Word no formato de dicionário {número: texto}.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|
+|Obter faixa|Obter lista de parágrafos com seu intervalo.|True|
+|Resultado|Armazenar o resultado em uma variável|Variável|
+
+### Obter faixa de texto
+  
+Encontre texto em um documento e obtenha seu intervalo de posição.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Texto para encontrar|Texto para pesquisar no documento para obter a faixa em que está localizado.|Olá|
+|Sessão|sessão de arquivo|Word1|
+|Resultado|Armazenar o resultado em uma variável|Variável|
+
 ### Escrever no documento
   
 Escreva em um documento Word.
@@ -44,6 +64,8 @@ Escreva em um documento Word.
 | --- | --- | --- |
 |Sessão|sessão de arquivo|Word1|
 |Escrever texto|Texto a ser escrito no documento|Lorem ipsum |
+|Número do parágrafo - Opcional|Número do parágrafo de referência para inserir o texto|1|
+|Inserir método - Opcional|Método a ser usado para inserir o novo texto||
 |Tipo de texto|Seletor de tipo de texto que terá o texto escrito.|Subtitle|
 |Nível|Nível que o texto escrito terá.|1-9|
 |Tamanho da fonte|Tamanho da fonte que o texto escrito terá.|12|
@@ -62,6 +84,27 @@ Copie o texto entre os intervalos no documento do Word e cole-o em outro documen
 |fim do intervalo|Posição do intervalo para o qual o comando copia.|40|
 |Sessão do arquivo a ser copiado|sessão de arquivo|Word1|
 |Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
+
+### Copie/cole sim prancheta
+  
+Copie e cole texto entre intervalos em um documento do Word e cole-o em outro documento sem usar a área de transferência do SO.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Início do intervalo|Posição do intervalo de onde o comando começa a copiar.|0|
+|fim do intervalo|Posição do intervalo para o qual o comando copia.|40|
+|Intervalo onde colar|Posição do intervalo a partir da qual colar.|0|
+|Sessão do arquivo a ser copiado|sessão de arquivo|Word1|
+|Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
+
+### Copiar e colar tabela
+  
+Selecione uma tabela de um documento do Word, copie e cole no mesmo documento ou em outro.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Tabela a copiar|Número da tabela a copiar|1|
+|Intervalo|Posição do intervalo onde colar.|0|
+|Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
+|Sessão|sessão de arquivo|Word1|
 
 ### Copiar texto
   
@@ -98,6 +141,15 @@ Adicionar tabela em um documento do Word.
 |Estilo da tabela|Estilo de tabela padrão do Microsoft Word|Colorful Grid|
 |Sessão|sessão de arquivo|Word1|
 |Estilos de borda|Estilo de borda de tabela. Tipo e tamanho da linha.|Line type: Single wavy / Line size: 1 1/2 points|
+
+### Adicionar dados à tabela
+  
+Este comando permite adicionar dados a uma tabela. É necessário que a tabela já exista no documento e que os dados fornecidos sejam do tamanho da tabela.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|
+|Número da tabela|Número da tabela onde os dados serão adicionados.|1|
+|Dados da tabela|Dados da tabela. Deve ser uma matriz de matrizes contendo as informações de cada linha.|[ ["Name", "Age", "Gender"], ["John Doe", "32", "Male"], ["Jane Doe", "30", "Female"]]|
 
 ### Ler tabelas
   
@@ -182,8 +234,7 @@ Substituir o texto de um parágrafo.
 
 ### Excluir parágrafo
   
-Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado 
-para localizar o parágrafo a ser excluído.
+Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado para localizar o parágrafo a ser excluído. Retorna o texto deletado.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Sessão|sessão de arquivo|Word1|
