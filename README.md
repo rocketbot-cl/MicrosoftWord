@@ -1,7 +1,3 @@
-
-
-
-
 # Microsoft Word
   
 Module to work with text files using Microsoft Word. Create and edit word documents, work with tables, format your texts and more.  
@@ -42,59 +38,62 @@ Copy and paste text between ranges in a Word document and paste it in another do
 8. No clipboard copy/paste  
 Copy and paste text between ranges in a Word document and paste it in another document without using OS clipboard.
 
-9. Copy text  
-Copy text to clipboard between ranges in a Word document
-
-10. Paste text  
-Paste text from clipboard in a Word document
-
-11. Count characters  
-Count characters in a specific paragraph
-
-12. Add table  
-Add table in a Word document.
-
-13. Read Tables  
-Extract data from the Tables in the document
-
-14. Edit table  
-Edit table from a Word document.
-
-15. Copy and Paste table  
+9. Copy and Paste table  
 Select a table from a word document, copy and paste it into the same document or another one.
 
-16. Update linked fields  
+10. Copy text  
+Copy text to clipboard between ranges in a Word document
+
+11. Paste text  
+Paste text from clipboard in a Word document
+
+12. Count characters  
+Count characters in a specific paragraph
+
+13. Add table  
+Add table in a Word document.
+
+14. Add data to table  
+This command allows you to add data to a table. It is necessary that the table already exists in the document and that the data provided is the size of the table.
+
+15. Read Tables  
+Extract data from the Tables in the document
+
+16. Edit table  
+Edit table from a Word document.
+
+17. Update linked fields  
 Update linked fields (e.i. Excel spreadsheets)
 
-17. Add Page  
+18. Add Page  
 Add a new page to the document
 
-18. Add Picture  
+19. Add Picture  
 Add an image to the document.
 
-19. Convert to PDF  
+20. Convert to PDF  
 Convert Word document to PDF.
 
-20. Locate Text in Paragraph  
+21. Locate Text in Paragraph  
 Locate in which paragraph there is an indicated text.
 
-21. Count Paragraphs  
+22. Count Paragraphs  
 Count the number of paragraphs in the document. Includes table fields.
 
-22. Replace text in paragraph  
+23. Replace text in paragraph  
 Replace the text of a paragraph.
 
-23. Delete paragraph  
+24. Delete paragraph  
 Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to locate the paragraph to be deleted. Returns the deleted text.
 
-24. Add text at the end of bookmark  
+25. Add text at the end of bookmark  
 Add text at the end of bookmark.
 
-25. Save document  
+26. Save document  
 Extract text from file.
 
-26. Close Document  
-Close the document that is running  
+27. Close Document  
+Close the document that is running
 
 
 

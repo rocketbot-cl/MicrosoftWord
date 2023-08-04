@@ -1,7 +1,3 @@
-
-
-
-
 # Microsoft Word
   
 Module to work with text files using Microsoft Word. Create and edit word documents, work with tables, format your texts and more.  
@@ -100,6 +96,16 @@ Copy and paste text between ranges in a Word document and paste it in another do
 |Session of the archive to copy|File session|Word1|
 |File|Choose the document where the copied content is pasted.|file.docx|
 
+### Copy and Paste table
+  
+Select a table from a word document, copy and paste it into the same document or another one.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Table to copy|Number of the table to copy|1|
+|Range|Position of the range where to paste.|0|
+|File|Choose the document where the copied content is pasted.|file.docx|
+|Session|File session|Word1|
+
 ### Copy text
   
 Copy text to clipboard between ranges in a Word document
@@ -136,6 +142,15 @@ Add table in a Word document.
 |Session|File session|Word1|
 |Border styles|Table border style. Line type and size.|Line type: Single wavy / Line size: 1 1/2 points|
 
+### Add data to table
+  
+This command allows you to add data to a table. It is necessary that the table already exists in the document and that the data provided is the size of the table.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Session|File session|Word1|
+|Table number|Table number where the data will be added.|1|
+|Table data|Table data. Must be an array of arrays containing the information of each row.|[ ["Name", "Age", "Gender"], ["John Doe", "32", "Male"], ["Jane Doe", "30", "Female"]]|
+
 ### Read Tables
   
 Extract data from the Tables in the document
@@ -158,16 +173,6 @@ Edit table from a Word document.
 |Insert column|If selected, adds a column to the end of the table|False|
 |Column Width|Width in points that each column of the table will have|140|
 |Row height|Height in points that each row of the table will have|25|
-
-### Copy and Paste table
-  
-Select a table from a word document, copy and paste it into the same document or another one.
-|Parameters|Description|example|
-| --- | --- | --- |
-|Table to copy|Number of the table to copy|1|
-|Range|Position of the range where to paste.|0|
-|File|Choose the document where the copied content is pasted.|file.docx|
-|Session|File session|Word1|
 
 ### Update linked fields
   

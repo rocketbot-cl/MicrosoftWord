@@ -1,7 +1,3 @@
-
-
-
-
 # Microsoft Word
   
 Módulo para trabalhar com arquivos de texto usando o Microsoft Word. Crie e edite documentos do word, trabalhe com tabelas, formate seus textos e muito mais.  
@@ -100,6 +96,16 @@ Copie e cole texto entre intervalos em um documento do Word e cole-o em outro do
 |Sessão do arquivo a ser copiado|sessão de arquivo|Word1|
 |Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
 
+### Copiar e colar tabela
+  
+Selecione uma tabela de um documento do Word, copie e cole no mesmo documento ou em outro.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Tabela a copiar|Número da tabela a copiar|1|
+|Intervalo|Posição do intervalo onde colar.|0|
+|Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
+|Sessão|sessão de arquivo|Word1|
+
 ### Copiar texto
   
 Copiar texto para prancheta entre intervalos no documento Word
@@ -136,6 +142,15 @@ Adicionar tabela em um documento do Word.
 |Sessão|sessão de arquivo|Word1|
 |Estilos de borda|Estilo de borda de tabela. Tipo e tamanho da linha.|Line type: Single wavy / Line size: 1 1/2 points|
 
+### Adicionar dados à tabela
+  
+Este comando permite adicionar dados a uma tabela. É necessário que a tabela já exista no documento e que os dados fornecidos sejam do tamanho da tabela.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|
+|Número da tabela|Número da tabela onde os dados serão adicionados.|1|
+|Dados da tabela|Dados da tabela. Deve ser uma matriz de matrizes contendo as informações de cada linha.|[ ["Name", "Age", "Gender"], ["John Doe", "32", "Male"], ["Jane Doe", "30", "Female"]]|
+
 ### Ler tabelas
   
 Extraia os dados das tabelas no documento
@@ -158,16 +173,6 @@ Editar uma tabela em um documento Word.
 |Inserir coluna|Se selecionado, adiciona uma coluna ao final da tabela|False|
 |Largura da coluna|Largura em pontos que cada coluna da tabela terá|140|
 |Altura da linha|Altura em pontos que cada linha da tabela terá|25|
-
-### Copiar e colar tabela
-  
-Selecione uma tabela de um documento do Word, copie e cole no mesmo documento ou em outro.
-|Parâmetros|Descrição|exemplo|
-| --- | --- | --- |
-|Tabela a copiar|Número da tabela a copiar|1|
-|Intervalo|Posição do intervalo onde colar.|0|
-|Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
-|Sessão|sessão de arquivo|Word1|
 
 ### Atualizar campos vinculados
   

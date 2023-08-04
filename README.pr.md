@@ -1,7 +1,3 @@
-
-
-
-
 # Microsoft Word
   
 Módulo para trabalhar com arquivos de texto usando o Microsoft Word. Crie e edite documentos do word, trabalhe com tabelas, formate seus textos e muito mais.  
@@ -42,59 +38,62 @@ Copie o texto entre os intervalos no documento do Word e cole-o em outro documen
 8. Copie/cole sim prancheta  
 Copie e cole texto entre intervalos em um documento do Word e cole-o em outro documento sem usar a área de transferência do SO.
 
-9. Copiar texto  
-Copiar texto para prancheta entre intervalos no documento Word
-
-10. Colar texto  
-Colar texto da prancheta para documento Word
-
-11. Contar caracteres  
-Contar caracteres em um parágrafo específico
-
-12. Adicionar tabela  
-Adicionar tabela em um documento do Word.
-
-13. Ler tabelas  
-Extraia os dados das tabelas no documento
-
-14. Editar tabela  
-Editar uma tabela em um documento Word.
-
-15. Copiar e colar tabela  
+9. Copiar e colar tabela  
 Selecione uma tabela de um documento do Word, copie e cole no mesmo documento ou em outro.
 
-16. Atualizar campos vinculados  
+10. Copiar texto  
+Copiar texto para prancheta entre intervalos no documento Word
+
+11. Colar texto  
+Colar texto da prancheta para documento Word
+
+12. Contar caracteres  
+Contar caracteres em um parágrafo específico
+
+13. Adicionar tabela  
+Adicionar tabela em um documento do Word.
+
+14. Adicionar dados à tabela  
+Este comando permite adicionar dados a uma tabela. É necessário que a tabela já exista no documento e que os dados fornecidos sejam do tamanho da tabela.
+
+15. Ler tabelas  
+Extraia os dados das tabelas no documento
+
+16. Editar tabela  
+Editar uma tabela em um documento Word.
+
+17. Atualizar campos vinculados  
 Atualizar campos vinculados (ex. planilha do Excel)
 
-17. Inserir página  
+18. Inserir página  
 Inserir uma nova página no documento
 
-18. Adicionar imagem  
+19. Adicionar imagem  
 Adicionar uma imagem ao documento
 
-19. Converter para PDF  
+20. Converter para PDF  
 Converter documento Word para PDF.
 
-20. Localizar texto no parágrafo  
+21. Localizar texto no parágrafo  
 Localize o parágrafo onde se encontra o texto indicado.
 
-21. Contar parágrafos  
+22. Contar parágrafos  
 Conte o número de parágrafos no documento.
 
-22. Substituir texto no parágrafo  
+23. Substituir texto no parágrafo  
 Substituir o texto de um parágrafo.
 
-23. Excluir parágrafo  
+24. Excluir parágrafo  
 Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado para localizar o parágrafo a ser excluído. Retorna o texto deletado.
 
-24. Adicionar texto a um bookmark  
+25. Adicionar texto a um bookmark  
 Adicionar texto a um bookmark.
 
-25. Salvar documento  
+26. Salvar documento  
 Salve o documento Word aberto
 
-26. Fechar documento  
-Feche o documento que está sendo executado  
+27. Fechar documento  
+Feche o documento que está sendo executado
 
 
 

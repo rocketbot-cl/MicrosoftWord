@@ -906,3 +906,37 @@ if module == "search_text":
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
+
+#deprecated, kept for compatibility
+if module == "write_paragraph":
+    paragraph = GetParams("paragraph")
+    text = GetParams("text")
+
+    try:
+        paragraph = int(paragraph)
+        word_document.Paragraphs(paragraph).Range.Text = text
+
+    except Exception as e:
+        PrintException()
+        raise e
+
+if module == "addDataTable": 
+    numTable = int(GetParams("numTable")) - 1
+    data = GetParams("data")
+    
+    try:
+        table = word_document.Tables[numTable]
+        
+        if data:
+            data = eval(data)
+            for i in range(len(data)):
+                for j in range(len(data[0])):
+                    table.Cell(i+1, j+1).Range.Text = data[i][j]
+                    
+        else:
+            raise Exception("No data provided")
+    
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e
