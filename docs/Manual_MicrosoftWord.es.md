@@ -1,7 +1,3 @@
-
-
-
-
 # Microsoft Word
   
 Modulo para trabajar con archivos de texto mediante Microsoft Word. Crea y edita documentos word, trabaja con tablas, da formato a tus textos y mas.   
@@ -100,6 +96,16 @@ Copie y pegue texto entre rangos en un documento de Word y péguelo en otro docu
 |Sesión del archivo a copiar|Sesión del archivo|Word1|
 |Archivo|Elige el documento donde se pega el contenido copiado.|archivo.docx|
 
+### Copiar y pegar tabla
+  
+Seleccione una tabla de un documento de Word, cópiela y péguela en el mismo documento o en otro.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Tabla a copiar|Número de tabla a copiar|1|
+|Rango|Posición del rango donde pegar.|0|
+|Archivo|Elige el documento donde se pega el contenido copiado.|archivo.docx|
+|Sesión|Sesión del archivo|Word1|
+
 ### Copiar texto
   
 Copiar texto al portapapeles entre rangos del documento Word
@@ -136,6 +142,15 @@ Agregar tabla en un documento Word.
 |Sesión|Sesión del archivo|Word1|
 |Estilos del borde|Estilo de los bordes de la tabla. Tipo de línea y tamaño.|Line type: Single wavy / Line size: 1 1/2 points|
 
+### Agregar datos a tabla
+  
+Este comando permite agregar datos a una tabla. Es necesario que la tabla ya exista en el documento y que los datos propocionados sean del tamaño de la tabla.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Sesión|Sesión del archivo|Word1|
+|Número de tabla|Número de tabla donde se agregarán los datos.|1|
+|Datos de la tabla|Datos de la tabla. Debe ser un array de arrays que contengan la información de cada fila.|[ ["Name", "Age", "Gender"], ["John Doe", "32", "Male"], ["Jane Doe", "30", "Female"]]|
+
 ### Leer tablas
   
 Extrae los datos de las tablas en el documento
@@ -158,16 +173,6 @@ Editar tabla de un documento Word.
 |Insertar columna|Si se selecciona, agrega una columna al final de la tabla|False|
 |Ancho de columna|Ancho en puntos que tendrá cada columna de la tabla|140|
 |Alto de fila|Alto en puntos que tendrá cada fila de la tabla|25|
-
-### Copiar y pegar tabla
-  
-Seleccione una tabla de un documento de Word, cópiela y péguela en el mismo documento o en otro.
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|Tabla a copiar|Número de tabla a copiar|1|
-|Rango|Posición del rango donde pegar.|0|
-|Archivo|Elige el documento donde se pega el contenido copiado.|archivo.docx|
-|Sesión|Sesión del archivo|Word1|
 
 ### Actualizar campos vinculados
   
