@@ -378,6 +378,8 @@ if module == "copyPasteTable":
         startRange = GetParams("startRange")
         path = GetParams("path")
         
+        startRange = int(startRange) if startRange else 0
+
         table = word_document.tables(tableToCopy).Range
         table.Copy()
         
@@ -385,8 +387,11 @@ if module == "copyPasteTable":
             path = path.replace("/", os.sep)
             word_documentPaste = ms_word.Documents.Open(path)
             ms_word.Visible = True
-            word_documentPaste.Range(Start=startRange).PasteAndFormat(Type=0)
-        
+            paste = word_documentPaste.Range(Start=startRange).PasteAndFormat(Type=0)
+            
+            paste_table = word_documentPaste.Range(Start=startRange).Tables[0]
+            paste_table.Rows.Alignment = 1
+
             word_documentPaste.Save()
             word_documentPaste.Close(SaveChanges=0)
         else:
@@ -742,7 +747,6 @@ if module == "write":
             
         count = word_document.Paragraphs.count
         
-        paragraph_num = 2
         if paragraph_num:
             paragraph_num = int(paragraph_num)
             paragraph_num = count if paragraph_num > count else paragraph_num
@@ -763,9 +767,8 @@ if module == "write":
             range_ = paragraph.Range
             text = text.replace("\\n", "\n")
             range_.Text = text
-            font = paragraph.Range.Font
+            font = range_.Font
         
-
         size = float(size) if size else 12
 
         if color == None:
@@ -880,13 +883,14 @@ if module == "search_replace_text":
             #fullRange = word_document.content
             for paragraph in paragraphs:
                 range_ = paragraph.Range
-                print(range_.Find.Text)
-                range_.Find.Text = text_search
-                range_.Find.Replacement.Text = text_replace
-                range_.Find.Execute(Replace=2,Forward=True,MatchWholeWord=True)
-                #print(range_.Find.Execute(FindText=text_search, ReplaceWith="text_replace", Replace=2))
-                #if text_search in range_.Text:
-                    #range_.Text = range_.Text.replace(text_search,text_replace)
+
+                find_obj = range_.Find
+                find_obj.Text = text_search
+                find_obj.Replacement.Text = text_replace
+                #        Execute(FindText, MatchCase, MatchWholeWord, MatchWildcards, MatchSoundsLike, MatchAllWordForms, 
+                #                Forward,  Wrap, Format, ReplaceWith, Replace)
+                find_obj.Execute(text_search, False, False, False, False, False, 
+                                 True, 1, False, text_replace, 2)
 
 if module == "search_text":
     try:
