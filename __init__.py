@@ -335,7 +335,8 @@ if module == "copyPasteText":
         word_documentPaste = ms_word.Documents.Open(path)
         ms_word.Visible = True
 
-        word_documentPaste.Paragraphs.Last.Range.PasteAndFormat(Type=16)
+        # word_documentPaste.Paragraphs.Last.Range.PasteAndFormat(Type=16)
+        word_documentPaste.Paragraphs.Last.Range.PasteSpecial()
         word_documentPaste.Paragraphs.Add()
         
         word_documentPaste.Save()
