@@ -538,13 +538,7 @@ if module == "editTable":
     
     try:
         
-        # table_ = word_document.Fields
-        
-        table_ = word_document.Fields(2).Update()
-        
-        # for table in table_:
-        #     print(table.Index)
-        #     table.Update()
+        table_ = word_document.Tables[numTable]
     
         if deleteRow:
             table_.Rows(deleteRow).Delete()
