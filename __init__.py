@@ -480,17 +480,20 @@ if module == "readTable":
             for row in table.rows:
                 array_row = []
                 for cell in row.cells:
-                    """if len(array_row) > 0:
-                        if array_row[-1] != cell.text:
-                            array_row.append(cell.text)
-                    else:
-                        print("test")"""
                     information = cell.range.text
                     
-                    text1 = re.sub(r"[\r\x07,]", "", information)
-                    # text2 = re.sub(r"[\x07]", "", text1)
-                    # text3 = re.sub(", , ", ", ", text2)
+                    text1 = re.sub(r"[\x07\xa0]", "", information.replace("\r", "\n"))
+
+                    if text1.startswith("\n") and len(text1) >= 1:
+                        text1 = text1[1:]
+
+                    if text1.endswith("\n") and len(text1) >= 1:
+                        text1 = text1[:-1]
                     
+                    print(text1)
+
+
+                    print(text1)
                     array_row.append(text1)
                 table_.append(array_row)
             if result:
