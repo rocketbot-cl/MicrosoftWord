@@ -743,22 +743,35 @@ if module == "write":
         
         if paragraph_num:
             paragraph_num = int(paragraph_num)
-            paragraph_num = count if paragraph_num > count else paragraph_num
             insert = "after" if not insert else insert
+            if insert == "after":
+                paragraph_num += 1
+            paragraph_num = count if paragraph_num > count else paragraph_num
 
             paragraph = word_document.Paragraphs(paragraph_num)
             range_ = paragraph.Range
+            
+            # The last character of the Range is left out because ir the separator of paragraphs.
+            
             if insert == "before":
-                range_.InsertBefore(text + "\n")
+                new_paragraph = word_document.Paragraphs.Add(range_)
+                range_ = word_document.Range(new_paragraph.Range.Start, new_paragraph.Range.End-1)
+                range_.Text = text
+            
             if insert == "after":
-                range_.InsertAfter(text + "\n")
+                new_paragraph = word_document.Paragraphs.Add(range_)
+                range_ = word_document.Range(new_paragraph.Range.Start, new_paragraph.Range.End-1)
+                range_.Text = text
+
             if insert == "replace":
-                range_.Text = text + "\n"
-            font = paragraph.Range.Font
+                new_paragraph = paragraph
+                range_ = word_document.Range(new_paragraph.Range.Start, new_paragraph.Range.End-1)
+                range_.Text = text
+            font = range_.Font
         else:
             word_document.Paragraphs.Add()
-            paragraph = word_document.Paragraphs.Last
-            range_ = paragraph.Range
+            new_paragraph = word_document.Paragraphs.Last
+            range_ = new_paragraph.Range
             text = text.replace("\\n", "\n")
             range_.Text = text
             font = range_.Font
@@ -772,17 +785,17 @@ if module == "write":
 
 
         if style in WdBuiltinStyle:
-            paragraph.Style = WdBuiltinStyle[style]
+            new_paragraph.Style = WdBuiltinStyle[style]
         elif (type_ == "number" or type_ == "bullet") and int(level) > 5:
             level = 5
             style = type_ + str(level)
-            paragraph.Style = WdBuiltinStyle[style]
+            new_paragraph.Style = WdBuiltinStyle[style]
         else:
             style = type_
-            paragraph.Style = WdBuiltinStyle[style]
+            new_paragraph.Style = WdBuiltinStyle[style]
             
         font.ColorIndex = WdColorIndex[color]
-        paragraph.Alignment = int(align) if align else 0
+        new_paragraph.Alignment = int(align) if align else 0
         font.Size = size
         
         if bold == "True":
