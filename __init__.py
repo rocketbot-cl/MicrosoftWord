@@ -471,7 +471,6 @@ if module == "readTable":
         result = GetParams("result")
         tableToRead = GetParams("tableToRead")
         
-        print(tableToRead)
         tablesDoc = []
 
         if tableToRead:
@@ -853,7 +852,6 @@ if module == "add_pic":
 
         paragraph = word_document.Paragraphs.Last
         img = paragraph.Range.InlineShapes.AddPicture(FileName=img_path, LinkToFile=False, SaveWithDocument=True)
-        print(img)
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
@@ -912,7 +910,6 @@ if module == "search_text":
                 paragraphList.append(count)
             count += 1
         SetVar(whichParagraph, paragraphList)
-        print(paragraphList)
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
