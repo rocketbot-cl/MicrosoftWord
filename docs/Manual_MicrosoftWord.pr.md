@@ -1,3 +1,7 @@
+
+
+
+
 # Microsoft Word
   
 Módulo para trabalhar com arquivos de texto usando o Microsoft Word. Crie e edite documentos do word, trabalhe com tabelas, formate seus textos e muito mais.  
@@ -69,6 +73,7 @@ Escreva em um documento Word.
 |Tipo de texto|Seletor de tipo de texto que terá o texto escrito.|Subtitle|
 |Nível|Nível que o texto escrito terá.|1-9|
 |Tamanho da fonte|Tamanho da fonte que o texto escrito terá.|12|
+|Nome da fonte|Nome da fonte que o texto escrito terá.|Arial|
 |Alinhamento|Alinhamento que o texto escrito terá.|Left|
 |Cor do texto|Cor que o texto escrito terá|Black|
 |Negrito|Selecione se o texto ficará em negrito.|True|
@@ -82,6 +87,7 @@ Copie o texto entre os intervalos no documento do Word e cole-o em outro documen
 | --- | --- | --- |
 |Início do intervalo|Posição do intervalo de onde o comando começa a copiar.|0|
 |fim do intervalo|Posição do intervalo para o qual o comando copia.|40|
+|Método de colar|Método de colar conteúdo copiado||
 |Sessão do arquivo a ser copiado|sessão de arquivo|Word1|
 |Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
 
@@ -103,8 +109,9 @@ Selecione uma tabela de um documento do Word, copie e cole no mesmo documento ou
 | --- | --- | --- |
 |Tabela a copiar|Número da tabela a copiar|1|
 |Intervalo|Posição do intervalo onde colar.|0|
-|Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
+|Método de colar|Método de colar conteúdo copiado||
 |Sessão|sessão de arquivo|Word1|
+|Arquivo|Escolha o documento onde o conteúdo copiado é colado.|arquivo.docx|
 
 ### Copiar texto
   
@@ -264,3 +271,12 @@ Feche o documento que está sendo executado
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Sessão|sessão de arquivo|Word1|
+
+### Escrever em parágrafo
+  
+Escreva texto em um parágrafo selecionado. O conteúdo do parágrafo será substituído pelo texto.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|
+|Parágrafo|Parágrafo onde o texto será escrito|5|
+|Escrever texto|Texto a ser escrito no documento|Lorem ipsum |

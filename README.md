@@ -1,3 +1,7 @@
+
+
+
+
 # Microsoft Word
   
 Module to work with text files using Microsoft Word. Create and edit word documents, work with tables, format your texts and more.  
@@ -94,6 +98,9 @@ Extract text from file.
 
 27. Close Document  
 Close the document that is running
+
+28. Write in Paragraph  
+Write text in a selected paragraph. The content of the paragraph will be replaced by the text.  
 
 
 

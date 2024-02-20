@@ -1,3 +1,7 @@
+
+
+
+
 # Microsoft Word
   
 Modulo para trabajar con archivos de texto mediante Microsoft Word. Crea y edita documentos word, trabaja con tablas, da formato a tus textos y mas.   
@@ -69,6 +73,7 @@ Escribe en un documento Word.
 |Tipo de texto|Selector del tipo de texto que tendrá el texto escrito.|Subtitle|
 |Nivel|Nivel que tendrá el texto escrito.|1-9|
 |Tamaño de fuente|Tamaño de fuente que tendrá el texto escrito.|12|
+|Nombre de fuente|Nombre de la fuente que tendrá el texto escrito.|Arial|
 |Alineación|Alineación que tendrá el texto escrito.|Left|
 |Color de texto|Color que tendrá el texto escrito|Black|
 |Negrita|Seleccionar si el texto irá en negrita.|True|
@@ -82,6 +87,7 @@ Copiar texto entre rangos del documento Word y pegarlo en otro documento.
 | --- | --- | --- |
 |Inicio del rango|Posición del rango desde donde comienza a copiar el comando.|0|
 |Fin del rango|Posición del rango hasta donde copia el comando.|40|
+|Método de pegado|Método de pegado del contenido copiado||
 |Sesión del archivo a copiar|Sesión del archivo|Word1|
 |Archivo|Elige el documento donde se pega el contenido copiado.|archivo.docx|
 
@@ -103,8 +109,9 @@ Seleccione una tabla de un documento de Word, cópiela y péguela en el mismo do
 | --- | --- | --- |
 |Tabla a copiar|Número de tabla a copiar|1|
 |Rango|Posición del rango donde pegar.|0|
-|Archivo|Elige el documento donde se pega el contenido copiado.|archivo.docx|
+|Método de pegado|Método de pegado del contenido copiado||
 |Sesión|Sesión del archivo|Word1|
+|Archivo|Elige el documento donde se pega el contenido copiado.|archivo.docx|
 
 ### Copiar texto
   
@@ -264,3 +271,12 @@ Cierra el documento que se está ejecutando
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Sesión|Sesión del archivo|Word1|
+
+### Escribir en párrafo
+  
+Escribir texto en un párrafo seleccionado. El contenido del párrafo será reemplazado por el texto.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Sesión|Sesión del archivo|Word1|
+|Párrafo|Párrafo donde se escribirá el texto|5|
+|Escriba texto|Texto que se escribirá en el documento|Lorem ipsum |

@@ -315,6 +315,7 @@ if module == "copyPasteText":
     
     startRange = GetParams("startRange")
     endRange = GetParams("endRange")
+    pasteType = GetParams("pasteType")
     path = GetParams("path")
     path = path.replace("/", os.sep)
 
@@ -335,8 +336,10 @@ if module == "copyPasteText":
         word_documentPaste = ms_word.Documents.Open(path)
         ms_word.Visible = True
 
-        # word_documentPaste.Paragraphs.Last.Range.PasteAndFormat(Type=16)
-        word_documentPaste.Paragraphs.Last.Range.PasteSpecial()
+        if pasteType:
+            word_documentPaste.Paragraphs.Last.Range.PasteAndFormat(Type=pasteType)
+        else:
+            word_documentPaste.Paragraphs.Last.Range.PasteSpecial()
         word_documentPaste.Paragraphs.Add()
         
         word_documentPaste.Save()
@@ -374,9 +377,9 @@ if module == "copyPasteText_2":
 
 if module == "copyPasteTable":
     try:
-        result = GetParams("result")
         tableToCopy = GetParams("tableToCopy")
         startRange = GetParams("startRange")
+        pasteType = GetParams("pasteType") or 0
         path = GetParams("path")
         
         startRange = int(startRange) if startRange else 0
@@ -388,7 +391,7 @@ if module == "copyPasteTable":
             path = path.replace("/", os.sep)
             word_documentPaste = ms_word.Documents.Open(path)
             ms_word.Visible = True
-            paste = word_documentPaste.Range(Start=startRange).PasteAndFormat(Type=0)
+            paste = word_documentPaste.Range(Start=startRange).PasteAndFormat(Type=pasteType)
             
             paste_table = word_documentPaste.Range(Start=startRange).Tables[0]
             paste_table.Rows.Alignment = 1
@@ -396,7 +399,7 @@ if module == "copyPasteTable":
             word_documentPaste.Save()
             word_documentPaste.Close(SaveChanges=0)
         else:
-            word_document.Range(Start=startRange).PasteAndFormat(Type=0)
+            word_document.Range(Start=startRange).PasteAndFormat(Type=pasteType)
         
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
@@ -730,6 +733,7 @@ if module == "write":
     underline = GetParams("underline")
     paragraph_num = GetParams("numParagraph")
     insert = GetParams("insert")
+    font_name = GetParams("font_name")
     try:     
         if not text:
             text = ''
@@ -776,7 +780,7 @@ if module == "write":
             font = range_.Font
         
         size = float(size) if size else 12
-
+        
         if color == None:
             color = "black"
 
@@ -812,7 +816,10 @@ if module == "write":
         else:
             underlineInt = 0
         font.Underline = underlineInt
-            
+        
+        if font_name:
+            new_paragraph.Range.Font.Name = font_name
+        
     except Exception as e:
         PrintException()
         raise e
