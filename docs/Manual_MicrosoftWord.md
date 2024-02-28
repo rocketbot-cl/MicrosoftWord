@@ -1,3 +1,7 @@
+
+
+
+
 # Microsoft Word
   
 Module to work with text files using Microsoft Word. Create and edit word documents, work with tables, format your texts and more.  
@@ -69,6 +73,7 @@ Write in a Word document.
 |Text type|Text type selector that will have the written text.|Subtitle|
 |Level|Level that the written text will have.|1-9|
 |Font size|Font size that the written text will have.|12|
+|Font name|Name of the font that the written text will have.|Arial|
 |Align|Align that the written text will have.|Left|
 |Text color|Color that the written text will have|Black|
 |Bold|Select whether the text will be bold.|True|
@@ -82,6 +87,7 @@ Copy and paste text between ranges in a Word document and paste it in another do
 | --- | --- | --- |
 |Start of range|Position of the range from where the command starts to copy.|0|
 |End of range|Position of the range to which the command copies.|40|
+|Paste method|Copied content paste method||
 |Session of the archive to copy|File session|Word1|
 |File|Choose the document where the copied content is pasted.|file.docx|
 
@@ -103,8 +109,9 @@ Select a table from a word document, copy and paste it into the same document or
 | --- | --- | --- |
 |Table to copy|Number of the table to copy|1|
 |Range|Position of the range where to paste.|0|
-|File|Choose the document where the copied content is pasted.|file.docx|
+|Paste method|Copied content paste method||
 |Session|File session|Word1|
+|File|Choose the document where the copied content is pasted.|file.docx|
 
 ### Copy text
   
@@ -264,3 +271,12 @@ Close the document that is running
 |Parameters|Description|example|
 | --- | --- | --- |
 |Session|File session|Word1|
+
+### Write in Paragraph
+  
+Write text in a selected paragraph. The content of the paragraph will be replaced by the text.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Session|File session|Word1|
+|Paragraph|Paragraph where the text will be written|5|
+|Write text|Text to be written on the document|Lorem ipsum |

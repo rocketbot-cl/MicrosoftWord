@@ -315,6 +315,7 @@ if module == "copyPasteText":
     
     startRange = GetParams("startRange")
     endRange = GetParams("endRange")
+    pasteType = GetParams("pasteType")
     path = GetParams("path")
     path = path.replace("/", os.sep)
 
@@ -335,8 +336,10 @@ if module == "copyPasteText":
         word_documentPaste = ms_word.Documents.Open(path)
         ms_word.Visible = True
 
-        # word_documentPaste.Paragraphs.Last.Range.PasteAndFormat(Type=16)
-        word_documentPaste.Paragraphs.Last.Range.PasteSpecial()
+        if pasteType:
+            word_documentPaste.Paragraphs.Last.Range.PasteAndFormat(Type=pasteType)
+        else:
+            word_documentPaste.Paragraphs.Last.Range.PasteSpecial()
         word_documentPaste.Paragraphs.Add()
         
         word_documentPaste.Save()
@@ -374,9 +377,9 @@ if module == "copyPasteText_2":
 
 if module == "copyPasteTable":
     try:
-        result = GetParams("result")
         tableToCopy = GetParams("tableToCopy")
         startRange = GetParams("startRange")
+        pasteType = GetParams("pasteType") or 0
         path = GetParams("path")
         
         startRange = int(startRange) if startRange else 0
@@ -388,7 +391,7 @@ if module == "copyPasteTable":
             path = path.replace("/", os.sep)
             word_documentPaste = ms_word.Documents.Open(path)
             ms_word.Visible = True
-            paste = word_documentPaste.Range(Start=startRange).PasteAndFormat(Type=0)
+            paste = word_documentPaste.Range(Start=startRange).PasteAndFormat(Type=pasteType)
             
             paste_table = word_documentPaste.Range(Start=startRange).Tables[0]
             paste_table.Rows.Alignment = 1
@@ -396,7 +399,7 @@ if module == "copyPasteTable":
             word_documentPaste.Save()
             word_documentPaste.Close(SaveChanges=0)
         else:
-            word_document.Range(Start=startRange).PasteAndFormat(Type=0)
+            word_document.Range(Start=startRange).PasteAndFormat(Type=pasteType)
         
     except Exception as e:
         print("\x1B[" + "31;40mError\x1B[" + "0m")
@@ -730,6 +733,7 @@ if module == "write":
     underline = GetParams("underline")
     paragraph_num = GetParams("numParagraph")
     insert = GetParams("insert")
+    font_name = GetParams("font_name")
     try:     
         if not text:
             text = ''
@@ -742,28 +746,41 @@ if module == "write":
         
         if paragraph_num:
             paragraph_num = int(paragraph_num)
-            paragraph_num = count if paragraph_num > count else paragraph_num
             insert = "after" if not insert else insert
+            if insert == "after":
+                paragraph_num += 1
+            paragraph_num = count if paragraph_num > count else paragraph_num
 
             paragraph = word_document.Paragraphs(paragraph_num)
             range_ = paragraph.Range
+            
+            # The last character of the Range is left out because ir the separator of paragraphs.
+            
             if insert == "before":
-                range_.InsertBefore(text + "\n")
+                new_paragraph = word_document.Paragraphs.Add(range_)
+                range_ = word_document.Range(new_paragraph.Range.Start, new_paragraph.Range.End-1)
+                range_.Text = text
+            
             if insert == "after":
-                range_.InsertAfter(text + "\n")
+                new_paragraph = word_document.Paragraphs.Add(range_)
+                range_ = word_document.Range(new_paragraph.Range.Start, new_paragraph.Range.End-1)
+                range_.Text = text
+
             if insert == "replace":
-                range_.Text = text + "\n"
-            font = paragraph.Range.Font
+                new_paragraph = paragraph
+                range_ = word_document.Range(new_paragraph.Range.Start, new_paragraph.Range.End-1)
+                range_.Text = text
+            font = range_.Font
         else:
             word_document.Paragraphs.Add()
-            paragraph = word_document.Paragraphs.Last
-            range_ = paragraph.Range
+            new_paragraph = word_document.Paragraphs.Last
+            range_ = new_paragraph.Range
             text = text.replace("\\n", "\n")
             range_.Text = text
             font = range_.Font
         
         size = float(size) if size else 12
-
+        
         if color == None:
             color = "black"
 
@@ -771,17 +788,17 @@ if module == "write":
 
 
         if style in WdBuiltinStyle:
-            paragraph.Style = WdBuiltinStyle[style]
+            new_paragraph.Style = WdBuiltinStyle[style]
         elif (type_ == "number" or type_ == "bullet") and int(level) > 5:
             level = 5
             style = type_ + str(level)
-            paragraph.Style = WdBuiltinStyle[style]
+            new_paragraph.Style = WdBuiltinStyle[style]
         else:
             style = type_
-            paragraph.Style = WdBuiltinStyle[style]
+            new_paragraph.Style = WdBuiltinStyle[style]
             
         font.ColorIndex = WdColorIndex[color]
-        paragraph.Alignment = int(align) if align else 0
+        new_paragraph.Alignment = int(align) if align else 0
         font.Size = size
         
         if bold == "True":
@@ -799,7 +816,10 @@ if module == "write":
         else:
             underlineInt = 0
         font.Underline = underlineInt
-            
+        
+        if font_name:
+            new_paragraph.Range.Font.Name = font_name
+        
     except Exception as e:
         PrintException()
         raise e

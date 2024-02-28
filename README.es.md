@@ -1,3 +1,7 @@
+
+
+
+
 # Microsoft Word
   
 Modulo para trabajar con archivos de texto mediante Microsoft Word. Crea y edita documentos word, trabaja con tablas, da formato a tus textos y mas.   
@@ -94,6 +98,9 @@ Guarda el documento Word abierto
 
 27. Cerrar documento  
 Cierra el documento que se está ejecutando
+
+28. Escribir en párrafo  
+Escribir texto en un párrafo seleccionado. El contenido del párrafo será reemplazado por el texto.  
 
 
 

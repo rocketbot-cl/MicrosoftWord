@@ -1,3 +1,7 @@
+
+
+
+
 # Microsoft Word
   
 Módulo para trabalhar com arquivos de texto usando o Microsoft Word. Crie e edite documentos do word, trabalhe com tabelas, formate seus textos e muito mais.  
@@ -94,6 +98,9 @@ Salve o documento Word aberto
 
 27. Fechar documento  
 Feche o documento que está sendo executado
+
+28. Escrever em parágrafo  
+Escreva texto em um parágrafo selecionado. O conteúdo do parágrafo será substituído pelo texto.  
 
 
 
