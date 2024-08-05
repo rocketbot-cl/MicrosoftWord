@@ -955,3 +955,27 @@ if module == "addDataTable":
         print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
+
+if module == "addPicTable":
+    img_path = GetParams("img_path")
+    row = int(GetParams("row"))
+    col = int(GetParams("col"))
+    table_index = int(GetParams("table_index")) - 1  # Las tablas se indexan desde 0
+
+    try:
+        # word_app = win32.gencache.EnsureDispatch("Word.Application")
+        # word_app.Visible = True
+        # word_document = word_app.Documents.Add()
+
+        img_path = img_path.replace("/", os.sep)
+        
+        table = word_document.Tables[table_index]
+
+        cell = table.Cell(row, col)
+        
+        cell.Range.InlineShapes.AddPicture(FileName=img_path, LinkToFile=False, SaveWithDocument=True)
+
+    except Exception as e:
+        print("\x1B[" + "31;40mError\x1B[" + "0m")
+        PrintException()
+        raise e

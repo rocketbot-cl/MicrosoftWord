@@ -60,46 +60,49 @@ Adicionar tabela em um documento do Word.
 14. Adicionar dados à tabela  
 Este comando permite adicionar dados a uma tabela. É necessário que a tabela já exista no documento e que os dados fornecidos sejam do tamanho da tabela.
 
-15. Ler tabelas  
+15. Adicionar imagem tabela  
+Este comando permite adicionar uma imagem a uma tabela. É necessário que a tabela já exista no documento.
+
+16. Ler tabelas  
 Extraia os dados das tabelas no documento
 
-16. Editar tabela  
+17. Editar tabela  
 Editar uma tabela em um documento Word.
 
-17. Atualizar campos vinculados  
+18. Atualizar campos vinculados  
 Atualizar campos vinculados (ex. planilha do Excel)
 
-18. Inserir página  
+19. Inserir página  
 Inserir uma nova página no documento
 
-19. Adicionar imagem  
+20. Adicionar imagem  
 Adicionar uma imagem ao documento
 
-20. Converter para PDF  
+21. Converter para PDF  
 Converter documento Word para PDF.
 
-21. Localizar texto no parágrafo  
+22. Localizar texto no parágrafo  
 Localize o parágrafo onde se encontra o texto indicado.
 
-22. Contar parágrafos  
+23. Contar parágrafos  
 Conte o número de parágrafos no documento.
 
-23. Substituir texto no parágrafo  
+24. Substituir texto no parágrafo  
 Substituir o texto de um parágrafo.
 
-24. Excluir parágrafo  
+25. Excluir parágrafo  
 Excluir um parágrafo do documento. Se as tabelas forem incluídas, o comando Localizar texto no parágrafo deve ser usado para localizar o parágrafo a ser excluído. Retorna o texto deletado.
 
-25. Adicionar texto a um bookmark  
+26. Adicionar texto a um bookmark  
 Adicionar texto a um bookmark.
 
-26. Salvar documento  
+27. Salvar documento  
 Salve o documento Word aberto
 
-27. Fechar documento  
+28. Fechar documento  
 Feche o documento que está sendo executado
 
-28. Escrever em parágrafo  
+29. Escrever em parágrafo  
 Escreva texto em um parágrafo selecionado. O conteúdo do parágrafo será substituído pelo texto.  
 
 

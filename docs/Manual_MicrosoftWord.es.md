@@ -6,7 +6,7 @@
   
 Modulo para trabajar con archivos de texto mediante Microsoft Word. Crea y edita documentos word, trabaja con tablas, da formato a tus textos y mas.   
 
-*Read this in other languages: [English](Manual_MicrosoftWord.md), [Português](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md)*
+*Read this in other languages: [English](Manual_MicrosoftWord.md), [Português](Manual_MicrosoftWord.pr.md), [Español](Manual_MicrosoftWord.es.md)
   
 ![banner](imgs/Banner_MicrosoftWord.png)
 ## Como instalar este módulo
@@ -157,6 +157,17 @@ Este comando permite agregar datos a una tabla. Es necesario que la tabla ya exi
 |Sesión|Sesión del archivo|Word1|
 |Número de tabla|Número de tabla donde se agregarán los datos.|1|
 |Datos de la tabla|Datos de la tabla. Debe ser un array de arrays que contengan la información de cada fila.|[ ["Name", "Age", "Gender"], ["John Doe", "32", "Male"], ["Jane Doe", "30", "Female"]]|
+
+### Agregar imagen a tabla
+  
+Este comando permite agregar una imagen a una tabla. Es necesario que la tabla ya exista en el documento.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Sesión|Sesión del archivo|Word1|
+|Número de tabla|Número de tabla donde se agregarán los datos.|1|
+|Numero de fila|Numero de fila donde se agregará la imagen|3 |
+|Numero de columna|Numero de columna donde se agregará la imagen|4 |
+|Imagen|Indique la ruta hacia la imagen que desea añadir a la tabla especificada|imagen.jpg|
 
 ### Leer tablas
   
