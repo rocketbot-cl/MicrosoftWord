@@ -158,6 +158,17 @@ This command allows you to add data to a table. It is necessary that the table a
 |Table number|Table number where the data will be added.|1|
 |Table data|Table data. Must be an array of arrays containing the information of each row.|[ ["Name", "Age", "Gender"], ["John Doe", "32", "Male"], ["Jane Doe", "30", "Female"]]|
 
+### Add pic to table
+  
+This command allows you to add an image to a table. It is necessary that the table already exists in the document.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Session|File session|Word1|
+|Table number|Table number where the data will be added.|1|
+|Number of row|Number of row where the image will be added|3 |
+|Number of column|Number of column where the image will be added|4 |
+|Image|Select the path to the image you want to add to the specified table|pic.jpg|
+
 ### Read Tables
   
 Extract data from the Tables in the document

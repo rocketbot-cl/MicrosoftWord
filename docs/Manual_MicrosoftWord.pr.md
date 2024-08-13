@@ -158,6 +158,17 @@ Este comando permite adicionar dados a uma tabela. É necessário que a tabela j
 |Número da tabela|Número da tabela onde os dados serão adicionados.|1|
 |Dados da tabela|Dados da tabela. Deve ser uma matriz de matrizes contendo as informações de cada linha.|[ ["Name", "Age", "Gender"], ["John Doe", "32", "Male"], ["Jane Doe", "30", "Female"]]|
 
+### Adicionar imagem tabela
+  
+Este comando permite adicionar uma imagem a uma tabela. É necessário que a tabela já exista no documento.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|
+|Número da tabela|Número da tabela onde os dados serão adicionados.|1|
+|Numero de linha|Número de linha onde a imagem será adicionada|3 |
+|Numero de coluna|Número de coluna onde a imagem será adicionada|4 |
+|Imagem|Selecione o caminho para a imagem que deseja adicionar a tabela especificada|imagem.jpg|
+
 ### Ler tabelas
   
 Extraia os dados das tabelas no documento

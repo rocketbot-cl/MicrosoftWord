@@ -60,46 +60,49 @@ Agregar tabla en un documento Word.
 14. Agregar datos a tabla  
 Este comando permite agregar datos a una tabla. Es necesario que la tabla ya exista en el documento y que los datos propocionados sean del tamaño de la tabla.
 
-15. Leer tablas  
+15. Agregar imagen a tabla  
+Este comando permite agregar una imagen a una tabla. Es necesario que la tabla ya exista en el documento.
+
+16. Leer tablas  
 Extrae los datos de las tablas en el documento
 
-16. Editar tabla  
+17. Editar tabla  
 Editar tabla de un documento Word.
 
-17. Actualizar campos vinculados  
+18. Actualizar campos vinculados  
 Actualizar campos vinculados (ej. hoja de cálculo de Excel)
 
-18. Insertar página  
+19. Insertar página  
 Inserta una nueva página al documento
 
-19. Agregar imagen  
+20. Agregar imagen  
 Agrega una imagen al documento
 
-20. Convertir a PDF  
+21. Convertir a PDF  
 Convierte documento Word a PDF.
 
-21. Buscar Texto en párrafo  
+22. Buscar Texto en párrafo  
 Busca el párrafo donde se encuentra el texto indicado.
 
-22. Contar párrafos  
+23. Contar párrafos  
 Cuenta la cantidad de párrafos del documento. Incluye los campos de tablas.
 
-23. Remplazar texto en párrafo  
+24. Remplazar texto en párrafo  
 Remplaza el texto de un párrafo.
 
-24. Borrar párrafo  
+25. Borrar párrafo  
 Borra un párrafo del documento. Si se incluyen tablas, debe utilizarse el comando Buscar texto en párrafo para ubicar el que se desea eliminar. Retorna el texto eliminado.
 
-25. Agregar texto a un bookmark  
+26. Agregar texto a un bookmark  
 Agregar texto a un bookmark.
 
-26. Guardar documento  
+27. Guardar documento  
 Guarda el documento Word abierto
 
-27. Cerrar documento  
+28. Cerrar documento  
 Cierra el documento que se está ejecutando
 
-28. Escribir en párrafo  
+29. Escribir en párrafo  
 Escribir texto en un párrafo seleccionado. El contenido del párrafo será reemplazado por el texto.  
 
 

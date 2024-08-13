@@ -60,46 +60,49 @@ Add table in a Word document.
 14. Add data to table  
 This command allows you to add data to a table. It is necessary that the table already exists in the document and that the data provided is the size of the table.
 
-15. Read Tables  
+15. Add pic to table  
+This command allows you to add an image to a table. It is necessary that the table already exists in the document.
+
+16. Read Tables  
 Extract data from the Tables in the document
 
-16. Edit table  
+17. Edit table  
 Edit table from a Word document.
 
-17. Update linked fields  
+18. Update linked fields  
 Update linked fields (e.i. Excel spreadsheets)
 
-18. Add Page  
+19. Add Page  
 Add a new page to the document
 
-19. Add Picture  
+20. Add Picture  
 Add an image to the document.
 
-20. Convert to PDF  
+21. Convert to PDF  
 Convert Word document to PDF.
 
-21. Locate Text in Paragraph  
+22. Locate Text in Paragraph  
 Locate in which paragraph there is an indicated text.
 
-22. Count Paragraphs  
+23. Count Paragraphs  
 Count the number of paragraphs in the document. Includes table fields.
 
-23. Replace text in paragraph  
+24. Replace text in paragraph  
 Replace the text of a paragraph.
 
-24. Delete paragraph  
+25. Delete paragraph  
 Delete a paragraph from the document. If tables are included, the Find Text in Paragraph command should be used to locate the paragraph to be deleted. Returns the deleted text.
 
-25. Add text at the end of bookmark  
+26. Add text at the end of bookmark  
 Add text at the end of bookmark.
 
-26. Save document  
+27. Save document  
 Extract text from file.
 
-27. Close Document  
+28. Close Document  
 Close the document that is running
 
-28. Write in Paragraph  
+29. Write in Paragraph  
 Write text in a selected paragraph. The content of the paragraph will be replaced by the text.  
 
 
